@@ -16,23 +16,121 @@ html,body{
     width:100%;
     height: 100%;
 }
+/* 导航条 */
 .wrapper .top-nav-wrap{
     width: 100%;
     height: 35px;
-    border: 1px solid #000;
+    background-color: #f5f5f5;
+
 }
+.wrapper .top-nav-wrap .top-nav{
+    width: 1190px;
+    height: 35px;
+    margin: 0 auto;
+}
+.wrapper .top-nav-wrap .top-nav .top-nav-l{
+    float: left;
+}
+.wrapper .top-nav-wrap .top-nav .top-nav-r{
+    float: right;
+}
+.wrapper .top-nav-wrap .top-nav .top-nav-menu{
+    height: 35px;
+    float: left;
+    line-height: 35px;
+    padding: 0px 6px;
+}
+.wrapper .top-nav-wrap .top-nav .top-nav-menu a{
+    font-size: 12px;
+    color: #6c6c6c;
+}
+.wrapper .top-nav-wrap .top-nav .top-nav-menu a:hover{
+    color: #F40;
+}
+.wrapper .top-nav-wrap .top-nav .top-nav-menu .china{
+    font-size: 14px;
+    color: #3c3c3c;
+}
+.wrapper .top-nav-wrap .top-nav .top-nav-menu .login{
+    color: #F40;
+}
+.wrapper .top-nav-wrap .top-nav .top-nav-menu .cut{
+    color: #ddd;
+}
+.wrapper .top-nav-wrap .top-nav .top-nav-menu .bg-pic{
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    background-size: 100% 100%;
+    vertical-align: middle;
+}
+.wrapper .top-nav-wrap .top-nav .top-nav-menu .bg-pic.xsj-pic{
+    background-image: url("./img/xsj.png");
+}
+.wrapper .top-nav-wrap .top-nav .top-nav-menu .bg-pic.shopCar-pic{
+    background-image: url("./img/shopCarHover.png")
+}
+.wrapper .top-nav-wrap .top-nav .top-nav-menu .bg-pic.star-pic{
+    background-image: url("./img/starhover.png");
+}
+.wrapper .top-nav-wrap .top-nav .top-nav-menu .bg-pic.web-pic{
+    background-image: url("./img/webpichover.png");
+}
+/* 搜索区域 */
 .wrapper .search-wrap{
     width: 100%;
     height: 97px;
     padding-top: 24px;
-    border: #000 1px solid;
+    border: 1px solid #000;
 }
+.wrapper .search-wrap .search-con{
+    height: 88px;
+    width: 1190px;
+    border: 1px solid #000;
+    margin: 0 auto;
+}
+.wrapper .search-wrap .search-con .logo-box{
+    width:190px;
+    height: 88px;
+    float: left;
+}
+.wrapper .search-wrap .search-con .logo-box h1{
+    width: 190px;
+    height: 58px;
+}
+.wrapper .search-wrap .search-con .logo-box a{
+    background-image: url('./img/logo.png');
+    display: block;
+    width: 142px;
+    height: 58px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.wrapper .search-wrap .search-con .search-box{
+    width:627px;
+    height: 87px;
+    border: 1px solid #000;
+    float: left;
+    margin-left: 50px;
+}
+.wrapper .search-wrap .search-con .code-box{
+    width: 76px;
+    height: 90px;
+    border: 1px solid #000;
+    float: right;
+}
+
+
+
+
+/* 屏幕主要导航条 */
 .wrapper .screen-nav{
     width: 1190px;
     height: 30px;
     margin: 0 auto;
     background-color: #F40;
 }
+/* 商品展示区域 */
 .wrapper .screen-box{
     width: 1190px;
     height: 632px;
