@@ -9,8 +9,34 @@ html,body{
     height: 100%;
     background-color: #f4f4f4;
     color: #3c3c3c;
+    /* x方向超出浏览器大小隐藏,不会出现下方滚动条 */
+    overflow-x: hidden;
 }
 .wrapper{
     width:100%;
     height: 100%;
 }
+.wrapper .top-nav-wrap{
+    width: 100%;
+    height: 35px;
+    border: 1px solid #000;
+}
+.wrapper .search-wrap{
+    width: 100%;
+    height: 97px;
+    padding-top: 24px;
+    border: #000 1px solid;
+}
+.wrapper .screen-nav{
+    width: 1190px;
+    height: 30px;
+    margin: 0 auto;
+    background-color: #F40;
+}
+.wrapper .screen-box{
+    width: 1190px;
+    height: 632px;
+    margin: 0 auto;
+    border: 1px solid #000;
+}
+
