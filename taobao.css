@@ -81,12 +81,10 @@ html,body{
     width: 100%;
     height: 97px;
     padding-top: 24px;
-    border: 1px solid #000;
 }
 .wrapper .search-wrap .search-con{
     height: 88px;
     width: 1190px;
-    border: 1px solid #000;
     margin: 0 auto;
 }
 .wrapper .search-wrap .search-con .logo-box{
@@ -109,7 +107,6 @@ html,body{
 .wrapper .search-wrap .search-con .search-box{
     width: 627px;
     height: 87px;
-    border: 1px solid #000;
     float: left;
     margin-left: 50px;
 }
@@ -190,24 +187,54 @@ html,body{
 .wrapper .search-wrap .search-con .search-box .search-bl{
     width: 627px;
     height: 25px;
-    border: 1px solid #000;
 }
-
-
-
-
-
-
+.wrapper .search-wrap .search-con .search-box .search-bl a{
+    font-size: 12px;
+    color: #3c3c3c;
+}
+.wrapper .search-wrap .search-con .search-box .search-bl a.action{
+    color: #ff5000;
+}
 .wrapper .search-wrap .search-con .code-box{
     width: 76px;
     height: 90px;
-    border: 1px solid #000;
-
+    border: 1px solid #ddd;
+    float: left;
+    margin-left: 120px;
+    position: relative;
 }
-
-
-
-
+.wrapper .search-wrap .search-con .code-box .code{
+    display: block;
+    width: 76px;
+    height: 90px;
+}
+.wrapper .search-wrap .search-con .code-box .code .phone{
+    display: inline-block;
+    width: 76px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #ff5000;
+    text-align: center;
+}
+.wrapper .search-wrap .search-con .code-box .code img{
+    display: inline-block;
+    width: 62px;
+    height: 62px;
+    margin-left: 7px;
+}
+.wrapper .search-wrap .search-con .code-box .close{
+    display: block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ddd;
+    color: #ddd;
+    line-height: 16px;
+    text-align: center;
+    position: absolute;
+    top: -1px;
+    left: -18px;
+}
 /* 屏幕主要导航条 */
 .wrapper .screen-nav{
     width: 1190px;
