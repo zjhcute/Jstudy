@@ -480,5 +480,139 @@ html,body{
 .wrapper .screen-box .screen-right{
     width: 290px;
     height: 632px;
+    margin-top: 10px;
     float: left;
+    background-color: #fff;
 }
+.wrapper .screen-box .screen-right .user-wrapper{
+    width: 290px;
+    height: 145px;
+    background: url('./img/userbg.png') no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+.wrapper .screen-box .screen-right .user-wrapper .user-con{
+    width: 290px;
+    height: 132px;
+    padding: 3px 0px 10px 0px;
+}
+.wrapper .screen-box .screen-right .user-wrapper .user-con .user-con-hd{
+    width: 290px;
+    height: 91px;
+}
+.wrapper .screen-box .screen-right .user-wrapper .user-con .user-con-hd img{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    display: block;
+    margin: 0 auto;
+}
+.wrapper .screen-box .screen-right .user-wrapper .user-con .user-con-hd span{
+    width: 290px;
+    height: 17px;
+    font-size: 12px;
+    color: #3c3c3c;
+    display: block;
+    text-align: center;
+    line-height: 17px;
+}
+.wrapper .screen-box .screen-right .user-wrapper .user-con .user-con-hd p{
+    width: 290px;
+    height: 17px;
+}
+.wrapper .screen-box .screen-right .user-wrapper .user-con .user-con-hd a{
+    display: inline-block;
+    width: 72px;
+    height: 16.8px;
+    padding: 0px 10px 0px 20px;
+    background-color: #ffe4db;
+    border-radius: 9px;
+    font-size: 12px;
+    color: #f40;
+    line-height: 16.8px;
+    text-align: center;
+}
+.wrapper .screen-box .screen-right .user-wrapper .user-con .user-con-hd a.pos{
+    position: relative;
+    left: 40px;
+}
+.wrapper .screen-box .screen-right .user-wrapper .user-con .user-con-hd .icon{
+    display: inline-block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: url('./img/icon.png') no-repeat;
+    background-position: 0 -572.5px;
+    left: 0px;
+}
+.wrapper .screen-box .screen-right .user-wrapper .user-con .user-con-hd .icon.vip{
+    background: url('./img/icon.png') no-repeat;
+    background-position: 0 -528px;
+}
+.wrapper .screen-box .screen-right .user-wrapper .user-con .user-con-ft-w{
+    width: 290px;
+    height: 35px;
+
+}
+.wrapper .screen-box .screen-right .user-wrapper .user-con .user-con-ft-w .user-con-ft{
+    width: 275px;
+    height: 25px;
+    padding-top: 10px;
+    margin: 0 auto;
+}
+.wrapper .screen-box .screen-right .user-wrapper .user-con .user-con-ft-w .user-con-ft a{
+    height: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    display: inline-block;
+    background: linear-gradient(to right, #ff5000 0,#ff9000 100%);
+    border-radius: 4px;
+    color: #fff;
+    text-align: center;
+    line-height: 25px;
+    margin: 0px 4px;
+}
+.wrapper .screen-box .screen-right .user-wrapper .user-con .user-con-ft-w .user-con-ft a.user-login{
+    width: 92px;
+}
+.wrapper .screen-box .screen-right .user-wrapper .user-con .user-con-ft-w .user-con-ft a.user-signin{
+    width: 70px;
+}
+.wrapper .screen-box .screen-right .report-wrapper{
+    width: 290px;
+    height: 26px;
+    background-color: #ffe4db;
+    position: relative;
+    text-align: center;
+}
+.wrapper .screen-box .screen-right .report-wrapper .word{
+    font-size: 12px;
+    color: #F40;
+    line-height: 26px;
+}
+.wrapper .screen-box .screen-right .report-wrapper .tria{
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    position: absolute;
+    background: url('./img/righthover.png') no-repeat;
+    right: 30px;
+    top: 4px;
+}
+.wrapper .screen-box .screen-right .message-wrapper{
+    width: 290px;
+    height: 98px;
+    padding-top: 10px;    
+    border: 1px solid #000;
+}
+.wrapper .screen-box .screen-right .service-wrapper{
+    width: 290px;
+    height: 231px;
+    border: 1px solid #000;
+}
+.wrapper .screen-box .screen-right .al-app-wrapper{
+    width: 290px;
+    height: 110px;
+    border: 1px solid #000;
+}
+
