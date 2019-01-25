@@ -795,5 +795,20 @@ html,body{
     background: url('./img/TB_APP_5.webp')no-repeat;
     background-size: 100% 100%;
 }
-
+.wrapper .screen-box .screen-right .al-app-wrapper ul .al-app.app-06{
+    background: url('./img/TB_APP_6.webp')no-repeat;
+    background-size: 100% 100%;
+}
+.wrapper .screen-box .screen-right .al-app-wrapper ul .al-app.app-07{
+    background: url('./img/TB_APP_7.webp')no-repeat;
+    background-size: 100% 100%;
+}
+.wrapper .screen-box .screen-right .al-app-wrapper ul .al-app.app-08{
+    background: url('./img/TB_APP_8.webp')no-repeat;
+    background-size: 100% 100%;
+}
+.wrapper .screen-box .screen-right .al-app-wrapper ul .al-app.app-09{
+    background: url('./img/TB_APP_9.webp')no-repeat;
+    background-size: 100% 100%;
+}
 
