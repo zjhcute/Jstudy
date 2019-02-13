@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数字逆转汉字</title>
+</head>
+<body>
+    <script>
+        //互相对照,num和Zh存在映射关系
+        var num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        var Zh = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '两'];
+        var unit = ['', '十', '百', '千', '万', '十万', '百万', '千万', '亿'];
+        var cutNum = [];
+        var reNum = 0;
+        var read = '';
+        //输入数字a,反转并输出汉字形式
+        function numReZh(a) {
+            //定义一个数组,用来存储数字a拆分的各个部分
+            a = parseInt(a);
+            var i = 0;
+            while(1) {
+                if(a % 10 ** i == a) {
+                    break;
+                }
+                cutNum[i] = parseInt((a % (10 ** (i + 1))) / (10 ** i));
+                // console.log(i);
+                // console.log(cutNum[i]);
+                i ++;
+            }
+            return cutNum;
+        }
+        //connect函数将数组连结成数字
+        function connect(a) {
+            for(var i = 0; i < a.length; i ++) {
+                reNum += cutNum[i] * 10 ** (a.length - i - 1);
+            }
+            return reNum;
+        }
+        //用汉语读出来
+        function ZhRead(a) {
+            for(var i = 0; i < cutNum.length; i ++) {
+                a += Zh[cutNum[i]];
+                a += unit[cutNum.length - i - 1];
+            }
+            return a;
+        }
+        console.log(numReZh(1130114));
+        console.log(connect(cutNum));
+        console.log(ZhRead(read));
+    </script>
+</body>
+</html>

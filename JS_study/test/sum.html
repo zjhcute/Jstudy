@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>任意数求和</title>
+</head>
+<body>
+    <script>
+        //不设置形参大小, 直接拿实参数组相加, 从而达到不设置形参大小, 随意实参都可以求和
+        function sum() {
+            var result = 0;
+            for(var i = 0; i < arguments.length; i ++) {
+                result += arguments[i];
+            }
+            return result;
+        }
+        a = sum(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        console.log(a);
+    </script>
+</body>
+</html>
