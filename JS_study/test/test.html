@@ -109,6 +109,107 @@
         function() {}
         */
 
+        //预编译练习4
+        // console.log(test);
+        // function test(test) {
+        //     console.log(test);
+        //     var test = 234;
+        //     console.log(test);
+        //     function test() {}
+        // }
+        // test(1);
+        // var test = 123;
+        /*
+        GO {
+            test : function test(test) {...},
+        }
+        AO {
+            test : function test() {},
+        }
+        function test(test) {...}
+        function test() {}
+        234
+        */
+
+        //预编译练习5
+        // var global = 100;
+        // function fn() {
+        //     console.log(global);
+        //     global = 200;
+        //     console.log(global);
+        //     var global = 300;
+        // }
+        // fn();
+        // var global;
+        /*
+        GO {
+            global : 200,
+            fn : f fn() {...}
+        }
+        AO {
+            global : undefined
+        }
+        undefined
+        200
+        */
+
+        //预编译练习6
+        // function test() {
+        //     console.log(b);
+        //     if(a) {
+        //         var b = 100;
+        //     }
+        //     c = 234;
+        //      console.log(c);
+        // }
+        // var a;
+        // test();
+        // a = 10;
+        // console.log(c);
+        /*
+        GO {
+            a : 10,
+            test : function test() {...},
+            c : 234
+        }
+        AO {
+            a : undefined,
+            b : undefined
+        }
+        undefined
+        234
+        234
+        */
+
+        //百度预编译面试题1
+        // function bar() {
+        //     return foo;
+        //     foo = 10;
+        //     function foo () {}
+        //     var foo = 11;
+        // }
+        // console.log(bar());
+        /*
+        AO {
+            foo : f foo() {}
+        }
+        f foo() {}
+        */
+        //百度预编译面试题2
+        // console.log(bar());
+        // function bar() {
+        //     foo = 10;
+        //     function foo() {}
+        //     var foo = 11;
+        //     return foo; 
+        // }
+        /*
+        AO {
+            foo : f foo() {}
+        }
+        11
+        */
+
         // function abb(num){           
         //     num = window.prompt("");
         //     num = Number(num);
