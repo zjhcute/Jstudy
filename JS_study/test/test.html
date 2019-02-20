@@ -209,7 +209,50 @@
         }
         11
         */
-
+        
+        a = 100;
+        function  demo(e) {
+            function e() {}
+            arguments[0] = 2;
+            console.log(e);
+            if(a) {
+                var b = 123;
+                function c() {
+                    //猪都能做出来
+                }
+            }
+            var c;
+            a = 10;
+            var a;
+            console.log(b);
+            f = 123;
+            console.log(c);
+            console.log(a);
+        }
+        var a;
+        demo(1);
+        console.log(a);
+        console.log(f);
+        /*
+        GO {
+            a : 100,
+            demo : f demo(e) {...},
+            f : 123
+        }
+        AO {
+            a : 10,
+            e : 2,
+            b : undefined,
+            c : undefined
+        }
+        2
+        undefined
+        f c() {}
+        10
+        100
+        123
+        */
+        
         // function abb(num){           
         //     num = window.prompt("");
         //     num = Number(num);
@@ -223,5 +266,6 @@
         // }
         // arr(1, 2, 3);
     </script>
+    
 </body>
 </html>
