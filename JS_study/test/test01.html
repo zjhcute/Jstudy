@@ -284,7 +284,7 @@
         //小练习
         // (window.foo || (window.foo = 'bar'));
 
-        //作用域练习
+        //作用域练习1
         // function a() {
         //     function b() {
         //         var b = 234;
@@ -296,6 +296,54 @@
         // a(); 
         //a被定义 a.[[scope]] --> 0 : GO
         //a执行 a.[[scope]] --> 0 : AO   1 : GO
+
+        //作用域练习2
+        function a() {
+            function b() {
+                function c() {
+                    
+                }
+                c();
+            }
+            b();
+        }
+        a();
+        /*
+        第一步 : 
+        a 被定义 a.[[scope]] --> 0 : GO {}
+        第二步 :
+        a 被执行 a.[[scope]] --> 0 : a.AO {}
+                                 1 : GO {}
+        第三步 :
+        b 被定义 b.[[scope]] --> 0 : a.AO {}
+                                 1 : GO {}
+        第四步 :
+        b 被执行 b.[[scope]] --> 0 : b.AO {}
+                                 1 : a.AO {}
+                                 2 : GO {}
+        第五步 :
+        c 被定义 c.[[scope]] --> 0 : b.AO {}
+                                 1 : a.AO {}
+                                 2 : GO {}  
+        第六步 :
+        c 被执行 c.[[scope]] --> 0 : c.AO {}
+                                 1 : b.AO {}
+                                 2 : a.AO {}
+                                 3 : GO {}
+        第七步 :
+        c 执行完毕回复到被定义状态, c.AO {} 被销毁
+        c.[[scope]] --> 0 : b.AO {}
+                         1 : a.AO {}
+                         2 : GO {}  
+        第八步 :
+        b 执行完毕回复到被定义状态, b.AO {} 被销毁, c.[[scope]]被销毁
+        b.[[scope]] --> 0 : a.AO {}
+                         1 : GO {}
+        第九步 :
+        a 执行完毕回复到被定义状态, a.AO {} 被销毁, b.[[scope]]被销毁
+        a.[[scope]] --> 0 : GO {}
+
+        */
 
         // function abb(num){           
         //     num = window.prompt("");

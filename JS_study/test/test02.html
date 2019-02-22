@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test02</title>
+</head>
+<body>
+    <script>
+    //闭包练习1
+    // function a() {
+    //     function b() {
+    //         var bbb = 234;
+    //         console.log(aaa);
+    //     }
+    //     var aaa = 123;
+    //     return b;
+    // }
+    // var glob = 100;
+    // var demo = a();
+    // demo();
+    /*
+    GO {
+        glob : undefined,
+        demo : a(),
+        a : f a() {}
+    }
+    a.AO {
+        aaa : 123,
+        b : f b() {}
+    }
+    b.AO {
+        bbb : 234,
+        aaa : 123,
+        b : f b() {}
+    }
+    */
+
+    //闭包作用之累加器
+    // function a() {
+    //     var num = 100;
+    //     function b() {
+    //         num ++;
+    //         console.log(num);
+    //     }
+    //     console.log(num);
+    //     return b;
+    // }
+    // var demo = a();
+    // demo();
+    // a();
+    // demo();
+
+    //闭包练习之缓存1
+    function a() {
+        var num = 100;
+        function b () {
+            num ++;
+            console.log(num);
+        }
+        function c() {
+            num --;
+            console.log(num);
+        }
+        return [b, c];
+    }
+    var demo = a();
+    demo[0]();
+    demo[1]();
+    </script>
+</body>
+</html>
