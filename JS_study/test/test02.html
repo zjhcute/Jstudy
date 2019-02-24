@@ -53,21 +53,45 @@
     // demo();
 
     //闭包练习之缓存1
-    function a() {
-        var num = 100;
-        function b () {
-            num ++;
-            console.log(num);
-        }
-        function c() {
-            num --;
-            console.log(num);
-        }
-        return [b, c];
-    }
-    var demo = a();
-    demo[0]();
-    demo[1]();
+    // function a() {
+    //     var num = 100;
+    //     function b () {
+    //         num ++;
+    //         console.log(num);
+    //     }
+    //     function c() {
+    //         num --;
+    //         console.log(num);
+    //     }
+    //     return [b, c];
+    // }
+    // var demo = a();
+    // demo[0]();
+    // demo[1]();
+
+    //闭包练习之缓存2
+    // function eater() {
+    //     var food = "";
+    //     var obj = {
+    //         eat : function() {
+    //             console.log("i am eating " + food);
+    //             food = "";
+    //         },
+    //         push : function(myFood) {
+    //             food = myFood;
+    //         }
+    //     }
+    //     return obj;
+    // }
+    // var eater1 = eater();
+    // eater1.push('banana');
+    // eater1.eat();
+    // var eater2 = eater();
+    // eater2.push('apple');
+    // eater2.eat();
+
+    //
+
     </script>
 </body>
 </html>
