@@ -90,7 +90,35 @@
     // eater2.push('apple');
     // eater2.eat();
 
-    //
+    //闭包练习3
+    // function test() {
+    //     var arr = [];
+    //     for(var i = 0; i < 10; i ++) {
+    //         (function(j) {
+    //             arr[j] = function() {
+    //             console.log(j);
+    //         }
+    //         }(i));
+    //     }
+    //     return arr;
+    // }
+    // var myArr = test();
+    // for(var j = 0; j < 10; j ++) {
+    //     myArr[j]();
+    // }
+
+    //立即执行函数练习1
+    // var f = (
+    //     function f() {
+    //         return '1';
+    //     },
+    //     function g() {
+    //         return 2;
+    //     }
+    // )();
+    // typeof (f);
+    //考点逗号操作符
+    
 
     </script>
 </body>
