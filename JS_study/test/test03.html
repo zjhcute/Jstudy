@@ -38,6 +38,74 @@
     // var test = new Test(1);
     // test.say();
 
+    //模拟构造函数内部原理1
+    // function Person(name, height) {
+    //     var that = {};
+    //     that.name = name;
+    //     that.height = height;
+    //     return that;
+    // }    
+    // var person = Person('zjh', 173);
+
+    //模拟构造函数内部原理2
+    //显示的return一个空对象
+    // function Person(name) {
+    //     this.name = name;
+    //     return {};
+    // }    
+    // var person = new Person('zjh');
+    //如果显示的返回一个空对象,new的对象也会变成空对象
+    /*
+    > person
+    < {}
+    */
+
+    //模拟构造函数内部原理3
+    //显示的return一个原始值的值
+    // function Person(name) {
+    //     this.name = name;
+    //     return 123;
+    // }
+    // var person = new Person('zjh');
+    //显示的返回一个原始值的值,new的新对象并不会受影响
+    /*
+    > person
+    < {name : 'zjh'}
+    */
+
+    //包装类1
+    // var num = new Number(4);
+    // num.abc = "abc";
+    // num.display = function() {
+    //     return 4;
+    // }
+
+    //包装类2
+    // var num = 4;
+    // num.abc = 'a';
+    // console.log(num.abc);
+
+    //包装类3
+    // var str = new String("abcd");
+    // str.length = 2;
+    // console.log(str);
+    
+    //包装类4
+    // var str = 'abcd';
+    // str.length = 2;
+
+    //包装类练习1
+    // var str = 'abc';
+    // str += 1;
+    // var test = typeof(str);
+    // if(test.length == 6) {
+    //     test.sign = 'typeof的返回结果可能为String';
+    // }   
+    // console.log(test.sign);
+
+    //包装类练习2
+    
+
     </script>
 </body>
 </html>
