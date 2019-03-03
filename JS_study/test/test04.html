@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型,原型链,call/apply</title>
+</head>
+<body>
+    <script>
+    //Person.prototype --> 原型
+    //Person.prototype = {} 是祖先
+    //原型练习1
+    // Person.prototype.lastName = 'zhang';
+    // function Person() {
+
+    // }
+    // var person1 = new Person();
+    // var person2 = new Person();
+
+    //原型练习2
+    // Car.prototype.name = 'BMW';
+    // function Car() {
+    //     this.say = function() {
+    //         console.log('CCCCar');
+    //     }
+    // }
+    // Person.prototype.name = 'zjh';
+    // function Person() {
+    //     this.display = function() {
+    //         console.log('PPPPerson');
+    //     }
+    // }
+    // var car = new Car();
+
+    //原型练习3
+    // Car.prototype.name = 'BMW';
+    // function Car() {
+
+    // }
+    // var car = new Car();
+    // Car.prototype.name = 'Benz';
+    //> car.name
+    //< Benz
+
+    //原型练习4
+    // Person.prototype.name = 'Sunny';
+    // function Person() {
+
+    // }
+    // Person.prototype = {
+    //     name : 'Cherry'
+    // }
+    // var person = new Person();
+    //> person.name
+    //< Cherry
+
+    //原型链练习1
+    // Grand.prototype.lastName = 'Deng';
+    // function Grand() {
+
+    // }
+    // var grand = new Grand();
+    // Father.prototype = grand;
+    // function Father() {
+    //     this.name = 'xuming';
+    // }
+    // var father = new Father();
+    // Son.prototype = father;
+    // function Son() {
+    //     this.hobby = 'smoke';
+    // }
+    // var son = new Son();
+    // > son.hobby
+    // < smoke
+    // > son.name
+    // < xuming
+    // > son.lastName
+    // < Deng
+
+    //原型链练习2
+    
+    </script>
+</body>
+</html>

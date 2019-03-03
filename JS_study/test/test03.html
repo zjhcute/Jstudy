@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>test03</title>
+    <title>对象,包装类</title>
 </head>
 <body>
     <script>
@@ -104,8 +104,63 @@
     // console.log(test.sign);
 
     //包装类练习2
+    // var x = 1,
+    //     y = z = 0;
+    // function  add(n) {
+    //     return n = n + 1;
+    // }
+    // y = add(x);
+    // function add(n) {
+    //     return n = n + 3;
+    // }
+    // z = add(x);
+    // x = 1, y = 4, z = 4
     
+    //立即执行函数练习
+    // (function foo(x) {
+    //     console.log(arguments);
+    //     return x;
+    // })(1, 2, 3, 4, 5)
 
+    //parseInt练习
+    // var a = 3;
+    // console.log(parseInt(3, 8));
+    // console.log(parseInt(3, 2));
+    // console.log(parseInt(3, 0));
+
+    //函数课程作业
+    
+    // function byteLen(n) {
+    //     //声明并赋值一个count变量,用来统计字节长度
+    //     var count = 0;
+    //     //循环遍历字符串n的每一个字符, 并判断unicode编码大小
+    //     for(var i = 0; i < n.length; i ++) {
+    //         if(n.charCodeAt(i) <= 255) {
+    //             count ++;
+    //         }
+    //         else {
+    //             count += 2;
+    //         }
+    //     }
+    //     return count;
+    // }
+
+    // //优化版字节统计函数
+    // function byteLenPlus(n) {
+    //     //首先声明一个count变量, 并把字符串的长度赋值给count
+    //     var count = n.length;
+    //     //循环遍历字符串每一个字符,如果unicode编码大于255, count ++
+    //     //否则不用改变, 相比上一个函数, 减少了运算步骤
+    //     for(var i = 0; i < n.length; i ++) {
+    //         if(n.charCodeAt(i) > 255) {
+    //             count ++;
+    //         }
+    //     }
+    //     return count;
+    // }
+
+    // console.log(byteLen('11 啊啊啊'));
+    // console.log(byteLenPlus('11 啊啊啊'));
     </script>
 </body>
 </html>
