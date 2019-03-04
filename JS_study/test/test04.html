@@ -79,7 +79,28 @@
     // < Deng
 
     //原型链练习2
-    
+    // function Person() {
+    //     this.eat = function() {
+    //         this.height ++;
+    //     }
+    // }
+    // Person.prototype = {
+    //     height : 100
+    // }
+    // var person = new Person(); 
+
+    //call练习1
+    function Person(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+    function Student(name, agr, sex, tel, grade) {
+        Person.call(this, name, age, sex);
+        this.tel = tel;
+        this.grade = grade;
+    }
+    var student = new Student('Deng', 12, 'male', 139700, '初一');
     </script>
 </body>
 </html>
