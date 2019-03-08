@@ -9,7 +9,106 @@
 <body>
     <script>
 
-        
+        //共享原型练习1
+        // function Father() {
+
+        // }
+        // Father.prototype.lastName = 'Zhang';
+        // function Son() {
+
+        // }
+        // Son.prototype = Father.prototype;
+        // var father = new Father();
+        // var son =  new Son();
+
+        //圣杯模式练习1
+        // function Father() {
+            
+        // }
+        // Father.prototype.lastName = 'Zhang';
+        // function Son() {
+            
+        // }
+        // //封装一个函数, 把原始构造函数的原型赋给目标构造函数
+        // function inherit(Target, Origin) {
+        //     function F() {}
+        //     F.prototype = Origin.prototype;
+        //     Target.prototype = new F();
+        //     //这时目标构造函数的构造器会变成原始构造函数的,所以要改回来
+        //     Target.prototype.constructor = Target;
+        //     //但是我们又要知道目标构造函数的超类到底是谁, 就要加下面一句
+        //     Target.prototype.uber = Origin.prototype;
+        // }
+        // inherit(Son, Father);
+        // var son = new Son();
+        // Son.prototype.sex = 'male';
+        // var father = new Father();
+
+        //私有化变量练习1
+        // function Deng(name, wife) {
+        //     //在构造函数内部声明一个变量 : 预备妻子
+        //     //在执行完构造函数时, perpareWife会被销毁,外部直接访问不到
+        //     //但是构造函数的方法是可以调用这个变量的,因为构造函数的方法会被返回到全局形成闭包
+        //     var perpareWife = 'xiaozhang';
+        //     this.name = name;
+        //     this.wife = wife;
+        //     this.divorce = function() {
+        //         this.wife = perpareWife;
+        //         perpareWife = '';
+        //     }
+        //     this.changePerpareWife = function(target) {
+        //         prepareWife = target;
+        //     }
+        //     this.sayPerpareWife = function() {
+        //         console.log(perpareWife);
+        //     }
+        // }
+        // var deng = new Deng('xuming', 'liu');
+
+        //命名空间练习1
+    //     var init = (function() {
+    //         var name = 'abc';
+    //         function callName() {
+    //             console.log(name);
+    //         }
+    //         return function() {
+    //             callName();
+    //         }
+    //     }())
+    //    init();
+
+        //实现方法连续调用
+        // function Deng() {
+        //     this.smoke = function() {
+        //         console.log('smoke is cool');
+        //         return this;
+        //     }
+        //     this.drink = function() {
+        //         console.log('drink is cool');
+        //         return this;
+        //     }
+        //     this.perm = function() {
+        //         console.log('perm is cool');
+        //         return this;
+        //     }
+        // }
+
+        //属性表示方法练习1
+        //属性有两种表示方法
+        //1. obj.name
+        //2. obj['name']
+        var deng = {
+            wife1 : {name : 'xiaozhang'},
+            wife2 : {name : 'xiaoliu'},
+            wife3 : {name : 'xiaoli'},
+            wife4 : {name : 'daliu'},
+            sayWife : function(num) {
+                return this['wife' + num];
+            }
+        }
+
+
+       
 
     </script>
 </body>
