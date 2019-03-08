@@ -90,17 +90,45 @@
     // var person = new Person(); 
 
     //call练习1
-    function Person(name, age, sex) {
-        this.name = name;
-        this.age = age;
-        this.sex = sex;
-    }
-    function Student(name, agr, sex, tel, grade) {
-        Person.call(this, name, age, sex);
-        this.tel = tel;
-        this.grade = grade;
-    }
-    var student = new Student('Deng', 12, 'male', 139700, '初一');
+    // function Person(name, age, sex) {
+    //     this.name = name;
+    //     this.age = age;
+    //     this.sex = sex;
+    // }
+    // function Student(name, age, sex, tel, grade) {
+    //     Person.call(this, name, age, sex);
+    //     this.tel = tel;
+    //     this.grade = grade;
+    // }
+    // var student = new Student('Deng', 12, 'male', 139700, '初一');
+
+    //call练习2
+    // 轮子 : 轮子尺寸, 样式
+    // function Wheel(wheelSize, style) {
+    //     this.wheelSize = wheelSize;
+    //     this.style = style;
+    // }
+    // //座椅 : 舒适度, 颜色
+    // function Sit(comfortable, sitColor) {
+    //     this.comfortable = comfortable;
+    //     this.sitColor = sitColor;
+    // }
+    // //模型 : 长, 宽, 高
+    // function Model(length, width, height) {
+    //     this.length = length;
+    //     this.width = width;
+    //     this.height = height;
+    // }
+    // //车
+    // function Car(wheelSize, style, comfortable, sitColor, length, width, height) {
+    //     Wheel.call(this, wheelSize, style);
+    //     Sit.call(this, comfortable, sitColor);
+    //     Model.call(this, length, width ,height);
+    // }
+    // var car = new Car(80, '一型', '五星', 'pink', 4900, 1900, 1600);
+
+    
+
     </script>
 </body>
 </html>
