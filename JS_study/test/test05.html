@@ -143,18 +143,30 @@
         // }
         
         //对象枚举练习4
-        var obj = {
-            name : 'guangZai',
-            age : 20,
-            sex : 'male',
-        }
-        obj.__proto__.lastName = 'Lei';
-        for(var prop in obj) {
-            if(obj.hasOwnProperty(prop)){
-            console.log(prop + ' ' + obj[prop]);
-            }
-        }
-        
+        // var obj = {
+        //     name : 'guangZai',
+        //     age : 20,
+        //     sex : 'male',
+        // }
+        // obj.__proto__.lastName = 'Lei';
+        // for(var prop in obj) {
+        //     if(obj.hasOwnProperty(prop)){
+        //     console.log(prop + ' ' + obj[prop]);
+        //     }
+        // }
+
+        //instanceof
+        //A instanceof B
+        //官方解释 : A对象是否为B构造函数构造出来的
+        //实际应用中 : 看A对象的原型链上有没有B的原型
+        // function Person() {
+
+        // }
+        // var person = new Person;
+        // //person instanceof Person
+        //true
+
+
 
 
        

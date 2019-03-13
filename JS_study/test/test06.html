@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>笔试真题讲解1</title>
+</head>
+<body>
+    <script>
+        //笔试真题练习1
+        // var x = 1, y = z = 0;
+        // function add(n) {
+        //     return n = n + 1;
+        // }
+        // y = add(x);
+        // function add(n) {
+        //     return n = n + 3;
+        // }
+        // z = add(x);
+        // function add(n) {
+        //     return n = n + 5;
+        // }
+
+        //笔试真题练习2
+        // function foo() {
+        //     bar.apply(null, arguments);
+        // }
+        // function bar() {
+        //     console.log(arguments);
+        // }
+        // foo(1, 2, 3, 4, 5);
+
+        //笔试真题练习3
+        // function b(x, y, a) {
+        //     // arguments[2] = 10;
+        //     // console.log(a);
+        //     a = 10;
+        //     console.log(arguments[2]);
+        // }
+        // b(1, 2, 3);
+        /*
+        如果函数体改成下面, 结果会是什么?
+        a = 10;
+        console.log(arguments[2]);
+        */
+
+        //笔试真题练习4
+        // var f = (
+        //     function f() {
+        //         return "1";
+        //     },
+        //     function g() {
+        //         return 2;
+        //     }
+        // )();
+        // console.log(typeof(f));
+
+        //笔试真题练习5
+        // var x = 1;
+        // if(function f() {}) {
+        //     x += typeof(f);
+        // }
+        // 问 : x的结果是?
+        //1undefined
+
+        //笔试真题练习6
+        //实现isNaN函数内部原理
+        // function myIsNaN(num) {
+        //     var temp = Number(num);
+        //     temp += "";
+        //     if(temp == "NaN") {
+        //         return true;
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // }
+
+        //笔试真题练习7
+        // var obj = {
+
+        // }
+        // var obj1 = obj;
+        // obj.name = "LeiZhou";
+        
+        // var obj = {
+
+        // }
+        // var obj1 = obj;
+        // obj = {
+        //     name : "LeiZhou"
+        // }
+
+
+
+        
+    
+
+    </script>
+</body>
+</html>
