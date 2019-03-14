@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>笔试真题讲解2</title>
+</head>
+<body>
+    <script>
+        //练习1
+        // var foo = "123";
+        // function print() {
+        //     var foo = '456';
+        //     this.foo = '789';
+        //     console.log(this.foo);
+        // }
+        // new print();
+        /*
+        
+        */
+
+        //练习2
+        // var foo = 123;
+        // function print() {
+        //     this.foo = 100;
+        //     console.log(foo);
+        //     console.log(this.foo);
+        // }
+        // console.log(this.foo);
+        // print();
+        // console.log(this.foo);
+
+        // //练习3
+        // var foo = 123;
+        // function print() {
+        //     this.foo = 100;
+        //     console.log(foo);
+        //     console.log(this.foo);
+        // }
+        // console.log(this.foo);
+        // new print();
+        // console.log(this.foo);
+
+        //练习4
+        // function print() {
+        //     console.log(foo);
+        //     var foo = 2;
+        //     console.log(foo);
+        //     console.log(hello);
+        // }
+        // print();
+
+        //练习5
+        // function print() {
+        //     var test;
+        //     test();
+        //     function test() {
+        //         console.log(1);
+        //     }
+        // }
+        // print();
+
+        //练习6(未完)
+        // function print() {
+        //     var marty = {
+        //         name : "marty",
+        //         printName : function() {
+        //             console.log(this.name);
+        //             }
+        //     }
+        //     var test1 = {name : "test1"};
+        //     var test2 = {name : "test2"};
+        //     var test3 = {name : "test3"};
+        //     test3.printName = marty.printName;
+        //     var printName2 = marty.printName.bind({name : 123});
+        // }
+
+        //练习7
+        var bar = {
+            a : "002"
+        }
+        function print() {
+            bar.a = 'a';
+            Object.prototype.b = 'b';
+            return function inner() {
+                console.log(bar.a);
+                console.log(bar.b);
+            }
+        }
+        print()();
+
+    </script>
+</body>
+</html>
