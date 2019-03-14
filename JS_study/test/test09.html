@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>克隆</title>
+</head>
+<body>
+    <script>
+        //浅克隆
+        //浅克隆只涉及到原始值数据,不用考虑引用值数据
+        // var guangZai = {
+        //     name : "guangZai",
+        //     age : 21
+        // }
+        // var xiaoLi = {}
+        // function clone(origin, target) {
+        //     var target = target || {};
+        //     for(var prop in origin) {
+        //         target[prop] = origin[prop];
+        //     }
+        //     return target;
+        // }
+        // clone(guangZai, xiaoLi);
+
+        //深度克隆尝试
+        //深度克隆包括克隆引用值属性,直接克隆引用值属性的话,对target进行改变,origin也会受到影响
+        // var guangZai = {
+        //     name : "guangZai",
+        //     age : 21,
+        //     friend : {
+        //         aPeng : {
+        //             name : "aPeng",
+        //             age : 22,
+        //             girlFriend : {
+        //                 name : "xuanXuan",
+        //                 age : 19
+        //             }
+        //         }
+        //     }
+        // }
+        // var hanWang = {}
+        // function deepClone(origin, target) { 
+         
+        //     var target = target || {};
+        //     for(var prop in target) {
+        //         if(typeof(origin[prop]) == "object") {
+                   
+        //             var tempObj = origin[prop];
+        //             deepClone(tempObj, target);
+        //         }
+        //         else {
+        //             target[prop] = origin[prop];
+        //         }
+        //     }
+        //     return target;
+        // }
+
+        //练习1
+        // var obj = {
+        //     name : "zjh",
+        //     age : 20,
+        //     friend : {
+        //         name : "haha",
+        //         age : 21
+        //     }
+        // }
+        // for(var prop in obj) {
+        //     console.log(typeof(obj[prop]));
+        // }
+
+        //深度克隆
+        var obj = {
+            name : "aaa",
+            age : 26,
+            card : ['visa', 'master'],
+            wife : {
+                name : 'bbb',
+                age : 25,
+                son : {
+                    name : 'ccc',
+                    age : 2
+                }
+            }
+        }
+        
+        var obj1 = {}
+        function deepClone(origin, target) {
+            var target = target || {};
+            toStr = Object.prototype.toString;
+            arrStr = "[object Array]";
+            for(var prop in origin) {
+                if(origin.hasOwnProperty(prop)) {
+                    if(typeof(origin[prop]) == 'object') {
+                        target[prop] = toStr.call(origin[prop]) == arrStr ? [] : {};
+                        deepClone(origin[prop], target[prop]);
+                    } 
+                    else {
+                    target[prop] = origin[prop];
+                    }
+                } 
+            }
+        }
+
+    </script>
+</body>
+</html>
