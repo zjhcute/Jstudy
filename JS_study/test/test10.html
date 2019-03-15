@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组</title>
+</head>
+<body>
+    <script>
+        //push练习1
+        // var arr = [1, 2];
+        // Array.prototype.push = function() {
+        //     for(var prop in arguments) {
+        //         this[this.length] = arguments[prop];
+        //     }
+        //     return this.length;
+        // }
+        //pop练习1
+        var arr = [1, 2, 3];
+        Array.prototype.pop = function() {
+            var temp = this[this.length - 1];
+            this.length --;
+            return temp;
+        }
+        
+
+
+    </script>
+</body>
+</html>

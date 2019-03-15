@@ -71,36 +71,83 @@
         // }
 
         //深度克隆
+        // var obj = {
+        //     name : "aaa",
+        //     age : 26,
+        //     card : ['visa', 'master'],
+        //     wife : {
+        //         name : 'bbb',
+        //         age : 25,
+        //         son : {
+        //             name : 'ccc',
+        //             age : 2
+        //         }
+        //     }
+        // }
+        
+        // var obj1 = {}
+        // function deepClone(origin, target) {
+        //     var target = target || {};
+        //     toStr = Object.prototype.toString;
+        //     arrStr = "[object Array]";
+        //     for(var prop in origin) {
+        //         if(origin.hasOwnProperty(prop)) {
+        //             if(typeof(origin[prop]) == 'object') {
+        //                 target[prop] = toStr.call(origin[prop]) == arrStr ? [] : {};
+        //                 deepClone(origin[prop], target[prop]);
+        //             } 
+        //             else {
+        //             target[prop] = origin[prop];
+        //             }
+        //         } 
+        //     }
+        // }
+
+        //deepClone自我练习
+        //首先有一个对象obj
         var obj = {
-            name : "aaa",
-            age : 26,
+            name : 'aaa',
+            age : 20,
             card : ['visa', 'master'],
             wife : {
                 name : 'bbb',
-                age : 25,
+                age : 20,
+                sex : "male",
                 son : {
                     name : 'ccc',
                     age : 2
                 }
             }
         }
-        
         var obj1 = {}
+        //现在我们需要一个deepClone函数,用来克隆对象
+        //我们要解决几个问题
+        /*
+            1. 首先,为了提高容错率,防止用户没有传递target的实参,
+            我们在函数内var一个target = target || {}
+            这样如果传递了实参,就等于实参本身,没有传递就用一个空对象
+            2. 我们要循环遍历对象的属性,为了避免遍历到原型上的属性,我们要加一条判断
+            3. 遍历对象属性时,判断是否为属性类型,如果是非对象类型,直接赋值
+            如果是对象属性
+            4. 要判断是数组类型还是对象类型,并且赋值一个空对象或数组,判断方法我们使用toString方法
+            5. 新建了数组或对象后,递归调用deepClone把属性一个一个克隆出来
+        */
         function deepClone(origin, target) {
             var target = target || {};
-            toStr = Object.prototype.toString;
-            arrStr = "[object Array]";
+            var toStr = Object.prototype.toString;
+            var arrObj = "[object Array]";
             for(var prop in origin) {
                 if(origin.hasOwnProperty(prop)) {
                     if(typeof(origin[prop]) == 'object') {
-                        target[prop] = toStr.call(origin[prop]) == arrStr ? [] : {};
+                        target[prop] = toStr.call(origin[prop]) == arrObj ? [] : {};
                         deepClone(origin[prop], target[prop]);
-                    } 
-                    else {
-                    target[prop] = origin[prop];
                     }
-                } 
+                    else {
+                        target[prop] = origin[prop];
+                    }
+                }
             }
+            return target;
         }
 
     </script>
