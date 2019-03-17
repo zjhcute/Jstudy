@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>类数组</title>
+</head>
+<body>
+    <script>
+        //类数组练习1
+        // var obj = {
+        //     "0" : '1',
+        //     "1" : '2',
+        //     "2" : '3',
+        //     "3" : '4',
+        //     "4" : '5',
+        //     "5" : '6',
+        //     length : 6,
+        //     push : Array.prototype.push,
+        //     splice : Array.prototype.splice
+        // }
+
+        //typeofPlus --> type
+        //比typeof更好用的函数
+        /*
+            拥有typeof原有功能
+            可以将对象和数组区分开
+            可以返回包装类类型
+        */
+        // function type(target) {
+        //     var str = "",
+        //         // newStr = new String(target),
+        //         arr = [],
+        //         // newArr = [];
+        //     str = toString.call(target);
+        //     for(var prop in str) {
+        //         arr.push(str[prop]);
+        //     }
+        //     arr = arr.slice(8, -1);
+        //     str = arr.join("");
+        //     // for(var key in newStr) {
+        //     //     newArr.push(newStr[key]);
+        //     //     console.log(newStr[key]);
+        //     // }
+        //     // newArr = newArr.slice(0, 4);
+        //     // newStr = newArr.join("");
+        //     // console.log(newStr);
+        //     // newStr = newStr == "new " ? ("[Object" + str + "]") : str;
+        //     str = typeof(target) == "object" ? 'object ' + str : str;
+        //     return str;
+        // }
+
+        //type
+        // function type(target) {
+        //     var template = {
+        //         "[object Number]" : "number - object",
+        //         "[object String]" : "string - object",
+        //         "[object boolean]" : "boolean - object",
+        //         "[object Array]" : "array - object",
+        //         "[object Object]" : "object - object",
+        //         "[object Null]" : "null"
+        //     }
+        //     if(typeof(target) == "object") {
+        //         var str = Object.prototype.toString.call(target);
+        //         return template[str];
+        //     }else{
+        //         return typeof(target);
+        //     }
+        // }
+        
+
+        //数组去重
+        /*
+            思路: 
+            1. 依次遍历原数组
+            2. 把每一个元素和一个空数组中的所有元素比较是否相同,如果相同,就不放进去
+            3. 如果全部比较过之后都没有相同的,就把这个元素push进空数组, 并进行下一圈遍历
+        */
+        // var arr = [1, 1, 1, 0, 0, 0, 'a', 'a', 'b'];
+        // Array.prototype.unique = function() {
+        //     var newArr = [];
+        //     for(var prop in this) {
+        //         var flag = true;
+        //         for(var key in newArr) {
+        //             flag = this[prop] == newArr[key] ? false : flag;
+        //         }
+        //         if(flag) {
+        //             newArr.push(this[prop]);
+        //         }
+        //     }
+        //     return newArr;
+        // }
+
+        //数组去重成哥版   hash方式
+        /*
+            利用对象的特性,同一个属性名不能有两个属性值
+        */
+        // var arr = [1, 1, 1, 2, 2, 2, 3, 3, 4, 1, 'a', 'a', 'b'];
+        // Array.prototype.unique = function() {
+        //     var temp = {},
+        //         newArr =  [],
+        //         len = this.length;
+        //     for(var i = 0; i < len; i ++) {
+        //         if(!temp[this[i]]) {
+        //             temp[this[i]] = 'abc';
+        //             newArr.push(this[i]);
+        //         }
+        //     }
+        //     return newArr;
+        // }
+
+
+    </script>
+</body>
+</html>
