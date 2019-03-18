@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>家庭作业练习1</title>
+</head>
+<body>
+    <script>
+        //练习1
+        // function Person(name, age, sex) {
+        //     var a = 0;
+        //     this.name = name;
+        //     this.age = age;
+        //     this.sex = sex;
+        //     function sss() {
+        //         a ++;
+        //         console.log(a);
+        //     }
+        //     this.say = sss;
+        // }
+        // var oPerson = new Person();
+        // oPerson.say(); //1
+        // oPerson.say(); //2
+        // var oPerson1 = new Person();
+        // oPerson1.say(); //1
+
+        //练习2
+        //普通继承
+        // function Father() {
+
+        // }
+        // Father.prototype.lastName = 'Zhang';
+        // function Son() {
+
+        // }
+        // Son.prototype = Father.prototype;
+        // Son.prototype.lastName = 'Deng';
+
+        //圣杯模式1
+        // function inherit(Target, Origin) {
+        //     function F() {}
+        //     F.prototype = Origin.prototype;
+        //     Target.prototype = new F();
+        // }
+        // inherit(Son, Father);
+        // Son.prototype.lastName = 'Deng';
+        //这种方法可以达到我们想要的效果,但是还可以做的更完善一点
+
+        //圣杯模式2
+        // function inherit(Target, Origin) {
+        //     function F() {}
+        //     F.prototype = Origin.prototype;
+        //     Target.prototype = new F();
+        //     //因为Target.prototype指向的是new F()的prototype
+        //     //所以他的构造器会变成F, 我们要让Target的儿子知道自己的爹是谁
+        //     Target.prototype.constructor = Target;
+        //     //我们还要让Target知道自己到底继承自谁
+        //     Target.prototype.uber = Origin;
+        // }
+        //这样实现的就是一个更加完美的圣杯模式继承, 当然,它还可以更加完美无瑕
+
+        //圣杯模式3
+        //我们发现,在圣杯模式2中,F函数可以被外部进行更改, 我们要让他属性私有化, 这里就需要闭包, 我们用立即执行函数的方法来形成闭包
+        // var inherit = (function() {
+        //     function F() {}
+        //     return function(Target, Origin) {
+        //         F.prototype = Origin.prototype;
+        //         Target.prototype = new F();
+        //         Target.prototype.constructor = Target;
+        //         Target.prototype.uber = Origin;
+        //     }
+        // }())
+
+        //一个字符串由[a-z]组成,请找出该字符串中第一个出现一次的字母
+        //新建一个对象strObj
+        //依次遍历字符串每一个字符, 如果strObj[这个字符串] === undefined, 说明没有出现过, strObj[这个字符串] = 1.
+        //                        如果 !== undefined, 说明有这个属性名, 就是这个字符串又出现了一次, 值加一
+        //全部遍历完这个字符串之后, 看strObj对象
+        //依次遍历这个对象中的属性值, 如果遇到 == 1 的,说明只出现了一次, 并且是第一个只出现一次的, 就把这个属性名return出来
+        //注意, 这里的属性名不能直接 ++, 因为本来属性名是string类型的, 直接strObj[target[prop]]相当于--> strObj.去引号的target[prop], 所以要多写一个引号, strObj['target[prop]']  
+        var str = 'ababababababcccccddiqqqqq';
+        function firstOne(target) {
+            var strObj = {}
+            for(var prop in target) {
+                strObj[target[prop]] = strObj[target[prop]] === undefined ? 1 : strObj['target[prop]'] ++;
+            }
+            for(var key in strObj) {
+                if(strObj[key] == 1) {
+                    return key;
+                } 
+            } 
+        }
+
+        //字符串去重 hash方式 
+        var str = 'sdsadhsjhueqohfhnjknhcjkhdfuqwo';
+        function strUnique(target) {
+            var strObj = {},
+                tempStr = "";
+            for(var prop in target) {
+                strObj[target[prop]] = 'abc';
+            }
+            for(var key in strObj) {
+                tempStr += key;
+            }
+            return tempStr;
+        }
+
+    </script>
+</body>
+</html>
