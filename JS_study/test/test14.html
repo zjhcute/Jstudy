@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM基本操作</title>
+</head>
+<body>
+    <div>
+        <div>
+            <em>
+                <strong>
+                    <span></span>
+                </strong>
+                <strong></strong>
+                <strong></strong>
+                <em></em>
+                <em></em>
+                <em></em>
+                <span></span>
+                <span></span>
+            </em>
+        </div>
+    </div>
+
+    <script>
+        //遍历节点树  parentNode
+        //parentNode是每一个DOM元素都有的属性, 表示该DOM元素的父亲节点
+        //我们首先把span标签拿出来
+        // var span = document.getElementsByTagName('span')[0];
+        //> span.parentNode
+        //< <strong>...</strong>
+
+        //遍历元素节点树(在原型链上编程)
+       
+
+
+        //封装函数, 返回元素e的第n层祖先元素节点
+        // function retParent(elem, n) {
+        //     var e = document.getElementsByTagName(elem)[0];
+        //     for(;n > 0;n --) {
+        //         e = e.parentNode;
+        //         if(e.nodeType !== 1) {
+        //             console.log('越界!!!');
+        //         }
+        //     }
+        //     return e;
+        // }
+
+        //封装函数, 返回元素e的第n个兄弟元素节点, n为正, 返回后面的兄弟元素节点, n为负, 返回前面的, n为0, 返回自己
+        // function retSibling(elem, n) {
+        //     if(n > 0) {
+        //         while(n) {
+        //             if(elem.nextSibling.nodeType == 1) {
+        //                 elem = elem.nextSibling;
+        //                 n --;
+        //             }else {
+        //                 elem = elem.nextSibling;
+        //             }
+        //         }
+        //     }else if(n == 0) {
+        //         elem = elem;
+        //     }else {
+        //         while(-n) {
+        //             if(elem.previousSibling.nodeType == 1) {
+        //                 elem = elem.previousSibling;
+        //                 n ++;
+        //             }else {
+        //                 elem = elem.previousSibling;
+        //             }
+        //         }
+        //     }
+        //     return elem;
+        // }
+        // var em = document.getElementsByTagName('em')[1];
+        //由于
+
+        //编辑函数, 封装myChildren功能, 解决以前部分浏览器的兼容性问题
+        // Element.prototype.myChildren = function() {
+        //     var temp = [];
+        //     var childArr = this.childNodes;
+        //     for(var prop in childArr) {
+        //         if(childArr[prop].nodeType == 1) {
+        //             temp.push(childArr[prop]);
+        //         }
+        //     }
+        //     return temp;
+        // }
+
+
+        //自己封装hasChildren()方法, 不可用children属性
+
+
+    </script>
+</body>
+</html>
