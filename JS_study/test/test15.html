@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>date对象, 定时器</title>
+    <style type="text/css">
+        input{
+            border: 1px solid #ffe411;
+            text-align: right;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    minutes: <input type="text" value="0">  
+    seconds: <input type="text" value="0">  
+
+
+    <script>
+        //时间计算
+        // var firstTime = new Date().getTime();
+        // for(var i = 0; i < 100000000; i ++){
+
+        // }
+        // var lastTime = new Date().getTime();
+        // console.log(lastTime - firstTime);
+
+        //封装函数, 打印当前是何年何月何日何时, 几分几秒
+        // function nowTime() {
+        //     var date = new Date(),
+        //         month = parseInt(date.getMonth()) + 1;
+        //     console.log('现在是' + date.getFullYear() + '年' + 
+        //                             month + '月' +
+        //                             date.getDate() + '日' +
+        //                             date.getHours() + '时' +
+        //                             date.getMinutes() + '分' + 
+        //                             date.getSeconds() + '秒');
+        // }
+        
+
+        //计时器
+        var minutes = document.getElementsByTagName('input')[0];
+        var seconds = document.getElementsByTagName('input')[1];
+        var minutesValue = 0,
+            secondsValue = 0;
+        setInterval(function() {
+            secondsValue ++;
+            if(secondsValue == 60) {
+                secondsValue = 0;
+                minutesValue ++;
+            }
+            seconds.setAttribute('value', secondsValue);
+            minutes.setAttribute('value', minutesValue);
+            if(minutesValue == 3) {
+                clearInterval(1);
+            }
+        }, 1000)
+
+    </script>
+</body>
+</html>
