@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计时器test</title>
+</head>
+<body>
+    <script>
+        var a = 0, b = 100;
+        var timer1 = setInterval(function() {
+            console.log(a ++);
+            if(a == 10) {
+                clearInterval(timer2);
+            }
+        }, 1000)
+        var timer2 = setInterval(function() {
+            console.log(b ++);
+        }, 1000)
+    </script>
+</body>
+</html>
