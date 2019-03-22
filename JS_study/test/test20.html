@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原生轮播图</title>
+    <style>
+        ul{
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .wrapper{
+            width: 576px;
+            height: 324px;
+            /* border: 1px solid #000; */
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .slide-show{
+            width: 2880px;
+            height: 324px;
+            position: absolute;
+            /* border: 1px solid #f40; */
+        }
+        .slide-show-li{
+            float: left;
+            width: 576px;
+            height: 324px;
+            /* border: 1px solid #ffe411; */
+        }
+        .wrapper-dot{
+            width: 80px;
+            height: 10px;
+            /* border: 1px solid #fff; */
+            position: absolute;
+            margin-left: 50%;
+            left: -40px;
+            bottom: 30px;
+        }
+        .dot{
+            width: 80px;
+            height: 10px;
+            background-color: #aaa;
+            opacity: 0.5;
+            border-radius: 5px;
+        }
+        .origin-dot{
+            background-color: #fff;
+        }
+        .dot-selected{
+            background-color: #f40;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <ul class="slide-show">
+            <li class="slide-show-li" style="background-image:url('pic1.jpg'); background-size: 100%"></li>
+            <li class="slide-show-li" style="background-image:url('pic2.jpg'); background-size: 100%"></li>
+            <li class="slide-show-li" style="background-image:url('pic3.jpg'); background-size: 100%"></li>
+            <li class="slide-show-li" style="background-image:url('pic4.jpg'); background-size: 100%"></li>
+            <li class="slide-show-li" style="background-image:url('pic1.jpg'); background-size: 100%"></li>
+        </ul>
+        <div class="wrapper-dot">
+            <ul class="dot">
+                <li class="origin-dot" style="width: 8px; height: 8px; border-radius: 4px; margin: 1px 6px; float: left;"></li>
+                <li class="origin-dot" style="width: 8px; height: 8px; border-radius: 4px; margin: 1px 6px; float: left;"></li>
+                <li class="origin-dot" style="width: 8px; height: 8px; border-radius: 4px; margin: 1px 6px; float: left;"></li>
+                <li class="origin-dot" style="width: 8px; height: 8px; border-radius: 4px; margin: 1px 6px; float: left;"></li>
+            </ul>
+        </div>
+        
+
+    </div>
+    <script>
+        var ul = document.getElementsByClassName('slide-show')[0];
+        var nowLeft = 0;   
+        var dotUl = document.getElementsByClassName('dot')[0];
+        dotUl.children[0].setAttribute('class', 'dot-selected');        
+        var timer1 = setInterval(function() {
+            var timer2 = setInterval(function() {
+                nowLeft -= 18;
+                ul.style.left = nowLeft + 'px';
+                if(nowLeft % 576 == 0) {
+                    if(nowLeft == -2304) {
+                        dotUl.children[0].setAttribute('class', 'dot-selected');
+                    }else {
+                        dotUl.children[nowLeft / -576 + 0].setAttribute('class', 'dot-selected');
+                    }
+                    clearInterval(timer2);
+                }
+            }, 10)
+            if(window.getComputedStyle(ul, null).left == '-2304px') {
+                ul.style.left = '0px';
+                nowLeft = 0;
+            }
+            dotUl.children[0].setAttribute('class', 'origin-dot');
+            dotUl.children[1].setAttribute('class', 'origin-dot');
+            dotUl.children[2].setAttribute('class', 'origin-dot');
+            dotUl.children[3].setAttribute('class', 'origin-dot');
+            
+        }, 3000)     
+
+        
+
+
+
+    </script>
+</body>
+</html>

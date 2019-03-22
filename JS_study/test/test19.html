@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小球下落</title>
+</head>
+<body>
+    <div class="circle" style="width: 50px; height: 50px; background-color: #ffe411; position: absolute;  top: 0px; border-radius: 25px;"></div>
+    <div style="width: 100px; height: 0px; position: absolute; top: 760px; border: 5px solid #000;"></div>
+    
+    <script>
+        var circle = document.getElementsByClassName('circle')[0];
+        var speed = 0;
+        var speedA = 1;
+        // var circleBottom = 0;
+        var count = 0;
+        var timer = setInterval(function() {
+            // circleBottom = window.getComputedStyle(circle, null)['top'];
+            speed += speedA;
+            if(parseInt(circle.style.top) > 710) {
+                speed = -speed * 0.8;
+                count ++;
+            }
+            circle.style.top = speed + parseInt(circle.style.top) + 'px';
+            if(count == 1) {
+                clearIntercal(timer);
+            }
+        }, 20)
+    </script>
+
+</body>
+</html>
