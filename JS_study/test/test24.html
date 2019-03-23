@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖拽运动</title>
+</head>
+<body>
+    <div class="circle" style="width: 100px; height: 100px; background-color: #f40; border-radius: 50px; position: absolute; left: 0;top: 0"></div>
+
+    <script>
+        var circle = document.getElementsByClassName('circle')[0];
+        var firstX,
+            firstY,
+            lastX,
+            lastY,
+            speedX,
+            speedY;
+        circle.onmousedown = function(e) {
+            var event = e || window.event;
+            firstX = event.pageX - parseFloat(circle.style.left);
+            firstY = event.pageY - parseFloat(circle.style.top);
+            document.onmousemove = function(e) {
+                var event = e || window.event;
+                circle.style.left = event.pageX - firstX + 'px';
+                circle.style.top = event.pageY - firstY + 'px';
+            }
+            document.onmouseup = function(e) {
+                var event = e || window.event;
+                lastX = parseFloat(circle.style.left);
+                lastY = parseFloat(circle.style.top);
+                speedX = lastX / 60;
+                speedY = lastY / 60;
+                document.onmousemove = null;
+                var timer = setInterval(function() {
+                    circle.style.left = parseFloat(circle.style.left) - speedX + 'px';
+                    circle.style.top = parseFloat(circle.style.top) - speedY + 'px';
+                    if(parseInt(circle.style.left) == 0 && parseInt(circle.style.top) == 0) {
+                        clearInterval(timer);
+                    }
+                }, 1)
+            }
+        }
+    </script>
+
+</body>
+</html>

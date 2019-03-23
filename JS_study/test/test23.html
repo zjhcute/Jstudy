@@ -39,6 +39,10 @@
             var target = event.target || event.srcElement; // 兼容火狐和IE
             console.log(target.innerHTML);
         }
+        var liOne = document.getElementsByTagName('li')[0];
+        liOne.onmouseenter = function() {
+            liOne.style.backgroundColor = '#f00';
+        }
     </script>
 
 </body>
