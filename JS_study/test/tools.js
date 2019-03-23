@@ -64,3 +64,38 @@ function getScrollOffset() {
         }
     }
 }
+
+//事件处理函数的兼容性写法
+function addEvent(elem, type, handle) {
+    if(elem.addEventListener) {
+        elem.addEventListener(type, handle, false);
+    }else if(elem.attachEvent) {
+        elem.attachEvent('on' + type, function() {
+            handle.call(elem);
+        })
+    }else {
+        elem['on' + type] = handle;
+    }
+}
+
+
+//封装一个函数, stopBubble, 兼容浏览器, 取消冒泡
+function stopBubble(event) {
+    if(event.stopPropagation) {
+        event.stopPropagation();
+    }else {
+        event.cancelBubble = true;
+    }
+}
+
+
+//封装一个函数, 兼容性, 阻止默认事件
+function cancelHandler(evnet) {
+    if(event.preventDefault) {
+        event.preventDefault();
+    }else {
+        event.returnValue = false;
+    }
+}
+
+

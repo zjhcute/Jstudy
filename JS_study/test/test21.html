@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件1练习</title>
+</head>
+<body>
+    <ul>
+        <li>a</li>
+        <li>a</li>
+        <li>a</li>
+        <li>a</li>
+    </ul>
+
+    <script>
+        //实现点击一个li, 控制台输出指定序号, 注意闭包问题, 用立即执行函数解决
+        var liCol = document.getElementsByTagName('li'),
+            len = liCol.length;
+        for(var i = 0; i < len; i ++) {
+            (function(j){
+                liCol[j].addEventListener('click', function () {
+                    console.log(j);
+                }, false)
+            }(i))
+        }
+
+
+        //事件处理函数的兼容性写法
+        function addEvent(elem, type, handle) {
+            if(elem.addEventListener) {
+                elem.addEventListener(type, handle, false);
+            }else if(elem.attachEvent) {
+                elem.attachEvent('on' + type, function() {
+                    handle.call(elem);
+                })
+            }else {
+                elem['on' + type] = handle;
+            }
+        }
+    </script>
+</body>
+</html>
