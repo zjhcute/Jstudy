@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3月25日直播</title>
+</head>
+<body>
+    <script>
+        // 二分查找
+        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 23, 34, 57, 100, 101, 102, 103, 506];
+        function test(arr, value) {
+            var low = 0,
+                height = arr.length - 1;
+            var mid = parseInt((height + low) / 2);
+            if(arr[mid] == value) {
+                return mid;
+            }else if(value > arr[mid]) {
+                low = mid + 1;
+            }else if(value < arr[mid]) {
+                high = mid - 1;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组扩展</title>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script>
+        var personArr = [
+            {name: '孙笑川', src: './src/img/01.png', des: '我是你哥哥', sex: 'm'},
+            {name: '药水哥', src: './src/img/02.png', des: '我是孙🐶的弟弟', sex: 'm'},
+            {name: '吴亦凡', src: './src/img/03.png', des: 'Bad Girl!', sex: 'm'},
+            {name: '蔡徐坤', src: './src/img/04.png', des: '长得帅也是一种错🐎', sex: 'f'},
+            {name: '蔡广坤', src: './src/img/05.png', des: '我在美国的校队', sex: 'f'},
+        ];
+
+        personArr.forEach(function(ele, index, self) {
+            this[index].innerText = ele.name;
+        }, document.getElementsByTagName('li'))
+
+    </script>
+</body>
+</html>
