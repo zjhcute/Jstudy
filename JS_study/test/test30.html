@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS简单运动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            position: relative;
+        }
+        .demo{
+            width: 100px;
+            height: 100px;
+            background-color: #ffe411;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+        .btnWrapper{
+            width: 400px;
+            height: 32px;
+            position: absolute;
+            top: 200px;
+        }
+        .btn{
+            height: 30px;
+            background: none;
+            outline: none;
+            border: 1px solid #000;
+            border-radius: 5px;
+            padding: 0 5px;
+            margin: 0 5px;
+        }
+        .btnUniform:hover{
+            background-color: #0ef;
+        }
+        .btnBuffer:hover{
+            background-color: #f40;
+        }
+        .btnExtend:hover{
+            background-color: #ffe411;
+        }
+        .btnReset:hover{
+            background-color: #fac;
+        }
+        .btnStop:hover{
+            background-color: #0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo"></div>
+    <div class="btnWrapper">
+        <button class="btn btnUniform">匀速运动</button>
+        <button class="btn btnBuffer">缓冲运动</button>
+        <button class="btn btnExtend">双重缓冲运动</button>
+        <button class="btn btnStop">暂停</button>
+        <button class="btn btnReset">重置状态</button>
+    </div>
+        
+
+
+
+    <script>
+        var oDiv = document.getElementsByClassName('demo')[0];
+        var btnUniform = document.getElementsByClassName('btnUniform')[0];
+        var btnBuffer = document.getElementsByClassName('btnBuffer')[0];
+        var btnExtend = document.getElementsByClassName('btnExtend')[0];
+        var btnStop = document.getElementsByClassName('btnStop')[0];
+        var btnReset = document.getElementsByClassName('btnReset')[0];
+        var oLocation = oDiv.offsetLeft;
+        var oWidth = oDiv.offsetWidth;
+
+        //匀速
+        function uniform(oDom, target) {
+            clearInterval(oDom.timer);
+            oDom.timer = setInterval(function() {
+                var speed = oDom.offsetLeft < target ? 2 : -2;
+                if(Math.abs(target - oDom.offsetLeft) <= Math.abs(speed)) {
+                    clearInterval(oDom.timer);
+                    oDom.style.left = target + 'px';
+                }else {
+                    oDom.style.left = oDom.offsetLeft + speed + 'px';
+                }
+            }, 10)
+        }
+        btnUniform.onclick = function() {
+            uniform(oDiv, 300);
+        }
+
+        //缓冲
+        function buffer(oDom, target) {
+            clearInterval(oDom.timer);
+            oDom.timer = setInterval(function() {
+                var speed =  (target - oDom.offsetLeft) / 7;
+                if(oDom.style.left == target + 'px') {
+                    clearInterval(oDom.timer);
+                }else {
+                    speed = Math.ceil(speed);
+                    oDom.style.left = oDom.offsetLeft + speed + 'px';
+                }
+            }, 20)
+        } 
+        btnBuffer.onclick = function() {
+            buffer(oDiv, 300);
+        }
+
+        //双重缓冲
+        function extend(oDom, target) {
+            clearInterval(oDom.timer);
+            oDom.timer = setInterval(function() {
+                var speed = null, 
+                    wSpeed = null;
+                if(oDom.offsetLeft == oLocation && oDom.offsetWidth < target + oWidth) {
+                    wSpeed = Math.ceil((target + 100 - oDom.offsetWidth) / 7); 
+                    oDom.style.width = oDom.offsetWidth + wSpeed + 'px';
+                }else if(oDom.offsetLeft == target && oDom.offsetWidth == oWidth) {
+                    clearInterval(oDom.timer);
+                }else {
+                    speed = Math.ceil((target - oDom.offsetLeft) / 7);
+                    wSpeed = Math.ceil((oDom.offsetWidth - oWidth) / 7);
+                    oDom.style.left = oDom.offsetLeft + speed + 'px';
+                    oDom.style.width = oDom.offsetWidth - wSpeed + 'px';
+                }
+            }, 10)
+        }
+        btnExtend.onclick = function() {
+            extend(oDiv, 300);
+        }
+
+        //暂停
+        function stop(oDom) {
+            clearInterval(oDom.timer);
+        }
+        btnStop.onclick = function() {
+            stop(oDiv);
+        }
+
+        //重置
+        function reset(oDom) {
+            clearInterval(oDom.timer);
+            oDom.style.left = oLocation + 'px';
+            oDom.style.width = oWidth + 'px';
+        }
+        btnReset.onclick = function() {
+            reset(oDiv);
+        }
+    </script>
+</body>
+</html>
