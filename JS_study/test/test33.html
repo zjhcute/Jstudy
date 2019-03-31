@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>透明度缓冲</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #f00;
+            opacity: 1; 
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+
+    <script>
+        var oDiv = document.getElementsByTagName('div')[0];
+        function opacBuffer(oDom, target) {
+            clearInterval(oDom.timer);
+            var speed = null;
+            oDom.timer = setInterval(function() {
+                if(parseFloat(window.getComputedStyle(oDom, null).opacity) * 100 == target * 100) {
+                    clearInterval(oDom.timer);
+                }else {
+                    speed = (target * 100 - parseFloat(window.getComputedStyle(oDom, null).opacity) * 100) / 7;
+                    speed = target * 100 > parseFloat(window.getComputedStyle(oDom, null).opacity) * 100 ? Math.ceil(speed) : Math.floor(speed);
+                    oDom.style.opacity =  parseFloat(window.getComputedStyle(oDom, null).opacity) + speed / 100 + '';
+                }
+
+            }, 30)
+        }
+        oDiv.onclick = function() {
+            opacBuffer(this, 0.1);
+        }
+    </script>
+</body>
+</html>

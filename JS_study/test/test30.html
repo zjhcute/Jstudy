@@ -98,10 +98,10 @@
             clearInterval(oDom.timer);
             oDom.timer = setInterval(function() {
                 var speed =  (target - oDom.offsetLeft) / 7;
-                if(oDom.style.left == target + 'px') {
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                if(oDom.offsetLeft == target + 'px') {
                     clearInterval(oDom.timer);
                 }else {
-                    speed = Math.ceil(speed);
                     oDom.style.left = oDom.offsetLeft + speed + 'px';
                 }
             }, 20)

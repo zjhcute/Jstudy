@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>点击卡片效果</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            background-color: #f5f5f5;
+            position: relative;
+        }
+        .wrapper{
+            width: 400px;
+            height: 779px;
+            position: relative;
+            margin: 0 auto;
+        }
+        .music{
+            width: 400px;
+            height: 150px;
+            background-color: #fff;
+            position: absolute;
+            margin: 8px 0px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="music"></div>
+    </div>
+    <script>
+        var oMusic = document.getElementsByClassName('music')[0];
+        var oLeft = parseInt(window.getComputedStyle(oMusic, null).left);
+        var oTop = parseInt(window.getComputedStyle(oMusic, null).top);
+        var oWidth = parseInt(window.getComputedStyle(oMusic, null).width);
+        var oHeight = parseInt(window.getComputedStyle(oMusic, null).height);
+            function ClickBuffer(oDom, attr, target) {
+                var speed = null;
+                oDom.timer = setInterval(function() {
+                    if(parseInt(window.getComputedStyle(oDom, null)[attr]) == target) {
+                        clearInterval(oDom.timer);
+                    }else {
+                        speed = (target - parseInt(window.getComputedStyle(oDom, null)[attr])) / 7;
+                        speed = target > parseInt(window.getComputedStyle(oDom, null)[attr]) ? Math.ceil(speed) : Math.floor(speed);
+                        oDom.style[attr] = parseInt(window.getComputedStyle(oDom, null)[attr]) + speed + 'px';
+                    }
+                }, 30)
+            }
+        function reSet(oDom) {
+            oDom.style.left = oLeft + 'px';
+            oDom.style.top = oTop + 'px';
+            oDom.style.width = oWidth + 'px';
+            oDom.style.height = oHeight + 'px';
+        }
+        oMusic.onmousedown = function() {
+            ClickBuffer(this, 'left', 40);
+            ClickBuffer(this, 'top', 15);
+            ClickBuffer(this, 'width', 320);
+            ClickBuffer(this, 'height', 120);
+        }
+        oMusic.onmouseup = function() {
+            reSet(this);
+        }
+
+
+    </script>
+</body>
+</html>

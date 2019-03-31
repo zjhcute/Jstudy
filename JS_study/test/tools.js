@@ -1,6 +1,6 @@
 //封装函数, 兼容IE, 获取dom元素的指定属性
 function getStyle(elem, prop) {
-    if(window.elem.getComputedStyle) {
+    if(window.getComputedStyle) {
         return window.getComputedStyle(elem, null).prop;
     }else {
         return elem.currentStyle.prop;
