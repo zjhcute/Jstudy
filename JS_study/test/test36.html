@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>终极版运动函数</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .div{
+            width: 100px;
+            height: 100px;
+            background-color: #ffe411;
+            position: absolute;
+            opacity: 1;
+            left: 0px;
+            color: #fff;
+            text-align: center;
+        }
+        .topDiv{
+            top: 200px;
+        }
+        .bottomDiv{
+            top: 350px;
+        }
+    </style>
+</head>
+<body>
+    <div class="topDiv div">点我动</div>
+    <div class="bottomDiv div">点我不动</div>
+
+    <script>
+        var topDiv = document.getElementsByClassName('div')[0];
+        var bottomDiv = document.getElementsByClassName('div')[1];
+        
+        topDiv.onclick = function() {
+            startMove(this, {left: 300, top: 500, width: 200, height: 200, opacity: 50}, function() {
+                startMove(bottomDiv, {left: 300, top: 100, width: 200, height: 200, opacity: 50}, function() {
+                    startMove(topDiv, {left: 600, top: 200, width: 100, height: 100, opacity: 100}, function() {
+                        startMove(bottomDiv, {left: 600, top: 350, width: 100, height: 100, opacity: 100}, function() {
+                            console.log('over');
+                        })
+                    })
+                })
+            })
+        }
+
+        function getStyle(oDom, attr) {
+            if(window.getComputedStyle) {
+                return window.getComputedStyle(oDom, null)[attr];
+            }else {
+                return oDom.currentStyle[attr];
+            }
+        }
+        function startMove(oDom, attrObj, callBack) {
+            clearInterval(oDom.timer);
+            var iSpeed = null, iCur = null;
+            oDom.timer = setInterval(function() {
+                var bStop = true;
+                for(var attr in attrObj) {
+                    if(attr == 'opacity') {
+                        iCur = parseFloat(getStyle(oDom, attr) * 100);
+                    }else{
+                        iCur = parseInt(getStyle(oDom, attr));
+                    }
+                    iSpeed = (attrObj[attr] - iCur) / 7;
+                    iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                    if(attr == 'opacity') {
+                        oDom.style[attr] = (iCur + iSpeed) / 100;
+                    }else {
+                        oDom.style[attr] = iCur + iSpeed + 'px';
+                    }
+                    if(iCur != attrObj[attr]) {
+                        bStop = false;
+                    }
+                }
+                if(bStop) {
+                    clearInterval(oDom.timer);
+                    typeof callBack == 'function' && callBack();
+                }
+            }, 30)
+        }
+
+    </script>
+
+</body>
+</html>

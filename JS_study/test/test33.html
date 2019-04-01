@@ -34,7 +34,6 @@
                     speed = target * 100 > parseFloat(window.getComputedStyle(oDom, null).opacity) * 100 ? Math.ceil(speed) : Math.floor(speed);
                     oDom.style.opacity =  parseFloat(window.getComputedStyle(oDom, null).opacity) + speed / 100 + '';
                 }
-
             }, 30)
         }
         oDiv.onclick = function() {

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>加速运动</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        .demo{
+            width: 100px;
+            height: 100px;
+            background-color: #ffe411;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo"></div>
+
+    <script>
+        var oDiv = document.getElementsByClassName('demo')[0];
+        oDiv.onclick = function() {
+            console.log(1);
+            speedUpMove(this, 10, -2);
+        }
+        function speedUpMove(oDom, oSpeed, aSpeed) {
+            clearInterval(oDom.timer);
+            var speed = oSpeed, a = aSpeed;
+            oDom.timer = setInterval(function() {
+                speed += a;
+                oDom.style.left = oDom.offsetLeft + speed + 'px';
+                console.log(oDom.style.left);
+            }, 30)
+        }
+    </script>
+
+</body>
+</html>
