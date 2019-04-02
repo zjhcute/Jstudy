@@ -4,36 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>弹性运动</title>
+    <title>弹性运动案例</title>
     <style>
-        body{
+        *{
             margin: 0px;
             padding: 0px;
         }
-        .demo{
-            width: 100px;
+        ul{
+            width: 800px;
             height: 100px;
-            background-color: #ffe411;
             position: absolute;
+            margin-left: 50%;
+            left: -400px;
+            top: 100px;
         }
-        .oSpan{
-            width: 1px;
+        li{
+            list-style: none;
+        }
+        .demo{
+            width: 198px;
+            height: 98px;
+            border: 1px solid #000;
+            float: left;
+        }
+        .bg{
+            width: 200px;
             height: 100px;
-            background-color: #000;
             position: absolute;
-            left: 300px;
+            background-color: #ffe411;
+            opacity: 0.4;
         }
     </style>
 </head>
 <body>
-    <div class="demo"></div>
-    <span class="oSpan"></span>
+    <ul>
+        <li class="demo"></li>
+        <li class="demo"></li>
+        <li class="demo"></li>
+        <li class="demo"></li>
+        <li class="bg"></li>
+    </ul>
 
     <script>
-        var demo = document.getElementsByClassName('demo')[0];
-        demo.onclick = function() {
-            elaMove(this, 300);
+        var liArr = document.getElementsByClassName('demo');
+        var liBg = document.getElementsByClassName('bg')[0];
+        var len = liArr.length;
+        for(var i = 0; i < len; i ++) {
+            liArr[i].onmouseenter = function() {
+                elaMove(liBg, this.offsetLeft);
+            }
         }
+
+
         function elaMove(oDom, target) {
             clearInterval(oDom.timer);
             var speed = 0, a = 0;
@@ -49,7 +71,6 @@
                 }
             }, 30)
         }
-
     </script>
 
 </body>

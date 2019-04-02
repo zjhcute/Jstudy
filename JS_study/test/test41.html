@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖拽实例</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        .demo{
+            width: 100px;
+            height: 100px;
+            background-color: #ffe411;
+            position: absolute;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo"></div>
+
+    <script>
+        var demo = document.getElementsByClassName('demo')[0];
+        demo.onmousedown = function(e) {
+            clearInterval(this.timer);
+            var event = e || event,
+                firstLeft = event.clientX - this.offsetLeft,
+                firstTop = event.clientY - this.offsetTop,
+                lastLeft = 0,
+                lastTop = 0,
+                speedX = 0,
+                speedY = 0;
+                self = this;
+            document.onmousemove = function(e) {
+                var event = e || event;
+                var newLeft = event.clientX - firstLeft;
+                var newTop = event.clientY - firstTop;
+                self.style.left = newLeft + 'px';
+                self.style.top = newTop + 'px';
+                speedX = newLeft - lastLeft;
+                speedY = newTop - lastTop;
+                lastLeft = newLeft;
+                lastTop = newTop;
+            }
+            document.onmouseup = function(e) {
+                var event = e || event;
+                document.onmousemove = null;
+                startMove(demo, speedX, speedY);
+            }
+        }
+        function startMove(oDom, speedX, speedY) {
+            clearInterval(oDom.timer);
+            var iSpeedX = speedX,
+                iSpeedY = speedY,
+                g = 3;
+            oDom.timer = setInterval(function() {
+                iSpeedY += g;
+                var newLeft = oDom.offsetLeft + iSpeedX;
+                var newTop = oDom.offsetTop + iSpeedY;
+                if(newLeft >= window.innerWidth - oDom.offsetWidth) {
+                    iSpeedX *= -0.8;
+                    iSpeedY *= 0.8;
+                    newLeft = window.innerWidth - oDom.offsetWidth; 
+                }
+                if(newLeft <= 0) {
+                    iSpeedX *= -0.8;
+                    iSpeedY *= 0.8;
+                    newLeft = 0;
+                }
+                if(newTop >= window.innerHeight - oDom.offsetHeight) {
+                    iSpeedX *= 0.8;
+                    iSpeedY *= -0.8;
+                    newTop = window.innerHeight - oDom.offsetHeight;
+                }
+                if(newTop <= 0) {
+                    iSpeedX *= 0.8;
+                    iSpeedY *= -0.8;
+                    newTop = 0;
+                }
+                if(Math.abs(iSpeedX) < 1 && Math.abs(iSpeedY) < 1 && newTop == window.innerHeight - oDom.offsetHeight) {
+                    console.log(1);
+                    clearInterval(oDom.timer);
+                }else {
+                    oDom.style.left = newLeft + 'px';
+                    oDom.style.top = newTop + 'px';
+                }
+            }, 30);
+        }
+    </script>
+
+</body>
+</html>

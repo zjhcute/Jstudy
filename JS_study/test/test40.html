@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模拟重力场</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        .demo{
+            width: 100px;
+            height: 100px;
+            background-color: #ffe411;
+            position: absolute;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="demo"></div>
+
+    <script>
+        var demo = document.getElementsByClassName('demo')[0];
+        demo.onclick = function() {
+            startMove(this);
+        }
+        function startMove(oDom) {
+            clearInterval(oDom.timer);
+            var iSpeedX = 6,
+                iSpeedY = 10,
+                g = 3;
+            oDom.timer = setInterval(function() {
+                iSpeedY += g;
+                var newLeft = oDom.offsetLeft + iSpeedX;
+                var newTop = oDom.offsetTop + iSpeedY;
+                if(newLeft >= window.innerWidth - oDom.offsetWidth) {
+                    iSpeedX *= -0.8;
+                    iSpeedY *= 0.8;
+                    newLeft = window.innerWidth - oDom.offsetWidth; 
+                }
+                if(newLeft <= 0) {
+                    iSpeedX *= -0.8;
+                    iSpeedY *= 0.8;
+                    newLeft = 0;
+                }
+                if(newTop >= window.innerHeight - oDom.offsetHeight) {
+                    iSpeedX *= 0.8;
+                    iSpeedY *= -0.8;
+                    newTop = window.innerHeight - oDom.offsetHeight;
+                }
+                if(newTop <= 0) {
+                    iSpeedX *= 0.8;
+                    iSpeedY *= -0.8;
+                    newTop = 0;
+                }
+                if(Math.abs(iSpeedX) < 1 && Math.abs(iSpeedY) < 1 && newTop == window.innerHeight - oDom.offsetHeight) {
+                    console.log(1);
+                    clearInterval(oDom.timer);
+                }else {
+                    oDom.style.left = newLeft + 'px';
+                    oDom.style.top = newTop + 'px';
+                }
+            }, 30);
+        }
+    </script>
+
+</body>
+</html>
