@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>倒计时demo</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        .wrapper{
+            width: 400px;
+            height: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -10px;
+            margin-left: -200px;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        .oUl{
+            width: 400px;
+            height: 10px;
+        }
+        .oLi{
+            width: 50px;
+            height: 10px;
+            float: left;
+            list-style: none;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper"></div>
+    <script src="./countDown.js"></script>
+    <script>
+        var oWrapper = document.getElementsByClassName('wrapper')[0];
+        initTime(oWrapper);
+        oWrapper.onclick = function() {
+            countDown(oWrapper, function() {
+                oUl.remove();
+                oWrapper.style.width = '400px';
+                initTime(oWrapper);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -17,16 +17,113 @@
 
     <script>
         var personArr = [
-            {name: '孙笑川', src: './src/img/01.png', des: '我是你哥哥', sex: 'm'},
-            {name: '药水哥', src: './src/img/02.png', des: '我是孙🐶的弟弟', sex: 'm'},
-            {name: '吴亦凡', src: './src/img/03.png', des: 'Bad Girl!', sex: 'm'},
-            {name: '蔡徐坤', src: './src/img/04.png', des: '长得帅也是一种错🐎', sex: 'f'},
-            {name: '蔡广坤', src: './src/img/05.png', des: '我在美国的校队', sex: 'f'},
+            {name: '孙笑川', src: './src/img/01.png', des: '我是你哥哥', sex: 'm', age: 20},
+            {name: '药水哥', src: './src/img/02.png', des: '我是孙🐶的弟弟', sex: 'm', age: 25},
+            {name: '吴亦凡', src: './src/img/03.png', des: 'Bad Girl!', sex: 'm', age: 27},
+            {name: '蔡徐坤', src: './src/img/04.png', des: '长得帅也是一种错🐎', sex: 'f', age: 21},
+            {name: '蔡广坤', src: './src/img/05.png', des: '我在美国的校队', sex: 'f', age: 45},
         ];
 
-        personArr.forEach(function(ele, index, self) {
-            this[index].innerText = ele.name;
-        }, document.getElementsByTagName('li'))
+        // personArr.forEach(function(ele, index, self) {
+        //     this[index].innerText = ele.name;
+        // }, document.getElementsByTagName('li'))
+
+        // 自己实现一下forEach
+        // Array.prototype.myForEach = function(func) {
+        //     var _arr = this,
+        //         len = _arr.length,
+        //         param2 = arguments[1] || window;
+        //     for(var i = 0; i < len; i ++) {
+        //         //ele对应当前元素, index对应当前元素索引, self对应数组本身
+        //         func.apply(param2, [_arr[i], i, _arr]);
+        //     }
+        // }
+
+        // // 我们来试一下自己实现的myForEach是否有相同的作用
+        // personArr.myForEach(function(ele, index, self) {
+        //     this[index].innerText = ele.name;
+        // }, document.getElementsByTagName('li'))
+        
+        // filter, 过滤, 返回一个新的符合过滤要求的数组
+        // var newArr = personArr.filter(function(ele, index, self) {
+        //     return ele.sex == 'f';
+        // })
+
+        // 现在我们自己实现一下myfilter
+        // Array.prototype.myFilter = function(func) {
+        //     var _arr = this,
+        //         len = this.length,
+        //         param2 = arguments[1] || window,
+        //         newArr = [];
+        //     for(var i = 0; i < len; i ++) {
+        //         func.apply(param2, [_arr[i], i, _arr]) ? newArr.push(_arr[i]) : "";
+        //     }
+        //     return newArr;
+        // }
+
+        // var newArr = personArr.myFilter(function(ele, index, self) {
+        //     return ele.sex == 'f';
+        // })
+
+        // map, 映射, 返回一个新的数组, 和之前的数组存在某种映射关系
+        // var newArr = personArr.map(function(ele, index, self) {
+        //     return ele.des + '!';
+        // }, {name: 'test'})
+        // 同样, 我们现在来实现一下myMap
+        // Array.prototype.myMap = function(func) {
+        //     var _arr = this,
+        //         len = this.length,
+        //         param2 = arguments[0] || window,
+        //         newArr = [];
+        //     for(var i = 0; i < len; i ++) {
+        //         newArr.push(func.apply(param2, [_arr[i], i, _arr]));
+        //     }
+        //     return newArr;
+        // }
+        // var newArr = personArr.myMap(function(ele, index, self) {
+        //     return ele.des + "!"; 
+        // })
+
+        // every, 如果数组中的每一个元素都满足某种要求的话, 返回true, 只要有一个不满足, 就返回false
+        // var flag = personArr.every(function(ele, index, self) {
+        //     // console.log(ele);
+        //     return ele.age > 10;
+        // })
+        // 我们来实现一下myEvery
+        // Array.prototype.myEvery = function(func) {
+        //     var _arr = this,
+        //         len = this.length,
+        //         param2 = arguments[1] || window;
+        //     for(var i = 0; i < len; i ++) {
+        //         if(func.apply(param2, [_arr[i], i, _arr]) == false) {
+        //             return false;
+        //         }
+        //     }
+        //     return true;
+        // }
+        // var flag = personArr.myEvery(function(ele, index, self) {
+        //     return ele.age < 100;
+        // })
+
+        // some, 只要数组中的一个元素满足某种需求, 就返回true, 否则返回false
+        // var flag = personArr.some(function(ele, index, self) {
+        //     return ele.age < 7;
+        // })
+        // 我们自己来实现一下mySome
+        // Array.prototype.mySome = function(func) {
+        //     var _arr = this,
+        //         len = this.length,
+        //         param2 = arguments[1];
+        //     for(var i = 0; i < len; i ++) {
+        //         if(func.apply(param2, [_arr[i], i, _arr]) == true) {
+        //             return true;
+        //         }
+        //     }
+        //     return false;
+        // }
+        // var flag = personArr.mySome(function(ele, index, self) {
+        //     return ele.age > 30;
+        // })
 
     </script>
 </body>
