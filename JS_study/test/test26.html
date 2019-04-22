@@ -23,7 +23,7 @@
             {name: '蔡徐坤', src: './src/img/04.png', des: '长得帅也是一种错🐎', sex: 'f', age: 21},
             {name: '蔡广坤', src: './src/img/05.png', des: '我在美国的校队', sex: 'f', age: 45},
         ];
-
+        var cookieStr = "BD_UPN=12314753; BAIDUID=95A8EEB6E2AA871EEC693B0C4DA45AD2:FG=1; PSTM=1532443315; BIDUPSID=B50F28C799A8C0BC444B0AA9CBB1A993; sug=3; sugstore=0; ORIGIN=0; bdime=0; MCITY=-%3A; BDORZ=B490B5EBF6F3CD402E515D22BCDA1598; H_PS_PSSID=28858_1439_21113_28767_28724_28557_28835_28585_26350_28604; H_PS_645EC=4363EoejbDlKbX8La6OFHOyKZQ1tnn%2Fl9hxsULWY3lvj9ZDuw0iibekWnVM; delPer=0; BD_CK_SAM=1; PSINO=7; BD_HOME=0";
         // personArr.forEach(function(ele, index, self) {
         //     this[index].innerText = ele.name;
         // }, document.getElementsByTagName('li'))
@@ -125,6 +125,51 @@
         //     return ele.age > 30;
         // })
 
+        // reduce, 两个参数, 一个函数, 一个initialValue, func里面有四个参数(前面的值, 当前值, 索引, 自身), 函数返回结果是initialValue
+        // var initialValue = {};
+        // personArr.reduce(function(preValue, curValue, index, self) {
+        //     console.log(preValue, curValue, index, self);
+        //     return preValue;
+        // }, initialValue)
+
+        // 我们来实现一下myReduce
+        // Array.prototype.myReduce = function(func, initialValue) {
+        //     var _arr = this, len = this.length, param2 = arguments[2];
+        //     for(var i = 0; i < len; i ++) {
+        //         initialValue = func.apply(param2, [initialValue, _arr[i], i, _arr]);
+        //     }
+        //     return initialValue;
+        // }
+        // var initialValue = {};
+        // personArr.myReduce(function(preValue, curValue, index, self) {
+        //     console.log(preValue, curValue, index, self);
+        //     return preValue;
+        // }, initialValue)
+
+        // 现在我们来把cookieStr变成一个数组, 每一个元素都是一个对象
+        // function parseCookie(str) {
+        //     var cookieArr = str.split('; '),
+        //         cookieObj = {};
+        //     cookieArr.reduce(function(preValue, curValue, index, self) {
+        //         curArr = curValue.split('=');
+        //         cookieObj[curArr[0]] = curArr[1];
+        //         return preValue;
+        //     }, cookieObj)
+        //     return cookieObj;
+        // }
+        // var cookieObj = parseCookie(cookieStr);
+        // console.log(cookieObj);
+        
+    //    var oUl = document.getElementsByTagName('ul')[0];
+    //    function throttle() {
+    //        console.log(1);
+    //        return function() {
+    //            console.log(2);
+    //        }
+    //    }
+    //    oUl.onclick = throttle();
+
+    
     </script>
 </body>
 </html>

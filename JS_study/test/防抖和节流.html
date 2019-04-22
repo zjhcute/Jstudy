@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>防抖和节流</title>
+</head>
+<body>
+    <input type="text">
+    <span style="display: block">0</span>
+    <button>点击</button>
+
+    <script>
+        // 防抖
+        var oIpt = document.getElementsByTagName('input')[0];
+        function debounce(handler, delay) {
+            return function(e) {
+                var _self = this,
+                    _arg = arguments;                
+                clearTimeout(this.timer);
+                this.timer = setTimeout(function() {
+                    handler.apply(_self, _arg);
+                }, delay)
+            }
+        }
+        function ajax(e) {
+            console.log(e, this.value);
+        }
+        oIpt.oninput = debounce(ajax, 1000);
+
+        // oIpt.oninput = function() {
+        //     console.log(arguments);
+        // }
+
+        // 节流
+        var oBtn = document.getElementsByTagName('button')[0];
+        var oSpan = document.getElementsByTagName('span')[0];
+
+        function throttle(handler, wait) {
+            var lastTime = 0;
+            return function(e) {
+                var _self = this,
+                    _arg = arguments,
+                    nowTime = new Date().getTime();
+                if(nowTime - lastTime > wait) {
+                    add.apply(_self, _arg);
+                    lastTime = nowTime;
+                }
+            }
+        }
+        function add(e) {
+            oSpan.innerText = parseInt(oSpan.innerText) + 1;
+            // console.log(e);
+        }
+        oBtn.onclick = throttle(add, 1000);
+    </script>
+</body>
+</html>
