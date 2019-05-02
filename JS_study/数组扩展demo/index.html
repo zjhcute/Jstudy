@@ -11,21 +11,21 @@
     <div class="wrapper">
         <div class="sWrapper">
             <input type="text" class="sText">
-            <span class="btn">Male</span>
-            <span class="btn">Female</span>
-            <span class="btn">All</span>
+            <span class="btn" sex="m">Male</span>
+            <span class="btn" sex="f">Female</span>
+            <span class="btn active" sex="a">All</span>
         </div>
         <div class="flWrapper">
             <ul>
-                <li>
+                <!-- <li>
                     <img src="./src/img/sundog.jpg" alt="孙狗">
-                    <p class="name"></p>
-                    <p class="des"></p>
+                    <p class="name">孙狗</p>
+                    <p class="des">你妈死了</p>
                 </li>
                 <li>
                     <img src="./src/img/liubo.jpg" alt="刘波">
-                    <p class="name"></p>
-                    <p class="des"></p>
+                    <p class="name">111</p>
+                    <p class="des">111</p>
                 </li>
                 <li>
                     <img src="./src/img/kirs.jpg" alt="吴亦凡">
@@ -41,9 +41,15 @@
                     <img src="./src/img/xgk.jpg" alt="蔡广坤">
                     <p class="name"></p>
                     <p class="des"></p>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>
+    <script src="./src/js/tools/debounce.js"></script>
+    <script src="./src/js/filter/filterByText.js"></script>
+    <script src="./src/js/filter/filterBySex.js"></script>
+    <script src="./src//js/combineFilter/combineFilter.js"></script>
+    <script src="./src/js/createStore.js"></script>
+    <script src="./src/js/index.js"></script>
 </body>
 </html>

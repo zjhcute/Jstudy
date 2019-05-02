@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>习题1</title>
+</head>
+<body>
+    
+    <script>
+        // 字符串反转 '123abc' -> 'cba321'
+        var str = '123abc';
+        var newStr = str.split('').reverse().join('');
+        console.log(newStr);
+        // 写成一个函数
+        function reverseStr(str) {
+            return str.split('').reverse().join('');
+        }
+        console.log(reverseStr(str));
+    </script>
+</body>
+</html>

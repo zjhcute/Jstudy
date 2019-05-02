@@ -10,7 +10,57 @@
     border-radius: 10px;
     margin: 100px auto 0px;
 }
-img{
+/* 搜索区域 */
+.wrapper .sWrapper{
+    margin-bottom: 20px;
+}
+.wrapper .sWrapper .sText{
+    width: 200px;
+    height: 20px;
+    outline: none;
+    border: 1px solid #999;
+    border-radius: 4px;
+    padding-left: 20px;
+}
+.wrapper .sWrapper .btn{
+    color: #6cafee;
+    margin: 6px;
+    /* background-color: #999; */
+    border-radius: 4px;
+    cursor: pointer;
+}
+.wrapper .sWrapper .btn.active{
+    color: #fff;
+    background-color: #6cafee;
+}
+
+/* 展示列表区域 */
+.wrapper .flWrapper{
+
+}
+.wrapper .flWrapper ul{
+
+}
+.wrapper .flWrapper ul li{
+    position: relative;
+    padding-left: 55px;
+    height: 55px;
+    margin: 10px 0px;
+    border-bottom: 1px solid #999;
+}
+.wrapper .flWrapper ul li img{
+    left: 0px;
+    position: absolute;
     width: 50px;
     height: 50px;
+    border-radius: 4px;
+}
+.wrapper.flWrapper ul li .name{
+    font-size: 16px;
+    
+}
+.wrapper .flWrapper ul li .des{
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px;
 }

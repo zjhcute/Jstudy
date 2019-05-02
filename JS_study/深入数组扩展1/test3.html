@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>习题3</title>
+</head>
+<body>
+    <script>
+        // 判断一个数组是否为对称的(回文)
+        var arr = ['a', 'b', 'c', 'b', 'a'];
+        function isSymmetry(arr) {
+            var len = arr.length,
+                num = parseInt(len / 2);
+            for(var i = 0; i < num; i ++) {
+                if(arr[i] == arr[len - 1 - i]) {
+                    continue;
+                }else{
+                    return -1;
+                }
+            }
+            return 1;
+        }
+    </script>
+</body>
+</html>
