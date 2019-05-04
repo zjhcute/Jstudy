@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>习题4</title>
+</head>
+<body>
+    <script>
+        // 查找子串第一次出现的索引值, 其实就是实现indexOf
+        var arr = ['a', 'b', 'c', 'a', 'b', 'x', 'y', 'z', 'x', 'z'];
+        var arr2 = ['y', 'z']
+        function findSubIndex(origin, sub) {
+            if(!origin || !sub || origin.length == 0 || sub.length == 0) {
+                return -1;
+            }
+            var len1 = arr.length - arr2.length + 1,
+                len2 = arr2.length;
+            for(var i = 0; i < len1; i ++) {
+                for(var j = 0; j < len2; j ++) {
+                    if(arr[i + j] != arr2[j]) {
+                        break;
+                    }
+                    if(j == len2 - 1) {
+                        return i;
+                    }
+                }
+            }
+            return -1;
+        }
+        // findSubIndex(arr, arr2);
+    </script>
+</body>
+</html>

@@ -11,16 +11,21 @@
         // 判断一个数组是否为对称的(回文)
         var arr = ['a', 'b', 'c', 'b', 'a'];
         function isSymmetry(arr) {
-            var len = arr.length,
-                num = parseInt(len / 2);
-            for(var i = 0; i < num; i ++) {
-                if(arr[i] == arr[len - 1 - i]) {
-                    continue;
-                }else{
-                    return -1;
-                }
+            if(arr == null) {
+                return false;
             }
-            return 1;
+            if(arr instanceof Array) {
+                var len = arr.length,
+                num = parseInt(len / 2);
+                for(var i = 0; i < num; i ++) {
+                    if(arr[i] != arr[len - 1 - i]) {
+                        return false;
+                    }
+                }
+                return true;
+            }else {
+                return false;
+            }
         }
     </script>
 </body>
