@@ -33,7 +33,6 @@ html, body, .wrapper{
     color: #b3bcc5;
     line-height: 40px;
     position: relative;
-    z-index: 1;
 }
 .left-menu dl dt {
     height: 40px;
@@ -55,7 +54,7 @@ html, body, .wrapper{
 }
 .right-content {
     position: absolute;
-    padding-left: 200px;
+    margin-left: 200px;
     width: calc(100% - 200px);
     min-width: 500px;
     top: 70px;
@@ -75,20 +74,20 @@ html, body, .wrapper{
 .right-content .add-student div {
     margin: 10px 0;
 }
-.content form label {
+.right-content form label {
     display: inline-block;
     width: 100px;
     text-align: right;
     padding-right: 10px;
     font-size: 20px;
 }
-.content form label.radio-label {
+.right-content form label.radio-label {
     width: 30px;
 }
-.content form input {
+.right-content form input {
     font-size: 20px;
 }
-.content form input.btn {
+.right-content form input.btn {
     width: 100px;
     margin-right: 40px;
     height: 34px;
@@ -136,5 +135,40 @@ html, body, .wrapper{
 .student-list table .btn.del:hover {
     background-color: rgb(45, 143, 45);
 }
+.right-content .dialog {
+    display: none;
+}
+.dialog.show {
+    display: block;
+}
+.right-content .dialog, .dialog .mask {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.dialog .mask {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.dialog .dialog-content {
+    width: 500px;
+    height: 450px;
+    background-color: rgba(255, 255, 255, 1);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+.dialog .dialog-content div {
+    margin: 10px 0px;
+}
+.dialog .dialog-content form {
+    width: 400px;
+    margin: 0 auto;
+}
+
 
 
