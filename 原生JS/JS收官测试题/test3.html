@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第三大题</title>
+</head>
+<body>
+    <div id="div-id">id</div>
+    <div class="div-class">class</div>
+    <div>tag</div>
+    <script>
+        function getDom(str) {
+            if(str.indexOf('#') == -1 && str.indexOf('.') == -1) {
+                return document.getElementsByTagName(str);
+            }else {
+                var newStr = str.slice(1);
+                if(str.indexOf('#') == 0) {
+                    return document.getElementById(newStr);
+                }else if(str.indexOf('.') == 0) {
+                    var allDom = document.getElementsByTagName('*'),
+                        len = allDom.length,
+                        classArr = [];
+                    for(var i = 0; i < len; i ++) {
+                        if(allDom[i].className.indexOf(newStr) != -1) {
+                            classArr.push(allDom[i]);
+                        }
+                    }
+                    return classArr;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -3,12 +3,68 @@ function init() {
     bindEvent();
     renderTable();
 }
+var dialog = document.getElementsByClassName('dialog')[0];
+var tableData = [];
 // 绑定事件函数
 function bindEvent() {
     var menuList = document.getElementsByClassName('menu-list')[0];
     menuList.addEventListener('click', changeMenu, false);
     var addStudentBtn = document.getElementById('add-student-btn');
     addStudentBtn.addEventListener('click', addStudent, false);
+    var tBody = document.getElementById('data-table');
+    tBody.addEventListener('click', buttonClick, false);
+    var mask = document.getElementsByClassName('mask')[0];
+    mask.onclick = function() {
+        dialog.classList.remove('show');
+    }
+    var editStudentBtn = document.getElementById('edit-student-btn');
+    editStudentBtn.addEventListener('click', editStudent, false);
+}
+// 点击按钮行为
+function buttonClick(e) {
+    var tagName = e.target.tagName.toLowerCase();
+    // console.log(tagName, e.target);
+    if(tagName != 'button') {
+        return false;
+    }
+    if(tagName == 'button' && e.target.className.indexOf('edit') != -1) {
+        // console.log(1);
+        editShow(e.target);
+    }
+    if(tagName == 'button' && e.target.className.indexOf('del') != -1) {
+        // console.log(2);
+        delShow(e.target);
+    }
+}
+// 编辑行为
+function editShow(dom) {
+    dialog.classList.add('show');
+    var index = dom.getAttribute('data-id');
+    renderForm(tableData[index]);
+}
+// 删除行为
+function delShow(dom) {
+    var index = dom.getAttribute('data-id');
+    transformData('/api/student/delBySno', {
+        sNo: tableData[index].sNo
+    }, function() {
+        var isDel = confirm('是否删除?');
+        if(isDel) {
+            var list = document.getElementsByClassName('list')[0];
+            list.click();
+        }else {
+            return false;
+        }
+    })
+}
+// 编辑信息时信息回填
+function renderForm(data) {
+    var form = document.getElementById('edit-student-form');
+    for(var prop in data) {
+        if(form[prop]) {
+            form[prop].value = data[prop];
+        }
+    }
 }
 // 点击左侧导航栏行为函数
 function changeMenu(e) {
@@ -27,25 +83,20 @@ function changeMenu(e) {
 function renderTable() {
     transformData('/api/student/findAll', '', function(res) {
         var data = res.data;
+        tableData = data;
         var str = '';
-        data.forEach(function(ele) {
-            var sex = '';
-            if(ele.sex == 0) {
-                sex = '男';
-            }else {
-                sex = '女';
-            }
+        data.forEach(function(ele, index) {
             str += '<tr>\
             <td>'+ ele.sNo +'</td>\
             <td>' + ele.name +'</td>\
-            <td>' + sex + '</td>\
+            <td>' + (ele.sex ? '女' : '男') + '</td>\
             <td>' + ele.email + '</td>\
-            <td>' + ele.birth + '</td>\
+            <td>' + (new Date().getFullYear() - ele.birth) + '</td>\
             <td>' + ele.phone + '</td>\
             <td>' + ele.address + '</td>\
             <td>\
-                <button class="btn edit">编辑</button>\
-                <button class="btn del">删除</button>\
+                <button class="btn edit" data-id=' + index + '>编辑</button>\
+                <button class="btn del" data-id=' + index + '>删除</button>\
             </td>\
         </tr>'
         })
@@ -69,10 +120,56 @@ function initContentCss(oDom) {
     }
     oDom.classList.add('content-active');
 }
-// 编辑函数
-function dialogShow() {
-    var dialog = document.getElementsByClassName('dialog')[0];
-    dialog.classList.add('show');
+// 提交按钮合并
+// function submitBtn(e, str) {
+//     e.preventDefault();
+//     var form = document.getElementById(str + '-student-form');
+//     var data = getFormData(form);
+//     if(!data) {
+//         return false;
+//     }
+//     if(str == 'edit') {
+//         transformData('/api/student/updateStudent', data, function() {
+//             form.reset();   
+//             var isTurnPage = confirm('修改成功, 是否跳转页面?');
+//             if(isTurnPage) {
+//                 var studentListTab = document.getElementsByClassName('list')[0];
+//                 studentListTab.click();
+//                 var mask = document.getElementsByClassName('mask')[0];
+//                 mask.click();
+//             }
+//         })
+//     }
+//     if(str == 'add') {
+//         transformData('/api/student/addStudent', data, function() {
+//             form.reset();   
+//             var isTurnPage = confirm('提交成功, 是否跳转页面?');
+//             if(isTurnPage) {
+//                 var studentListTab = document.getElementsByClassName('list')[0];
+//                 studentListTab.click();
+//             }
+//         })
+//     }
+// }
+// 编辑学生提交按钮
+function editStudent(e) {
+    // 清除一下默认的提交刷新页面
+    e.preventDefault();
+    var form = document.getElementById('edit-student-form');
+    var data = getFormData(form);
+    if(!data) {
+        return false;
+    }
+    transformData('/api/student/updateStudent', data, function() {
+        form.reset();   
+        var isTurnPage = confirm('修改成功, 是否跳转页面?');
+        if(isTurnPage) {
+            var studentListTab = document.getElementsByClassName('list')[0];
+            studentListTab.click();
+            var mask = document.getElementsByClassName('mask')[0];
+            mask.click();
+        }
+    })
 }
 // 新增学生提交 
 function addStudent(e) {
@@ -94,15 +191,28 @@ function addStudent(e) {
 }
 // 获取表单数据 
 function getFormData(form) {
-    var name = form.name.value;
-    var sNo = form.sNo.value;
-    var birth = form.birth.value;
-    var sex = form.sex.value;
-    var phone = form.phone.value;
-    var email = form.email.value;
-    var address = form.address.value;
+    var name = form.name.value,
+        sNo = form.sNo.value,
+        birth = form.birth.value,
+        sex = form.sex.value,
+        phone = form.phone.value,
+        email = form.email.value,
+        address = form.address.value;
+    var reg = /^[0-9A-Za-z][\.-_0-9A-Za-z]*@[0-9A-Za-z]+(\.[0-9A-Za-z]+)+$/;
     if (!name || !sNo || !birth || !phone || !email || !address) {
         alert('部分数据未填写，请填写完成后提交');
+        return false;
+    }
+    if(sNo.length < 4 || sNo.length > 16) {
+        alert('学号长度错误, 应为4-16位');
+        return false;
+    }
+    if(phone.length != 11) {
+        alert('手机号长度应为11位');
+        return false;
+    }
+    if(!reg.test(email)) {
+        alert('邮箱格式错误');
         return false;
     }
     return {
@@ -155,9 +265,9 @@ function transformData(url, data, callback) {
     }));
     if(result.status == 'success') {
         callback(result);
+        return result;
     }else {
         alert(result.msg);
     }
-    return result;
 }
 init();

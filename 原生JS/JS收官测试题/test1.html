@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第一大题</title>
+</head>
+<body>
+    <script>
+        var arr = [
+            {
+                name: 'cst',
+                age: '18'
+            },
+            {
+                name: 'jc',
+                age: '20'
+            },
+            {
+                name: 'dxm',
+                age: '50'
+            },
+            {
+                name: 'dcg',
+                age: '30'
+            }
+        ]
+        var arr1 = arr.filter(function(ele, index, self) {
+            return ele.name.indexOf('c') != -1;
+        }).map(function(ele, index) {
+            ele.age = '' + parseInt(ele.age) * 2;
+            return ele;
+        }) 
+        // var arr2 = arr1.map(function(ele, index) {
+        //     return ele.age = parseInt(ele.age) * 2;
+        // }) 
+    </script>
+</body>
+</html>
