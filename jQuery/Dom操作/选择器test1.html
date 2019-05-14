@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择器练习</title>
+</head>
+<body>
+    <div class="wrapper">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li data='zjh'>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+        </ul>
+    </div>
+    <ul>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+        <li>17</li>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+    </ul> 
+</body>
+<script src="../jQuery.js"></script>
+<script>
+    // css selector
+    $('.wrapper ul li').css({color: '#ffe411'});
+    // 选择最后一个
+    $('.wrapper ul li:last').css({color: '#0f0'});
+    // 选择第一个
+    $('.wrapper ul li:first').css({color: '#f40'});
+    // 选择索引为奇数的
+    $('.wrapper ul li:odd').css({color: '#102835'});
+    // 选择索引为偶数的
+    $('.wrapper ul li:even').css({color: '#fff'});
+    // 选择指定索引值的, 如果是负数索引值, 就是倒数
+    $('.wrapper ul li:eq(0)').css({backgroundColor: '#ffe411'});
+    // 选择属性
+    $('ul li[data="zjh"]').css({backgroundColor: '#000'});
+
+</script>
+</html>
