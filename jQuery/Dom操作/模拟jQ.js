@@ -37,10 +37,33 @@
     jQuery.prototype.get = function(num) {
         return num != null ? (num >= 0 ? this[num] : this[this.length + num]) : [].slice.call(this, 0);
     }
+    jQuery.prototype.pushStack = function (dom) {
+        if(dom.constructor != jQuery) {
+            dom = jQuery(dom);
+        }
+        dom.prevObject = this;
+        return dom;
+    }
     jQuery.prototype.eq = function(num) {
         var dom = num != null ? (num >= 0 ? this[num] : this[this.length + num]) : null;
-        return jQuery(dom);
+        return this.pushStack(dom);
     }
+    jQuery.prototype.add = function(dom) {
+        var curDom = jQuery(dom),
+            baseDom = this,
+            newDom = jQuery(newDom);
+        for(var i = 0; i < baseDom.length; i ++) {
+            newDom[newDom.length ++] = baseDom[i];
+        }
+        for(var i = 0; i < curDom.length; i ++) {
+            newDom[newDom.length ++] = curDom[i];
+        }
+        return this.pushStack(newDom);
+    }
+    jQuery.prototype.end = function() {
+        return this.prevObject;
+    }
+
 
     jQuery.prototype.init.prototype = jQuery.prototype;
     window.$ = window.jQuery = jQuery;

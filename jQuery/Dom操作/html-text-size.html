@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>html-text-size</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script src="../jQuery.js"></script>
+    <script>
+        // var ul = $('ul').get(0);
+        var arrName = ['蔡徐坤', '孙笑川', '吴亦凡', '药水哥', '周淑怡'];
+        $('ul li').html(function(index, ele) {
+            return '<p>' + arrName[index] + '</p>';
+        })
+    </script>
+</body>
+</html>
