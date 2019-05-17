@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>nextAll-prevAll</title>
+</head>
+<body>
+    全选: <input type="checkbox">
+    🍌: <input type="checkbox">
+    🍎: <input type="checkbox">
+    🌱: <input type="checkbox">
+    🐎: <input type="radio">
+    <script src="../jQuery.js"></script>
+    <script>
+        $('input').eq(0).click(function() {
+            if($(this).prop('checked')) {
+                $(this).nextAll('input[type="checkbox"]').prop('checked', true);
+            }else {
+                $(this).nextAll('input[type="checkbox"]').prop('checked', false);
+            }
+        })
+    </script>
+</body>
+</html>

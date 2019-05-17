@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>addClass-hasClass</title>
+    <style>
+        .demo {
+            width: 100px;
+            height: 100px;
+            background-color: #f40;
+        }
+        .demo.active {
+            background-color: #ffe411;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo active"></div>
+    <div class="demo"></div>
+    <div class="demo"></div>
+    <script src="../jQuery.js"></script>
+    <script>
+        // $('.demo').addClass('active');
+        // $('.demo').addClass(function(index, ele) {
+        //     return index % 2 == 0 ? 'active duyi' : 'duyi';
+        // })
+        $('.demo').click(function() {
+            $('.demo').removeClass('active');
+            $(this).addClass('active');
+            // $('.demo').css({backgroundColor: '#f40'});
+            // $(this).css({backgroundColor: '#ffe411'});
+        })
+
+    </script>
+</body>
+</html>

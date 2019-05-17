@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>nextUntil-prevUntil</title>
+</head>
+<body>
+    <!-- <h3>水果</h3>
+    全选: <input type="checkbox" name="" id="">
+    🍎: <input type="checkbox" name="" id="">
+    🍌: <input type="checkbox" name="" id="">
+    🍒: <input type="checkbox" name="" id="">
+    <h3>NBA</h3>
+    全选: <input type="checkbox" name="" id="">
+    库里: <input type="checkbox" name="" id="">
+    詹姆斯: <input type="checkbox" name="" id="">
+    科比: <input type="checkbox" name="" id="">
+    <script src="../jQuery.js"></script>
+    <script>
+        $('h3').next().click(function() {
+            if($(this).prop('checked')) {
+                $(this).nextUntil('h3', 'input[type="checkbox"]').prop('checked', true);
+            }else {
+                $(this).nextUntil('h3', 'input[type="checkbox"]').prop('checked', false);
+            }
+        })
+    </script> -->
+    <div class="wrapper">
+        all: <input type="checkbox" name="" id="">
+        <h2>吃货清单</h2>
+        all: <input type="checkbox" name="" id="">
+        <h4>水果</h4>        
+        全选: <input type="checkbox" name="" id="">
+        🍎: <input type="checkbox" name="" id="">
+        🍌: <input type="checkbox" name="" id="">
+        🍒: <input type="checkbox" name="" id="">
+        <h4>蔬菜</h4>
+        全选: <input type="checkbox" name="" id="">
+        🥒: <input type="checkbox" name="" id="">
+        🥕: <input type="checkbox" name="" id="">
+        🥦: <input type="checkbox" name="" id="">
+        <h2>球星</h2>
+        all: <input type="checkbox" name="" id="">
+        <h4>NBA</h4>
+        全选: <input type="checkbox" name="" id="">
+        库里: <input type="checkbox" name="" id="">
+        詹姆斯: <input type="checkbox" name="" id="">
+        科比: <input type="checkbox" name="" id="">
+    </div>
+    <script src="../jQuery.js"></script>
+    <script>
+        $('input[type="checkbox"]').eq(0).click(function() {
+            if($(this).prop('checked')) {
+                $(this).nextAll().prop('checked', true);
+            }else {
+                $(this).nextAll().prop('checked', false);
+            }
+        })
+        $('h2').next().click(function() {
+            if($(this).prop('checked')) {
+                $(this).nextUntil('h2').prop('checked', true);
+            }else {
+                $(this).nextUntil('h2').prop('checked', false);
+            }
+        })
+        $('h4').next().click(function() {
+            if($(this).prop('checked')) {
+                $(this).nextUntil('h4').prop('checked', true);
+            }else {
+                $(this).nextUntil('h4').prop('checked', false);
+            }
+        })
+    </script>
+</body>
+</html>
