@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hide</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .demo {
+            width: 100px;
+            border: 1px solid #000;
+        }
+        ul {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo">
+        <p>菜嘘坤</p>
+        <ul>
+            <li>唱</li>
+            <li>跳</li>
+            <li>Rap</li>
+            <li>🏀</li>
+        </ul>
+    </div>
+    <script src="../jQuery.js"></script>
+    <script>
+        $('p').on('mouseenter', function() {
+            $('ul').show(1000, 'swing');
+        })
+        $('ul').on('mouseleave', function() {
+            $('ul').hide(1000, 'linear');
+        })
+    </script>
+</body>
+</html>

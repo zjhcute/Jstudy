@@ -63,7 +63,55 @@
     jQuery.prototype.end = function() {
         return this.prevObject;
     }
-
+    jQuery.prototype.myOn = function(type, handle) {
+        for(var i = 0; i < this.length; i ++) {
+            if(!this[i].catchEvent) {
+                this[i].catchEvent = {};
+            }
+            if(!this[i].catchEvent[type]) {
+                this[i].catchEvent[type] = [handle];
+            }else {
+                this[i].catchEvent[type].push(handle);
+            }
+        }
+    }
+    jQuery.prototype.myTrigger = function(type) {
+        var params = arguments.length > 1 ? [].slice.call(arguments, 1) : [];
+        var self = this;
+        for(var i = 0; i < this.length; i ++) {
+            if(this[i].catchEvent[type]) {
+                this[i].catchEvent[type].forEach(function (ele, index) {
+                    ele.apply(self, params);
+                })
+            }
+        }
+    }
+    jQuery.prototype.myQueue = function() {
+        var queueObj = this;
+        var queueName = arguments[0] || 'fx';
+        var addFunc = arguments[1] || null;
+        var len = arguments.length;
+        // 获取队列
+        if(len == 1) {
+            return queueObj[0][queueName];
+        }
+        // 添加队列
+        queueObj[0][queueName] == undefined ? queueObj[0][queueName] = [addFunc] : queueObj[0][queueName].push(addFunc); 
+        return this;
+    }
+    jQuery.prototype.myDequeue = function(type) {
+        var queueName = arguments[0] || 'fx';
+        var queueArr = this.myQueue(queueName);
+        var currFunc = queueArr.shift();
+        var self = this;
+        if(currFunc == undefined) {
+            return;
+        }
+        var next = function() {
+            self.myDequeue(queueName);
+        }
+        currFunc(next);
+    }
 
     jQuery.prototype.init.prototype = jQuery.prototype;
     window.$ = window.jQuery = jQuery;

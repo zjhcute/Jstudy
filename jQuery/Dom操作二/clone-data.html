@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>clone-data</title>
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- <button>origin</button> -->
+    <table class="tb">
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>班级</th>
+        </tr>
+        <tr class="hide">
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <script src="../jQuery.js"></script>
+    <script>
+        // clone
+        // $('button').click(function() {
+        //     alert(0);
+        // });
+        // $('button')
+        //     .clone(true)
+        //         .text('clone')
+        //             .appendTo('body');
+
+        // data
+        var dataArray = [
+            {
+                name: 'aaa',
+                age: 18,
+                class: 3
+            },
+            {
+                name: 'bbb',
+                age: 18,
+                class: 3
+            },
+            {
+                name: 'ccc',
+                age: 18,
+                class: 3
+            }
+        ]
+        var tb = $('.tb');
+        dataArray.forEach(function(ele, index) {
+            var tr = $('.hide').clone().removeClass();
+            tr.find('td')
+                .eq(0)
+                    .text(ele.name)
+                        .next()
+                            .text(ele.age)
+                                .next()
+                                    .text(ele.class);
+            tr.appendTo(tb);
+        })
+    </script>
+</body>
+</html>

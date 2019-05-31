@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>热点排名</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .clearF::after {
+            content: '';
+            display: block;
+            clear: both;
+            overflow: hidden;
+        }
+        .wrapper {
+            width: 400px;
+            border: 1px solid rgb(66, 149, 226);
+            border-radius: 10px;
+            margin: 40px auto;
+            padding: 10px 5px;
+        }
+        .wrapper .headSection {
+            width: 400px;
+            height: 50px;
+            line-height: 50px;
+            border-bottom: 1px solid #ccc;
+        }
+        .wrapper .headSection .hot {
+            display: inline-block;
+            color: rgb(190, 30, 52);
+            font-size: 20px;
+            font-weight: bold;
+            padding: 0px 20px;
+            position: relative;
+        }
+        .wrapper .headSection .hot::after {
+            content: '';
+            display: inline-block;
+            background-image: url('./img/fire.png');
+            width: 32px;
+            height: 32px;
+            position: absolute;
+            top: 9px;
+        }
+        .wrapper .headSection .change {
+            color: rgb(30, 145, 190);
+            font-size: 16px;
+            padding: 0px 20px;
+            float: right;
+            cursor: pointer;
+        }
+        .wrapper .showSection {
+            width: 400px;
+        }
+        .wrapper .showSection .tpl {
+            width: 400px;
+            height: 50px;
+            border-bottom: 1px solid #ccc;
+            float: left;
+        }
+        .wrapper .showSection .tpl.tpl-none {
+            display: none;
+        }
+        .wrapper .showSection .tpl .number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            font-weight: bold;
+            background-color: #0bf;
+            color: #fff;
+            margin: 10px;
+            line-height: 30px;
+            text-align: center;
+        }
+        .wrapper .showSection .tpl .mes {
+            font-size: 12px;
+            color: rgb(30, 145, 190);
+            float: right;
+            line-height: 50px;
+            padding-right: 10px;
+        }
+        .wrapper .showSection .tpl .mes::after {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-size: 100%, 100%;
+        }
+        .wrapper .showSection .tpl .mes.up::after {
+            background-image: url('./img/up.png')
+        }
+        .wrapper .showSection .tpl .mes.down::after {
+            background-image: url('./img/down.png')
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="headSection">
+            <span class="hot">热点排行</span>
+            <span class="change">换一换</span>
+        </div>
+        <ul class="showSection clearF">
+            <li class="tpl tpl-none">
+                <span class="number"></span>
+                <span class="title"></span>
+                <span class="mes"></span>
+            </li>
+        </ul>
+    </div>
+    <script src="../jQuery.js"></script>
+    <script src="./serverData.js"></script>
+    <script>
+        (function(data) {
+            var $wrapper = $('.wrapper');
+            var $change = $wrapper.find('.change');
+            var $show = $wrapper.find('.showSection');
+            $show.hide();
+            var $tpl = $wrapper.find('.tpl');
+            var len = data.length;
+            var currPage = 0;
+            var currNum = 0;
+            var colorsArray = ['#f40', '#ef626c', '#f88']
+            function bindEvent() {
+                $change.on('click', function() {
+                    $show.hide();
+                    currPage = ++currNum % Math.ceil(len / 10);
+                    renderData(data);
+                })
+            }
+            function renderData(data) {
+                $('.tpl-flag').remove();
+                var eleLen = len - currPage * 10 > 10 ? 10 : len - currPage * 10;
+                for(var i = 0; i < eleLen; i ++) {
+                    var $clone = $tpl.clone().removeClass('tpl-none').addClass('tpl-flag');
+                    var ele = data[i + currPage * 10];
+                    $clone.find('.number').css('backgroundColor', currPage == 0 && i <= 2 && colorsArray[i])
+                        .text(i + currPage * 10 + 1)
+                            .next()
+                                .text(ele['title'])
+                                    .next()
+                                        .text(ele['search'])
+                                            .addClass(ele['search'] > ele['hirSearch'] ? 'up' : 'down');
+                    $show.append($clone);
+                }
+                $show.fadeIn();
+            }
+            bindEvent();
+            renderData(data);
+
+        })(Data)
+    </script>
+</body>
+</html>

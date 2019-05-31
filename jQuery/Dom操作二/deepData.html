@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>deepData</title>
+    <style>
+        .goods{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="goods">
+        <p></p>
+        <span></span>
+        <button>add</button>
+    </div>
+    <div class="sumWrapper">
+        <span>SUM: </span>
+        <span class="sum">0</span>
+    </div>
+    <script src="../jQuery.js"></script>
+    <script>
+        var goodsArray = [
+            {
+                name: 'iphone X',
+                shop: 'Apple',
+                id: 1001,
+                price: 8000
+            },
+            {
+                name: 'pixel 3',
+                shop: 'Google',
+                id: 1002,
+                price: 6500
+            },
+            {
+                name: 'mi 9',
+                shop: 'MI',
+                id: 1003,
+                price: 2999
+            }
+        ]
+        goodsArray.forEach(function(ele, index) {
+            var oCloneDom = $('.goods').clone().removeClass();
+            oCloneDom.data({
+                name: ele.name,
+                shop: ele.shop,
+                id: ele.id,
+                price: ele.price
+            })
+                .find('p')
+                    .text(ele.name)
+                        .next()
+                            .text(ele.price);
+            oCloneDom.insertBefore($('.sumWrapper'));
+        })
+        $('button').click(function() {
+            $('.sum').text(+$('.sum').text() + $(this).parent().data('price'));
+        })
+    </script>
+</body>
+</html>
