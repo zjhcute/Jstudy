@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>width-height</title>
+    <style>
+        .demo {
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            margin: 10px;
+            border: 5px solid #000;
+            background-color: #f40;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo"></div>
+    <script src="../jQuery.js"></script>
+    <script>
+        console.log($('.demo').width());
+        console.log($('.demo').innerWidth());
+        console.log($('.demo').outerWidth());
+        console.log($('.demo').outerWidth(true));
+    </script>
+</body>
+</html>
