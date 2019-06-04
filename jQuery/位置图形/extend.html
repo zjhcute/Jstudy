@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>extend</title>
+    <style>
+        .demo {
+            position: absolute;
+            left: 100px;
+            width: 100px;
+            height: 100px;
+            top: 100px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo"></div>
+    <script src="../jQuery.js"></script>
+    <script>
+        $.extend({
+            definedRandom: function(start, end) {
+                len = end - start;
+                return Math.random() * len + start;
+            }
+        })
+        $.fn.extend({
+            drag: function() {
+                var disX, disY, self = this;
+                $(this).on('mousedown', function(e) {
+                    disX = e.pageX - $(this).offset().left;
+                    disY = e.pageY - $(this).offset().top;
+                    $(document).on('mousemove', function(e) {
+                        $(self).css({left: e.pageX - disX, top: e.pageY - disY});
+                    });
+                    $(document).on('mouseup', function(e) {
+                        $(document).off('mousemove').off('mouseup');
+                    });
+                })
+                return this;
+            }
+        })
+        $('.demo').drag();
+    </script>
+</body>
+</html>

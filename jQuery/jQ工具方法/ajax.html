@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax</title>
+</head>
+<body>
+    
+
+
+    <script src="../jQuery.js"></script>
+    <script>
+        // 'https://easy-mock.com/mock/5c0b4a876162b83fe0a50cb9/person'
+        $.ajax({
+            url: 'https://easy-mock.com/mock/5c0b4a876162b83fe0a50cb9/person',
+            type: 'GET',
+            success: function(res) {
+                console.log(res);
+            }
+        })
+    </script>
+</body>
+</html>
