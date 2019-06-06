@@ -9,7 +9,7 @@
 <body>
     
 
-
+    <div class="demo"></div>
     <script src="../jQuery.js"></script>
     <script>
         // 'https://easy-mock.com/mock/5c0b4a876162b83fe0a50cb9/person'
@@ -18,7 +18,15 @@
             type: 'GET',
             success: function(res) {
                 console.log(res);
-            }
+            },
+            error: function(e) {
+                console.log(e.status, e.statusText);
+            },
+            complete: function() {
+                console.log(this);
+            },
+            context: $('.demo'),
+            // timeout: 100
         })
     </script>
 </body>

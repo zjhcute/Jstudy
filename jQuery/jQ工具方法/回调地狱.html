@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>回调地狱</title>
+    <style>
+        .wrapper {
+            width: 900px;
+            height: 600px;
+            background-color: rgb(4, 30, 53);
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        .movieSection {
+            width: 200px;
+            height: 200px;
+            background-color: aliceblue;
+            margin: 50px;
+            float: left;
+        }
+        .tpl {
+            display: none;
+        }
+        .movieSection img {
+            height: 200px;
+            width: 200px;
+            cursor: pointer;
+        }
+        .movieSection h3 {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="wrapper">
+        <div class="movieSection tpl">
+            <img src="" alt="1">
+            <h3>还望</h3>
+        </div>
+        
+    </div>
+    <script src="../jQuery.js"></script>
+    <script>
+        $.ajax({
+            url: 'https://easy-mock.com/mock/5c09f40d3c098813c612cce6/movie/power',
+            type: 'POST',
+            success: function(res) {
+                if(res.data.power == 'root') {
+                    $.ajax({
+                        url: 'https://easy-mock.com/mock/5c09f40d3c098813c612cce6/movie/movieList',
+                        type: 'GET',
+                        success: function(res) {
+                            $wrapper = $('.wrapper')
+                            $.each(res.data, function(index, ele) {
+                                if(index == 3) {
+                                    $tpl = $('.tpl').clone().removeClass('tpl').addClass('movieSection');
+                                    $tpl.data({id: ele.id})
+                                            .children()
+                                                .eq(0).attr('src', 'https://img3.doubanio.com/view/photo/l/public/p2540513831.webp')
+                                                    .next().text(ele.name);
+                                    $wrapper.append($tpl);
+                                }else {
+                                    $tpl = $('.tpl').clone().removeClass().addClass('movieSection');
+                                    $tpl.data({id: ele.id})
+                                            .children()
+                                                .eq(0).attr('src', ele.poster)
+                                                    .next().text(ele.name);
+                                    $wrapper.append($tpl);
+                                }          
+                            })
+                        }
+                    })
+                }
+            }
+        }) 
+    </script>
+</body>
+</html>
