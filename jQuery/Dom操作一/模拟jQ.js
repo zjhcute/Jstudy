@@ -112,6 +112,9 @@
         }
         currFunc(next);
     }
+    jQuery.myCallbacks = function() {
+        
+    }
 
     jQuery.prototype.init.prototype = jQuery.prototype;
     window.$ = window.jQuery = jQuery;

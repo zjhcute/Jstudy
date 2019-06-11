@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>then</title>
+</head>
+<body>
+    
+    <script src="../jQuery.js"></script>
+    <script>
+        var df = $.Deferred();
+        // df.done(function() {
+        //     console.log('done1');
+        // }).fail(function() {
+        //     console.log('fail');
+        // }).progress(function() {
+        //     console.log('progress');
+        // }).done(function() {
+        //     console.log('done2');
+        // });
+        function createScore() {
+            var df = $.Deferred();
+            setInterval(function() {
+                var score = Math.random() * 100;
+                if(score > 60) {
+                    df.resolve('done');
+                }else if(score < 30) {
+                    df.reject('fail');
+                }else {
+                    df.notify('progress');
+                }
+            }, 1500);
+            return df.promise();
+        }
+        var df = createScore();
+        df.then(function(ms) {
+            console.log('done1' + ms);
+            var innerDf = $.Deferred();
+            setInterval(function() {
+                var score = Math.random() * 100;
+                if(score > 60) {
+                    innerDf.resolve('!!!');
+                }else if(score < 30) {
+                    innerDf.reject('???');
+                }else {
+                    innerDf.notify('........');
+                }
+            }, 1500);
+            return innerDf.promise();
+        }, function(ms) {
+            console.log('done1' + ms);
+            var innerDf = $.Deferred();
+            setInterval(function() {
+                var score = Math.random() * 100;
+                if(score > 60) {
+                    innerDf.resolve('!!!');
+                }else if(score < 30) {
+                    innerDf.reject('???');
+                }else {
+                    innerDf.notify('........');
+                }
+            }, 1500);
+            return innerDf.promise();
+        }, function(ms) {
+            console.log('done1' + ms);
+            var innerDf = $.Deferred();
+            setInterval(function() {
+                var score = Math.random() * 100;
+                if(score > 60) {
+                    innerDf.resolve('!!!');
+                }else if(score < 30) {
+                    innerDf.reject('???');
+                }else {
+                    innerDf.notify('........');
+                }
+            }, 1500);
+            return innerDf.promise();
+        }).then(function(param) {
+            console.log(param);
+        }, function(param) {
+            console.log(param);
+        }, function(param) {
+            console.log(param);
+        });
+
+    </script>
+</body>
+</html>

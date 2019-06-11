@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>deferred</title>
+</head>
+<body>
+    
+    <script src="../jQuery.js"></script>
+    <script>
+        
+        function createScore() {
+            var df = $.Deferred();
+            setInterval(function() {
+                var score = Math.random() * 100;
+                if(score > 60) {
+                    df.resolve('!!!');
+                }else if(score < 30) {
+                    df.reject('???');
+                }else {
+                    df.notify('........');
+                }
+            }, 1500);
+            return df.promise();
+        }
+        var df = createScore();
+        df.done(function(mes) {
+            console.log('SUCCESS' + mes);
+        });
+        df.fail(function(mes) {
+            console.log('ERROR' + mes);
+        });
+        df.progress(function(mes) {
+            console.log('WAITING...' + mes);
+        });
+        // setInterval(function() {
+        //     console.log(1);
+        // }, 100)
+    </script>
+</body>
+</html>
