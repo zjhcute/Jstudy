@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myFullPage</title>
+    <link rel="stylesheet" href="./fullpage.css">
+    <style>
+        /* html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+        .wrapper {
+            width: 100%;
+            height: 100%;
+            background-color: #D496A7;
+            text-align: center;
+            position: absolute;
+            top: 0;
+        }
+        .section {
+            width: 100%;
+            height: 100%;
+            background-color: #FE938C;
+            position: relative;
+        }
+        .slideWrapper {
+            height: 100%;
+            width: slide.outerWidth() * slide.length;
+            position: absolute;
+            left: 0;
+        }
+        .slide {
+            float: left;
+            width: $(window).outerWidth();
+            height: 100%;
+        } */
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="section">1</div>
+        <div class="section">
+            <div class="slide">2-1</div>
+            <div class="slide">2-2</div>
+            <div class="slide">2-3</div>
+        </div>
+        <div class="section">3</div>
+    </div>
+
+    <script src="../jQuery.js"></script>
+    <script src="./myFullPage.js"></script>
+    <script>
+        $('.wrapper').myFullPage({
+            colorsArray: ['#D496A7', '#FE938C', '82AEB1'],
+        });
+    </script>
+</body>
+</html>
