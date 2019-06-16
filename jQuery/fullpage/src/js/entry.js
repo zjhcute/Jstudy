@@ -56,7 +56,8 @@ pageEngine.init('.wrapper', ['#D496A7', '#FE938C', '#82AEB1'])
                 opacity: 0,
                 position: 'absolute',
                 backgroundColor: '#000',
-                color: '#fff'
+                color: '#fff',
+                // background: 'URL("../img/cp1.jpg")',
             },
             animateIn: {
                 opacity: 1,

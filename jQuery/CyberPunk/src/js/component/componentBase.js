@@ -4,6 +4,7 @@ var ComponentFactory = function(config) {
     config.className && $Div.addClass(config.className);
     config.width && $Div.css('width', config.width);
     config.height && $Div.css('width', config.height);
+    config.background && $Div.css('background', config.background);
     config.text && $Div.text(config.text);
     config.center && $Div.css({position: 'absolute', left: '50%', marginLeft: -config.width / 2});
     config.css && $Div.css(config.css);
