@@ -28,7 +28,7 @@ $.fn.extend({
                     $(ele).css({backgroundColor: colorsArray[index % 3], position: 'relative'})
                         .find('.slide')
                             .wrapAll('<div class="slideWrapper"></div>')
-                                .css({float: 'left', width: clientWidth, height: clientHeight});
+                                .css({float: 'left', width: clientWidth, height: clientHeight, position: 'relative'});
                 })
         $section.find('.slideWrapper')
                 .each(function(index, ele) {
@@ -48,7 +48,9 @@ $.fn.extend({
         $(document).on('keydown', function(e) {
             if(lock) {
                 // 锁住
-                lock = false;
+                if(e.which == 37 || e.which == 38 || e.which == 39 || e.which == 40) {
+                    lock = false;
+                }
                 // 新建一个当前位置的变量
                 var newTop = $wrap.offset().top;
                 var direction = '';
@@ -57,10 +59,12 @@ $.fn.extend({
                     // 如果按了上并且不是第一个section
                     if(e.which == 38 && curIndex != 0) {
                         direction = 'top';
+                        config.onLeave(curIndex, direction);
                         curIndex --;
                         newTop += clientHeight;
                     }else if (e.which == 40 && curIndex != $section.length - 1) {
                         direction = 'bottom';
+                        config.onLeave(curIndex, direction);
                         curIndex ++;
                         newTop -= clientHeight;
                     }
@@ -74,6 +78,7 @@ $.fn.extend({
                         }else{
                             $section.eq(curIndex - 1).removeClass('active');
                         }
+                        config.afterLoad(curIndex, direction);
                     })
                 }
                 // 控制slideWrapper水平移动
