@@ -1,0 +1,264 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    
+}
+body {
+    background-color: #f0f3ef;
+}
+.header {
+    width: 100%;
+    height: 120px;
+}
+.header .ad {
+    width: 100%;
+    height: 90px;
+    background-color: #6ea4c9;
+}
+.header .ad .ad-content {
+    width: 1190px;
+    height: 90px;
+    background: url(http://i0.hdslb.com/bfs/archive/3329c9f0abfb925ae30441f24d924ad3c19775df.png);
+    margin: 0 auto;
+}
+.header .nav {
+    width: 100%;
+    height: 30px;
+    background-color: #e3e4e5;
+}
+.header .nav .nav-content {
+    width: 1190px;
+    height: 30px;
+    margin: 0 auto;
+    line-height: 30px;
+    font-size: 12px;
+}
+.header .nav .nav-content .location {
+    margin-left: 200px; 
+    float: left;
+}
+.header .nav .nav-content .location::before {
+    content: '';
+    content: url(../img/position.png);
+    position: relative;
+    top: 2px;
+}
+.header .nav .nav-content .nav-ul {
+   float: right;
+}
+.header .nav .nav-content, a {
+    color: #999;
+}
+.header .nav .nav-content li {
+    float: left;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+.header .nav .nav-content .line {
+    width: 1px;
+    height: 10px;
+    padding: 0;
+    overflow: hidden;
+    margin: 11px 5px;
+    background-color: #ccc;
+}
+.search .search-inner {
+    width: 1190px;
+    height: 140px;
+    margin: 0 auto;
+    position: relative;
+}
+.search .search-inner .logo {
+    width: 190px;
+    height: 170px;
+    background: url(https://misc.360buyimg.com/mtd/pc/index_2017/2.1.0/static/images/sprite.head.png);
+    position: absolute;
+    top: -30px;
+}
+.search .search-inner .search-top {
+    width: 1190px;
+    height: 80px;
+    position: relative;
+}
+.search .search-inner .search-top .search-box-w {
+    width: 550px;
+    height: 60px;
+    position: absolute;
+    left: 300px;
+    top: 25px;
+}
+.search .search-inner .search-top .search-box-w .search-box {
+    width: 550px;
+    height: 35px;
+}
+.search .search-inner .search-top .search-box-w .search-box input {
+    width: 450px;
+    height: 25px;
+    border: 1px solid transparent;
+    outline: none;
+    font-size: 16px;
+    padding: 4px 44px 4px 4px;
+    float: left;
+}
+.search .search-inner .search-top .search-box-w .search-box button {
+    width: 50px;
+    height: 35px;
+    border: 0px;
+    float: left;
+    background-color: #f10215;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+.search .search-inner .search-top .search-box-w .search-box button::before {
+    content: '';
+    content: url(../img/camera.png);
+    position: absolute;
+    right: 60px;
+    top: 2px;
+}
+.search .search-inner .search-top .search-box-w .hot-word {
+    width: 550px;
+    height: 20px;
+}
+.search .search-inner .search-top .search-box-w .hot-word li {
+    font-size: 12px;
+    color: #999;
+    float: left;
+    padding: 4px 10px 0 0;
+    cursor: pointer;
+}
+.search .search-inner .search-top .search-box-w .hot-word li:hover {
+    color: #c81623;
+}
+.search .search-inner .search-top .shop-car {
+    width: 188px;
+    height: 33px;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 25px;
+    left: 880px;
+    background-color: #fff;
+}
+.search .search-inner .search-top .shop-car span {
+    font-size: 12px;
+    color: #f10215;
+    display: block;
+    width: 60px;
+    height: 16px;
+    margin: 8px auto;
+    position: relative;
+}
+.search .search-inner .search-top .shop-car span::before {
+    content: '';
+    content: url(../img/shopCar.png);
+    position: absolute;
+    left: -20px;
+}
+.search .search-inner .search-top .shop-car span::after {
+    content: '0';
+    position: absolute;
+    background-color: #f10215;
+    border-radius: 8px; 
+    right: -20px;
+    top: -4px;
+    color: #fff;
+    display: block;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+}
+.search .search-inner .search-top .Qr-code {
+    width: 64px;
+    height: 64px;
+    background: url(https://misc.360buyimg.com/mtd/pc/index_2017/2.1.0/static/images/mobile_qrcode.png) no-repeat 2px 2px;
+    background-size: 60px;
+    position: absolute;
+    right: 0px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.search .search-inner .search-top .Qr-code::before {
+    content: '';
+    content: url(../img/top.png);
+    position: absolute;
+    top: -12px;
+    left: 24px;
+} 
+.search .search-inner .search-bottom .search-nav {
+    width: 790px;
+    height: 60px;
+    position: absolute;
+    left: 190px;
+}
+.search .search-inner .search-bottom .search-nav .nav-group{
+    height: 40px;
+    overflow: hidden;
+    float: left;
+}
+.search .search-inner .search-bottom .search-nav .group-li{
+    padding: 20px 14px 0px;
+    float: left;
+    font-size: 14px;
+    color: #424242;
+}
+.search .search-inner .search-bottom .search-nav li.line {
+    width: 1px;
+    height: 20px;
+    padding: 0;
+    overflow: hidden;
+    margin: 20px 5px;
+    background-color: #ccc;
+}
+.search .search-inner .search-bottom .event {
+    width: 190px;
+    height: 40px;
+    background: url(http://m.360buyimg.com/babel/jfs/t1/41597/15/8266/62713/5d1dae0aEe1de5630/8d81f2e235a3ead1.gif);
+    position: absolute;
+    right: 0;
+}
+.content {
+    width: 1190px;
+    height: 480px;
+    margin: 0 auto;
+}
+.content .content-menu {
+    width: 189px;
+    height: 480px;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    float: left;
+    margin-right: 10px;
+}
+.content .content-swiper {
+    width: 590px;
+    height: 470px;
+    margin-top: 10px;
+    float: left;
+    margin-right: 10px;
+}
+.content .news {
+    width: 190px;
+    height: 480px;
+    float: left;
+}
+.content .news .news-ul {
+    width: 190px;
+    height: 480px;
+}
+.content .news .news-ul li {
+    width: 190px;
+    height: 150px;
+    margin-top: 10px;
+}
+.content .news .news-ul li.news-li-1 {
+    background: url(https://img12.360buyimg.com/babel/s190x150_jfs/t1/47847/31/3504/81109/5d15b37bEc8964a03/3e7093b76fba6d4f.jpg!q90!cc_190x150);
+}
+.content .news .news-ul li.news-li-2 {
+    background: url(https://img12.360buyimg.com/babel/s190x150_jfs/t1/64547/14/3733/39812/5d1effc3E07d9645b/142805c7775ef03a.jpg!q90!cc_190x150);
+}
+.content .news .news-ul li.news-li-3 {
+    background: url(https://img1.360buyimg.com/pop/s190x150_jfs/t1/53715/21/4641/67782/5d257edaE61d746ce/097c10c96aaf3339.jpg!q90!cc_190x150);
+}

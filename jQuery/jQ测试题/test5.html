@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第五大题</title>
+</head>
+<body>
+    <script>
+        // Deferred是基于CallBacks来实现的
+        // 内部有三个Callbacks分别对应三种注册和触发
+        jQuery.myDeferred = function() {
+            var arrCallBacks = [
+                [
+                    jQuery.myCallBacks('once memory'), 'done', 'resolve'
+                ],
+                [
+                    jQuery.myCallBacks('once memory'), 'fail', 'reject'
+                ],
+                [
+                    jQuery.myCallBacks('memory'), 'progress', 'notify'
+                ],
+            ]
+            // 定义一个变量用来记录状态, 避免resolve之后仍可以reject的情况出现
+            var pendding = true;
+            var deferred = {};
+            var len = arrCallBacks.length;
+            for(var i = 0; i < len; i ++) {
+                // 注册三种状态
+                deferred[ arrCallBacks[i][1] ] = (function(index) {
+                    return function(func) {
+                        arrCallBacks[index][0].add(func);
+                    }
+                })(i);
+                // 触发的三种回调
+                deferred[ arrCallBacks[i][2] ] = (function(index) {
+                    return function() {
+                        var args = arguments;
+                        if(pendding) {
+                            arrCallBacks[index][0].fire.apply(window, args);
+                            arrCallBacks[index][2] == 'resolve' || arrCallBacks[index][2] == 'reject' ? pendding = false : true;
+                        }
+                    }
+                })(i)
+            }
+            return deferred;
+        }
+    </script>
+</body>
+</html>

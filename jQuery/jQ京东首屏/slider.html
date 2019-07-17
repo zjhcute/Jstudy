@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图插件</title>
+    <style>
+        .demo {
+            width: 500px;
+            height: 300px;
+            margin: 50px auto;
+            border: 1px solid rgb(0, 0, 0);
+        }
+        .test {
+            width: 500px;
+            height: 300px;
+            margin: 50px auto;
+            border: 1px solid rgb(0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="demo"></div>
+    <div class="test"></div>
+    <script src="src/js/tools/jQuery.js""></script>
+    <script src="./src/js/tools/swiper.js"></script>
+    <script>
+        // 调用实例化方法生成轮播图
+        $('.demo').swiper({
+            imgList: ["./src/img/pic1.jpg", "./src/img/pic2.jpg", "./src/img/pic3.jpg", "./src/img/pic4.jpg"],
+            width: 500,
+            height: 300,
+            isAuto: false,
+            direction: "right",
+            animateType: "animate",
+        })
+        $('.test').swiper({
+            imgList: ["./src/img/pic1.jpg", "./src/img/pic2.jpg", "./src/img/pic3.jpg", "./src/img/pic4.jpg"],
+            width: 500,
+            height: 300,
+            isAuto: false,
+            direction: "right",
+            animateType: "fade",
+        })
+        
+    </script>
+</body>
+</html>

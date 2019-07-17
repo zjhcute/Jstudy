@@ -112,9 +112,39 @@
         }
         currFunc(next);
     }
-    jQuery.myCallbacks = function() {
+    jQuery.prototype.myCallbacks = function() {
         
     }
+
+    // jQuery.prototype.extend = function() {
+    //     var target = arguments[0] || {},
+    //         length = arguments.length,
+    //         deep = false,
+    //         i = 1;
+    //     // 判断target是否为boolean值
+    //     if(typeof target === 'boolean') {
+    //         deep = target;
+    //         target = arguments[i] || {};
+    //         i++;
+    //     }
+    //     // 保证目标参数的合法性
+    //     if(typeof target !== 'object' && !jQuery.isFunction(target)) {
+    //         target = {};
+    //     }
+    //     // 判断是否为扩展功能
+    //     if(i === length) {
+    //         target = this;
+    //         i--;
+    //     }
+    //     for(; i < length; i++) {
+    //         if((options = arguments[i]) != null) {
+    //             for(name in options) {
+    //                 copy = options[name];
+    //             }
+    //         }
+    //     }
+    //     return target;
+    // }
 
     jQuery.prototype.init.prototype = jQuery.prototype;
     window.$ = window.jQuery = jQuery;

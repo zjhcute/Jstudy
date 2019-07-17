@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第一大题</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            height: 3000px;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="./jQuery.js"></script>
+    <script>
+        // 声明定义两个变量, 后面多次用到
+        var $win = $(window),
+            $div = $('div');
+        // 给window绑定一个scroll事件
+        $win.on('scroll', function() {
+            // 当滚动时, newTop = 滚动的竖直距离 + (浏览器可视距离 - div的宽度) / 2
+            var newTop = $win.scrollTop() + ($win.innerHeight() - $div.outerHeight()) / 2;
+            // newLeft同理
+            var newLeft = $win.scrollLeft() + ($win.innerWidth() - $div.outerWidth()) / 2;
+            // 把newTop和newLeft赋给div
+            $div.css({
+                top: newTop,
+                left: newLeft 
+            })
+        })
+    </script>
+</body>
+</html>
