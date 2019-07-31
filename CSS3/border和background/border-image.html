@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>border-image</title>
+    <style>
+        html {
+            background-color: #000;
+        }
+        div {
+            width: 200px;
+            height: 100px;
+            position: absolute;
+            left: calc(50% - 50px);
+            top: calc(50% - 50px);
+            border: 100px solid gray;
+            border-image-source: url('./border.jpg');
+            border-image-slice: 136;
+            /* border-image-outset: 50px; */
+            border-image-width: 1;
+            /* border-image-repeat: round; */
+            border-image-repeat: stretch;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
