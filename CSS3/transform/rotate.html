@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>rotate</title>
+    <style>
+        body {
+            margin: 0;
+            transform-style: preserve-3d;
+            perspective: 800px;
+            perspective-origin: 300px 300px;
+        }
+        @keyframes run {
+            from {
+                transform: rotateX(45deg);
+            }
+            to {
+                transform: rotateX(-45deg);
+            }
+        }
+        div {
+            position: absolute;
+            left: 200px;
+            top: 200px;
+            background-image: url('https://t9.baidu.com/it/u=3558899846,2806140113&fm=193&app=53&size=r1,1&n=0&g=5n&f=jpeg?sec=1564641735&t=15bcda08449c9d56ddf8443cd3a11b53');
+            background-size: cover;
+            width: 200px;
+            height: 200px;
+            /* transform: rotate(0deg); */
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            transform-origin: 0 0;
+            animation: run 2s cubic-bezier(.5, 0, .5, 1) infinite alternate;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

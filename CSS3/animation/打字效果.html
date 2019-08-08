@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>打字效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        span {
+            opacity: 0;
+        }
+        @keyframes run1 {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes run2 {
+            from {
+                left: 0;
+            }
+            25% {
+                left: 15px;
+            }
+            50% {
+                left: 30px;
+            }
+            75% {
+                left: 45px;
+            }
+            100% {
+                left: 60px;
+            }
+        }
+        @keyframes run3 {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        span:nth-of-type(1) {
+            animation: run1 .1s  forwards 2s;
+        }
+        span:nth-of-type(2) {
+            animation: run1 .1s  forwards 4s;
+        }
+        span:nth-of-type(3) {
+            animation: run1 .1s  forwards 6s;
+        }
+        span:nth-of-type(4) {
+            animation: run1 .1s  forwards 8s;
+        }
+        span:nth-of-type(5) {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: run2 8s step-end  forwards,
+                        run3 .4s infinite;
+        }
+    </style>
+</head>
+<body>
+    <span>a</span>
+    <span>b</span>
+    <span>c</span>
+    <span>d</span>
+    <span>|</span>
+    <script>
+        
+    </script>
+</body>
+</html>

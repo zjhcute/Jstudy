@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>translate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        :root {
+            height: 100%
+        }
+        body {
+            height: 100%;
+            perspective: 800px;
+            perspective-origin: center center;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            background-image: url('https://t9.baidu.com/it/u=3558899846,2806140113&fm=193&app=53&size=r1,1&n=0&g=5n&f=jpeg?sec=1564641735&t=15bcda08449c9d56ddf8443cd3a11b53');
+            background-size: cover;
+            top: 200px;
+            transform: translatez(100px) rotatey(45deg);
+        }
+        div:nth-of-type(1) {
+            left: 200px;
+        }
+        div:nth-of-type(2) {
+            left: 400px;
+        }
+        div:nth-of-type(3) {
+            left: 600px;
+        }
+        div:nth-of-type(4) {
+            left: 800px;
+        }
+        div:nth-of-type(5) {
+            left: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        document.body.onmousemove = function (e) {
+            console.log(e.pageX);
+            this.style.perspectiveOrigin =  e.pageX + 'px ' + e.pageY + 'px';
+        }
+    </script>
+</body>
+</html>

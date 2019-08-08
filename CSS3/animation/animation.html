@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        @keyframes run {
+            from {
+                left: 0;
+                top: 0;
+                background-color: aqua;
+            }
+            25% {
+                left: 200px;
+                top: 0px;
+            }
+            50% {
+                left: 200px;
+                top: 200px;
+            }
+            75% {
+                left: 0px;
+                top: 200px;
+            }
+            100% {
+                left: 400px;
+                top: 200px;
+                background-color: aqua;
+            }
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: pink;
+            animation: run 2s cubic-bezier(0.075, 0.82, 0.165, 1) 2 alternate-reverse;
+        }
+        
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
