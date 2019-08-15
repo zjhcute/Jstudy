@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>drag小练习</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        div {
+            width: 200px;
+            height: auto;
+            padding-bottom: 20px;
+            border: 1px solid #000;
+            position: absolute;
+            top: 100px;
+        }
+        .box2 {
+            left: 400px;
+        }
+        ul {
+            position: relative;
+        }
+        li {
+            width: 100px;
+            height: 40px;
+            background-color: #abcdef;
+            margin: 20px 50px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="box2"></div>
+    <script>
+        var oLi = document.getElementsByTagName('li');
+        var oDom = null;
+        for(var i = 0; i < oLi.length; i ++) {
+            oLi[i].setAttribute('draggable', 'true');
+            oLi[i].ondragstart = function(e) {
+                oDom = e.target;
+            }
+        }
+        var oDiv = document.getElementsByTagName('div');
+        for(var i = 0; i < oDiv.length; i ++) {
+            oDiv[i].ondragover = function(e) {
+                e.preventDefault();
+            }
+            oDiv[i].ondrop = function() {
+                this.appendChild(oDom);
+            }
+        }
+    </script>
+</body>
+</html>

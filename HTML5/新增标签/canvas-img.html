@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas-img</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        canvas {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000;
+        }
+        img {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="500px" height="500px"></canvas>
+    <img src="" alt="">
+    <script>
+        var canvas = document.getElementsByTagName('canvas')[0];
+        var img = document.getElementsByTagName('img')[0];
+        var ctx = canvas.getContext('2d');
+        var oImg = new Image();
+
+        oImg.src = './sun.jpg';
+        oImg.onload = function() {
+            // ctx.drawImage(oImg, 0, 0);
+            ctx.drawImage(oImg, 0, 0, 500, 500);
+            // ctx.drawImage(oImg, 100, 100, 200, 200, 300, 300, 400, 400);
+            // canvas.toDataUrl() 把canvas转化成base64;
+            var data = canvas.toDataURL(); 
+            // 获取指定区域内的像素点信息
+            var info = ctx.getImageData(0, 0, 500, 500);
+            img.src = data;
+            console.log(data, info);
+        }
+    </script>
+</body>
+</html>
