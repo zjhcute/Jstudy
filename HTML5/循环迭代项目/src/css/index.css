@@ -13,8 +13,9 @@ a {
 }
 /* 去掉input, button按钮的默认背景颜色和默认的聚焦之后的边框 */
 input, button {
-    background: none;
-    outline: none;    
+    background-color: none;
+    outline: none;   
+    border: none;
 }
 html, body {
     /* 设置一个字体大小, 方便后续直接使用rem来做相对单位 */
@@ -34,6 +35,7 @@ html, body {
     position: fixed;
     display: flex;
     align-items: center;
+    z-index: 10;
 }
 .wrapper header::after {
     content: '';
@@ -42,6 +44,7 @@ html, body {
     width: 100%;
     height: 100%;
     background: url('../img/bg.png') repeat;
+    z-index: -1;
 }
 .wrapper header img {
     width: 2rem;
@@ -74,12 +77,61 @@ html, body {
         transform: translatey(-16px);
     }
 }
+.wrapper header .list-btn {
+    position: absolute;
+    left: 20px;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 3px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: space-around;
+}
+.wrapper header .list-btn span {
+    display: none;
+    width: 18px;
+    height: 4px;
+    background-color: #fff;
+    flex-grow: 1;
+    margin: 0;
+}
+.wrapper header .list-btn:hover span {
+    animation: change 2s infinite;
+}
+@keyframes change {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(45deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-45deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+.wrapper header .list-wrapper {
+    display: none;
+    width: 100vw;
+    position: absolute;
+    top: 3.5rem;
+    left: 0;
+}
+.wrapper header .list-wrapper ul {
+    background-image: linear-gradient(45deg, rgb(2, 0, 49), rgb(109, 51, 83));
+}
 .wrapper .left-menu {
     width: 200px;
     height: calc(100vh - 3.5rem);
     position: absolute;
     top: 3.5rem;
-    background-image: linear-gradient(rgb(2, 0, 49), rgb(75, 34, 57));
+    background-image: linear-gradient(180deg, rgb(2, 0, 49), rgb(75, 34, 57));
 }
 .wrapper .left-menu .title {
     color: #ccc;
@@ -88,8 +140,8 @@ html, body {
     height: 40px;
     line-height: 40px;
 }
-.wrapper .left-menu ul .student-items {
-    color: #ccc;
+.wrapper .left-menu ul .student-items,
+.wrapper header .list-wrapper .student-items {
     text-align: center;
     width: 150px;
     height: 30px;
@@ -99,11 +151,210 @@ html, body {
     border-radius: 15px;
     box-sizing: border-box;
 }
-.wrapper .left-menu ul .student-items:hover {
+.wrapper .left-menu ul .student-items a,
+.wrapper header .list-wrapper .student-items a {
+    color: #ccc;
+}
+.wrapper .left-menu ul .student-items:hover a,
+.wrapper header .list-wrapper .student-items:hover a {
     color: #fff;
 }
 .wrapper .left-menu ul .student-items.active {
-    color: rgb(109, 51, 83);
     background-color: #fff;
 }
+.wrapper .left-menu ul .student-items.active a {
+    color: rgb(109, 51, 83);
+}
 
+.wrapper .right-content {
+    width: calc(100vw - 200px);
+    height: calc(100vh - 3.5rem);
+    position: absolute;
+    left: 200px;
+    top: 3.5rem;
+    background-color: #eee;
+}
+.wrapper .right-content .echarts-wrapper {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.wrapper .right-content .echarts-wrapper .box {
+    display: inline-block;
+    width: 500px;
+    height: 500px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px #ccc;
+    margin-top: 100px;
+    margin-left: 50px;
+}
+.wrapper .right-content .list-content {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+.wrapper .right-content .list-content .table-wrapper {
+    width: 90%;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translatex(-50%);
+}
+.wrapper .right-content .list-content .search-wrapper {
+    width: 300px;
+    height: 3rem;
+    position: relative;
+    margin: 0 auto;
+    top: 30px;
+}
+.wrapper .right-content .list-content .search-wrapper form {
+    width: 100%;
+    height: 100%;
+}
+.wrapper .right-content .list-content .search-wrapper form #search {
+    width: 200px;
+    height: 3rem;
+    border-radius: 1.5rem;
+    padding-left: 20px;
+}
+.wrapper .right-content .list-content .search-wrapper form #search-student-btn {
+    width: 70px;
+    height: 2rem;
+    background-color: rgb(80, 180, 238);
+    color: #fff;
+    border-radius: 5px;
+}
+.wrapper .right-content .list-content .table-wrapper table {
+    width: 100%;
+    min-width: 1200px;
+    text-align: center;
+}
+.wrapper .right-content .list-content .table-wrapper table thead th {
+    background-color: rgba(109, 51, 83, .7);
+    color: #fff;
+    font-size: 1.5rem;
+    border-radius: 4px;
+}
+
+.wrapper .right-content .list-content .table-wrapper table tbody td {
+    height: 30px;
+    background-color: #fff;
+    color: #424242;
+}
+.wrapper .right-content .list-content .table-wrapper table tbody td .btn {
+    width: 3rem;
+    height: 2rem;
+    color: #fff;
+    border-radius: 4px;
+    opacity: 0.8;
+}
+.wrapper .right-content .list-content .table-wrapper table tbody td .btn:hover {
+    width: 3rem;
+    height: 2rem;
+    color: #fff;
+    border-radius: 4px;
+    opacity: 1;
+    font-weight: bold;
+}
+.wrapper .right-content .list-content .table-wrapper table tbody td .btn.edit-btn {
+    background-color: rgb(80, 180, 238);
+}
+.wrapper .right-content .list-content .table-wrapper table tbody td .btn.del-btn {
+    background-color: rgb(255, 80, 80);
+}
+.wrapper .right-content .list-content .dialog {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+.wrapper .right-content .list-content .dialog .mask {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .1);
+}
+.wrapper .right-content .list-content .dialog .dialog-content,
+.wrapper .add-content .form-wrapper {
+    width: 500px;
+    height: 600px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0px 0px 20px rgba(109, 51, 83, .7);
+}
+.wrapper .right-content .list-content .dialog .dialog-content h2,
+.wrapper .add-content .form-wrapper h2  {
+    text-align: center;
+    color: #555;
+}
+.wrapper .right-content .list-content .dialog .dialog-content form,
+.wrapper .add-content .form-wrapper form {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+    flex-wrap: wrap;
+}
+.wrapper .right-content .list-content .dialog .dialog-content form div,
+.wrapper .add-content .form-wrapper form div {
+    width: 80%;
+    height: 3rem;
+    line-height: 3rem;
+}
+.wrapper .right-content .list-content .dialog .dialog-content form div label,
+.wrapper .add-content .form-wrapper form div label {
+    display: inline-block;
+    width: 80px;
+    text-align: right;
+    font-size: 1.1rem;
+}
+.wrapper .right-content .list-content .dialog .dialog-content form div input[type='text'],
+.wrapper .add-content .form-wrapper form div input[type='text'] {
+    border: 1px solid rgba(109, 51, 83, .7);
+    width: 240px;
+    height: 2rem;
+    border-radius: 5px;
+}
+.wrapper .right-content .list-content .dialog .dialog-content form div .btn,
+.wrapper .add-content .form-wrapper form div .btn {
+    width: 120px;
+    height: 2rem;
+    border-radius: 6px;
+    color: #fff;
+}
+.wrapper .right-content .list-content .dialog .dialog-content form div input[type='submit'],
+.wrapper .add-content .form-wrapper form div input[type='submit'] {
+    background-color: rgb(80, 180, 238);
+}
+.wrapper .right-content .list-content .dialog .dialog-content form div input[type='reset'],
+.wrapper .add-content .form-wrapper form div input[type='reset'] {
+    background-color: rgb(255, 80, 80);
+}
+.wrapper .right-content .add-content {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+@media screen and (max-width: 768px) {
+    .wrapper .left-menu {
+        display: none;
+    }
+    .wrapper header {
+        justify-content: center;
+    }
+    .wrapper header .list-btn span {
+        display: block;
+    }
+    .wrapper .right-content {
+        width: 100vw;
+        left: 0;
+    }
+}
+@media screen and (max-width: 1310px) {
+    .wrapper .right-content .echarts-wrapper .sex {
+        display: none;
+    }
+}

@@ -15,21 +15,163 @@
             <span class="xi">西</span>
             <span class="nong">农</span>
             <span class="da">大</span>
-            <div class="listBtn">
+            <div class="list-btn">
                 <span></span>
                 <span></span>
                 <span></span>
+            </div>
+            <div class="list-wrapper">
+                <ul>
+                    <li class="student-sum student-items active" data-id="student-sum">
+                        <a href="#student-sum">学生总览</a>
+                    </li>
+                    <li class="student-list student-items" data-id="student-list">
+                        <a href="#">学生列表</a>
+                    </li>
+                    <li class="student-add student-items" data-id="student-add">
+                        <a href="#">添加学生</a>
+                    </li>
+                </ul>
             </div>
         </header>
         <div class="left-menu">
             <h3 class="title">学生管理</h3>
             <ul>
-                <li class="student-sum student-items active">学生总览</li>
-                <li class="student-list student-items">学生列表</li>
-                <li class="student-add student-items">添加学生</li>
+                <li class="student-sum student-items active" data-id="student-sum">
+                    <a href="#">学生总览</a>
+                </li>
+                <li class="student-list student-items" data-id="student-list">
+                    <a href="#">学生列表</a>
+                </li>
+                <li class="student-add student-items" data-id="student-add">
+                    <a href="#">添加学生</a>
+                </li>
             </ul>
         </div>
-        <div class="right-content"></div>
+        <div class="right-content">
+            <div class="echarts-wrapper right-content-items" id="student-sum">
+                <div class="area box"></div>
+                <div class="sex box"></div>
+            </div>
+            <div class="list-content right-content-items" id="student-list">
+                <div class="search-wrapper">
+                    <form action="" method="GET" id="search-student-form">
+                        <input type="text" name="search" id="search" placeholder="请输入关键字搜索">
+                        <input type="submit" value="搜索一下" id="search-student-btn">
+                    </form>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>学号</th>
+                                <th>姓名</th>
+                                <th>性别</th>
+                                <th>邮箱</th>
+                                <th>年龄</th>
+                                <th>手机号</th>
+                                <th>住址</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-data">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="dialog">
+                        <div class="mask"></div>
+                        <div class="dialog-content">
+                            <h2>编辑信息</h2>
+                            <form action="" method="GET" id="edit-student-form">
+                                <div>
+                                    <label for="name">姓名</label>
+                                    <input type="text" name="name" id="name">
+                                </div>
+                                <div>
+                                    <label for="">性别</label>
+                                    <input type="radio" name="sex" value="0" id="male" checked>
+                                    <label for="male" class="radio-label">男</label>
+                                    <input type="radio" name="sex" value="1" id="female">
+                                    <label for="female" class="radio-label">女</label>
+                                </div>
+                                <div>
+                                    <label for="sNo">学号</label>
+                                    <input type="text" name="sNo" id="sNo">
+                                </div>
+                                <div>
+                                    <label for="email">邮箱</label>
+                                    <input type="text" name="email" id="email">
+                                </div>
+                                <div>
+                                    <label for="birth">出生年</label>
+                                    <input type="text" name="birth" id=" birth">
+                                </div>
+                                <div>
+                                    <label for="phone">手机号</label>
+                                    <input type="text" name="phone" id="phone">
+                                </div>
+                                <div>
+                                    <label for="address">住址</label>
+                                    <input type="text" name="address" id="address">
+                                </div>
+                                <div>
+                                    <label></label>
+                                    <input type="submit" value="提交" class="btn" id="edit-student-btn">
+                                    <input type="reset" value="重置" class="btn">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+            <div class="add-content right-content-items" id="student-add">
+                <div class="form-wrapper">
+                        <h2>添加信息</h2>
+                        <form id="add-student-form">
+                                <div>
+                                    <label for="name">姓名</label>
+                                    <input type="text" name="name" id="name">
+                                </div>
+                                <div>
+                                    <label for="">性别</label>
+                                    <input type="radio" name="sex" value="0" id="male" checked>
+                                    <label for="male" class="radio-label">男</label>
+                                    <input type="radio" name="sex" value="1" id="female">
+                                    <label for="female" class="radio-label">女</label>
+                                </div>
+                                <div>
+                                    <label for="sNo">学号</label>
+                                    <input type="text" name="sNo" id="sNo">
+                                </div>
+                                <div>
+                                    <label for="email">邮箱</label>
+                                    <input type="text" name="email" id="email">
+                                </div>
+                                <div>
+                                    <label for="birth">出生年</label>
+                                    <input type="text" name="birth" id="birth">
+                                </div>
+                                <div>
+                                    <label for="phone">手机号</label>
+                                    <input type="text" name="phone" id="phone">
+                                </div>
+                                <div>
+                                    <label for="address">住址</label>
+                                    <input type="text" name="address" id="address">
+                                </div>
+                                <div>
+                                    <label></label>
+                                    <input type="submit" value="提交" class="btn" id="add-student-btn">
+                                    <input type="reset" value="重置" class="btn">
+                                </div>
+                            </form>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="./src/js/tools/jQuery.js"></script>
+    <script src="./src/js/tools/ECharts.js"></script>
+    <script src="./src/js/index.js"></script>
+    <script src="./src/js/demo.js"></script>
+    <script src="./src/js/pie.js"></script>
 </body>
 </html>
