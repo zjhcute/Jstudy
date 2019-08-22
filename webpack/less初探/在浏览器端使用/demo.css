@@ -1,0 +1,30 @@
+/* 这种注释会出现在css文件中 */
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  background-color: #c0c;
+  height: 100%;
+}
+html .wrapper,
+body .wrapper {
+  width: 400px;
+  height: 400px;
+  border: 10px solid #000;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+html .wrapper .box,
+body .wrapper .box {
+  width: 300px;
+  height: 300px;
+  border: 1px solid #000;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,16 @@
+{
+  "name": "webpackstudy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bundle.js",
+  "dependencies": {
+    "webpack-cli": "^3.3.7",
+    "webpack": "^4.39.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

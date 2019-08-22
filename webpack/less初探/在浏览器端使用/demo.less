@@ -1,0 +1,33 @@
+// less注释, 经过处理之后, 不会显示在css文件中, 是给开发者看的
+/* 这种注释会出现在css文件中 */
+@import './reset.less';
+@color: #000;
+@wrapper-w: 400px;
+@wrapper-h: 400px;
+@box-w: @wrapper-h - 100px;
+@box-h: @wrapper-w - 100px;
+.border(@w: 1px, @s: solid, @c: #f40) {
+    border: @arguments;
+}
+html, body {
+    background-color: #c0c;
+    height: 100%;
+    .wrapper {
+        width: @wrapper-w;
+        height: @wrapper-h;
+        .border(10px, solid, #000);
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        .box {
+            width: @box-w;
+            height: @box-h;
+            border: 1px solid @color;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
