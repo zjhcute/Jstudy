@@ -1,0 +1,14 @@
+body {
+    background-color: #f40;
+}
+.wrapper {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.wrapper .box {
+    width: 100px;
+    height: 100px;
+    background-color: #000;
+}
