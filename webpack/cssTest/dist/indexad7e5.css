@@ -1,0 +1,1 @@
+body{background-color:#f40}body .wrapper{width:400px;height:400px;background-color:#fff;position:absolute;left:100px;top:100px;-webkit-transform:rotate(45deg);transform:rotate(45deg);-webkit-transition:all 1s;transition:all 1s}body .wrapper .box{width:100px;height:100px;background-color:#000}

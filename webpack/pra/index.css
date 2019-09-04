@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.box {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #f40;
+    background-image: url('./2.jpg');
+    background-size: contain;
+    margin: 200px auto;
+}

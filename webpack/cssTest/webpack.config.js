@@ -1,14 +1,36 @@
-var path = require('path');
-var MiniCssExtractPlugin = require('mini-css-extract-plugin');
-var HtmlWebpckPlugin = require('html-webpack-plugin');
-var ClearWebpackPlugin = require('clean-webpack-plugin');
+// 引入node全局变量 path
+const path = require('path');
+
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpckPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
     entry: {
         index: './index.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name][hash:5].bundle.js'
+        filename: '[name][hash:5].bundle.js',
+        chunkFilename: '[name][hash:5].js'
+    },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                common: {
+                    name: 'common',
+                    chunks: 'all',
+                    minSize: 1,
+                    minChunks: 2,
+                    priority: 1
+                },
+                vendor: {
+                    name: 'vendor',
+                    test: /[\\/]node_modules[\\/]/,
+                    priority: 10,
+                    chunks: 'all'
+                }
+            }
+        }
     },
     module: {
         rules: [
@@ -64,7 +86,7 @@ module.exports = {
                 collapseWhitespace: true
             }
         }),
-        new ClearWebpackPlugin()
+        new CleanWebpackPlugin()
     ],
     mode: "development"
 }

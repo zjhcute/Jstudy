@@ -1,0 +1,29 @@
+[
+    {
+        "image": "/source/fox.jpg",
+        "audio": "/source/上天入地.mp3",
+        "song": "上天入地",
+        "album": "活死人",
+        "singer": "福克斯",
+        "duration": 192,
+        "isLike": true
+    },
+    {
+        "image": "/source/RUOK.jpg",
+        "audio": "/source/RUOK.mp3",
+        "song": "Are you ok",
+        "album": "雷军鬼畜",
+        "singer": "雷军",
+        "duration": 133,
+        "isLike": false
+    },
+    {
+        "image": "/source/新裤子.jpg",
+        "audio": "/source/没有理想的人不伤心.mp3",
+        "song": "没有理想的人不伤心",
+        "album": "龙虎人丹",
+        "singer": "新裤子",
+        "duration": 281,
+        "isLike": false
+    }
+]
