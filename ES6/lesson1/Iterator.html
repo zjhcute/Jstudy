@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 实现Iterator的遍历过程
+        // 迭代器, 外部迭代器, 不管传递的参数是什么, 只要可以迭代
+        // 创建一个指针对象, 第一次调用next方法时, 取出第一个值{value: .., done: false}
+        // 再次调用next时, 依次往下取值
+        // 不能再取值时, 返回{value: undefined, done: true}
+        let oIt = myIterator(['a', 'b', 'c'])
+        // oIt.next()
+        // oIt.next()
+        // oIt.next()
+        // oIt.next()
+        function myIterator(array) {
+            let index = 0;
+            return {
+                next: function() {
+                    return index < array.length ? {value: array[index++], done: 'false'} : {value: undefined, done: 'true'}
+                }
+            }
+        }
+        // 对于迭代器来说, 如果没有值可取了, {value: undefined, done: 'false'}是不需要写出来的, 所以迭代器可以简写成一下形式
+        function newIterator(array) {
+            let index = 0;
+            return {
+                next: function() {
+                    return index < array.length ? {value: array[index++]} : {done: 'true'}
+                }
+            }
+        }
+    </script>
+</body>
+</html>
