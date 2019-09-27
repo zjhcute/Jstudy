@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="main"><button id="btn">搜索</button>
+    <div id="content"></div>
+    <script>
+       let btn = document.getElementById('btn');
+       let inp = document.getElementById('main');
+       let cont = document.getElementById('content');
+       btn.addEventListener('click', () => {
+            cont.innerText =  inp.value;
+            history.pushState({inpValue: inp.value}, null, '#' + inp.value);
+       })
+       window.addEventListener('popstate', (e) => {
+        //    console.log(e);
+            inp.value = e.state.inpValue;
+            cont.innerText =  e.state.inpValue;
+            
+       })
+    </script>
+</body>
+</html>

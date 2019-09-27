@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main"></div>
+    <script>
+        let str = '';
+        window.addEventListener('deviceorientation', (e) => {
+            str = 'Alpha: ' + e.alpha + '<br/>' + 'Beta: ' + e.beta + '<br/>' + 'Gamma: ' + e.gamma + '<br/>';
+        })
+        window.addEventListener('devicemotion', (e) => {
+            str += 'X: ' + e.acceleration.x + '<br/>' + 'Y: ' + e.acceleration.y + '<br/>' + 'Z: ' + e.acceleration.z;
+            document.getElementById('main').innerHTML = str;
+            str = '';
+            if(Math.abs(e.acceleration.x) > 9 || Math.abs(e.acceleration.y) > 9 || Math.abs(e.acceleration.z) > 9) {
+                alert('不要再晃了😡');
+            }
+        })
+    </script>
+</body>
+</html>

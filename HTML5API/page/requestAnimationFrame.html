@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #main {
+            position: absolute;
+            left: 0px;
+            width: 100px;
+            height: 100px;
+            background-color: #abcdef;
+        }
+    </style>
+</head>
+<body>
+    <div id="main"></div>
+    <script>
+        let oDiv = document.getElementById('main');
+        function move(ele) {
+            if(ele.offsetLeft < 800) {
+                ele.style.left = ele.offsetLeft + 20 + 'px';
+            }else {
+                ele.style.left = '0px';
+            }
+            requestAnimationFrame(() => {move(oDiv)});
+        }
+        move(oDiv);
+        // setInterval(() => {move(oDiv)}, 1000 / 60);
+        
+    </script>
+</body>
+</html>
