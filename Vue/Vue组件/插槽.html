@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-btn>点我
+            <template #right>哈哈哈</template>
+        </my-btn>
+    </div>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            components: {
+                myBtn: {
+                    template: `<div>
+                            <button>
+                                <slot></slot>
+                                -------------
+                                <slot name="right"></slot>
+                            </button>
+                        </div>`
+                }
+            }
+        })
+    </script>
+</body>
+</html>

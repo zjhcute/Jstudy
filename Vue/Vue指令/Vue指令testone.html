@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style> 
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        html, body {
+            height: 100%;
+        }
+        #app {
+            width: 100%;
+            height: 100%;
+        }
+        #app .content-ul {
+            width: 80%;
+            margin: 100px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content: space-between;
+        }
+        #app .content-ul .course-li {
+            width: 360px;
+            height: 300px;
+            position: relative;
+            margin: 10px;
+            box-sizing: border-box;
+        }
+        #app .content-ul .course-li:hover {
+            border: 2px #ccc solid;
+        }
+        #app .content-ul .course-li .price {
+            color: #f00;
+            left: 0;
+        }
+        #app .content-ul .course-li .course-span {
+            display: inline-block;
+            position: absolute;
+            bottom: 4px;
+        }
+        #app .content-ul .course-li .price.free {
+            color: rgb(83, 141, 83);
+        }
+        #app .content-ul .course-li .company {
+            right: 0;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul class="content-ul">
+            <li class="course-li" v-for="item in courseList">
+                <img :src="item.poster" alt="item.name">
+                <h4 class="course-title">{{ item.name }}</h4>
+                <span class="price course-span" :class="{free: item.free}">{{ item.free ? '免费' : '💴' + item.price }}</span>
+                <span class="company course-span">腾讯课堂</span>
+            </li>
+        </ul>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                courseList: [
+                    {
+                        name: 'Java架构师系统提升课程',
+                        free: true,
+                        price: 0,
+                        poster: 'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLBhGyugC8t5xhs6Nibu4Bf7x5UKtZnz1ibeq2icXKFyuLAaynP6jibHBAV4ic04HCViaQUc8/356'
+                    },
+                    {
+                        name: '马士兵/java/python/AI金牌特训营',
+                        free: true,
+                        price: 0,
+                        poster: 'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLCeu9hlszic9bKgX1FqU9nzbNbPGuThOt4icPKvmyMH2bXBMFW89geygmS5nHEVQgPIY/356'
+                    },
+                    {
+                        name: 'PHP7进阶到架构',
+                        free: false,
+                        price: 666,
+                        poster: 'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLChibXXhJeHNDp3SVLnOHKu3pLvfVml92f28NEcuaWFHheBHRUmWRiaicrYVC9VJEhrK0/356'
+                    },
+                    {
+                        name: 'Java零基础入门到年薪30W(java基础  java入门教程  javase)',
+                        free: true,
+                        price: 0,
+                        poster: 'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLCEtjbdZ8mhjoLsjaZU3sO8fiaCRBV1TtY4eOlVRnceROAKia6lhicvRicNnPndLhibibvak/356'
+                    },
+                    {
+                        name: 'C#/.Net/.Net高级工程师/设计模式/MVC/Core/Docker/.Net架构师',
+                        free: false,
+                        price: 9.9,
+                        poster: 'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLDv62AyH9Caia5SLAfVMiccted79jG5JNZZdojPsCmvBiaPHYgFfDhz4ibYM5zBdY6hKbA/356'
+                    },
+                    {
+                        name: 'C#零基础快速入门',
+                        free: true,
+                        price: 0,
+                        poster: 'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLA20NhDuSSMpKYxYx42cIyNVOAAqW7bph4MbNql6BCYrqHqtsrauNDG09bbUZSK2qY/356'
+                    },
+                    {
+                        name: 'Python全栈/爬虫/运维/Flask/Openstack Django',
+                        free: true,
+                        price: 0,
+                        poster: 'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLALfz8TAAQu6VnH4ZmW8TMAba6b26Ow9dUt1YQx9UpGxK7ibxibrN5mV0E3u5DNLSpcQ/356'
+                    },
+                    {
+                        name: 'python开发入门与职业进阶',
+                        free: false,
+                        price: 1999,
+                        poster: 'https://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLDyXlkkywxicZYG97HmVia1FARucIfWZMQ4Ibgib9jsp7ho9bIP1NGxo3ib9TKuFiaMb4QQ/356'
+                    },
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

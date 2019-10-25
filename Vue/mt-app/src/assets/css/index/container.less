@@ -1,0 +1,71 @@
+.container {
+    margin-top: 50px;
+    width: 1190px;
+
+    .banner-container {
+        border-radius: 10px;
+        background-color: #FFF;
+        overflow: hidden;
+        .kind-list {
+            height: 44px;
+            background-image: linear-gradient(to right, rgb(194, 176, 142) 3%, rgb(190, 164, 116) 100%);
+            dl {
+                color: #FFF;
+                dt {
+                    float: left;
+                    font-size: 20px;
+                    font-weight: bold;
+                    line-height: 44px;
+                    padding: 0px 10px;
+                }
+                dd {
+                    float: left;
+                    line-height: 44px;
+                    padding: 0px 10px;
+                    &:hover {
+                        font-weight: bold;
+                    }
+                    
+                }
+            }
+        }
+        .detailed {
+            display: flex;
+            justify-content: space-around;
+            align-content: space-around;
+            flex-wrap: wrap;
+            .detailed-item {
+                width: 350px;
+                margin-top: 20px;
+                box-sizing: border-box;
+                padding: 10px;
+                transition: all 0.3s;
+                img {
+                    width: 330px;
+                }
+                .title {
+                    padding: 10px 0px;
+                }
+                .sub-title {
+                    font-size: 12px;
+                    color: #999;
+                    padding: 4px 0px;
+                }
+                .price-address {
+                    span:nth-of-type(1) {
+                        color: rgb(190, 164, 116);
+                        float: left;
+                    }
+                    span:nth-of-type(2) {
+                        color: #999;
+                        font-size: 12px;
+                        float: right;
+                    }
+                }
+                &:hover {
+                    background-color: #ddd;
+                }
+            }
+        }
+    }
+}

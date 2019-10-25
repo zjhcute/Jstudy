@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .news-list {
+            width: 500px;
+            border: 1px solid #000;
+            margin: 100px;
+        }
+        .news-list h3 {
+            padding: 20px 40px 10px;
+        }
+        .news-list .news {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: #ccc 1px solid;
+            margin: 0px 10px;
+            box-sizing: border-box;
+        }
+        .news-list .news .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .news-list .news .content .news-id {
+            width: 20px;
+            height: 20px;
+            background-color: #abcdef;
+            color: #fff;
+            text-align: center;
+            margin: 10px 10px;
+        }
+        .news-list .news .content .news-id.hot-class-1 {
+            background-color: #fe0000;
+        }
+        .news-list .news .content .news-id.hot-class-2 {
+            background-color: #feaa00;
+        }
+        .news-list .news .content .news-id.hot-class-3 {
+            background-color: #fedcba;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        
+        <!-- <ul class="news-list">
+            <h3>搜索热点</h3>
+            <li class="news">
+                <div class="content">
+                    <div class="news-id"></div>
+                    <div class="title"></div>
+                </div>
+                <div class="rank"></div>
+            </li>
+        </ul> -->
+        <news-list :news-info="newsInfo"></news-list>
+    </div>    
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                newsInfo: [
+                    {
+                        title: '央视不再转播NBA',
+                        rank: '1300万',
+                        id: 0
+                    },
+                    {
+                        title: '周冬雨被曝恋情',
+                        rank: '1100万',
+                        id: 1
+                    },
+                    {
+                        title: '即刻何时归来',
+                        rank: '962万',
+                        id: 2
+                    },
+                    {
+                        title: '萨达萨达',
+                        rank: '700万',
+                        id: 3
+                    },
+                    {
+                        title: '第三方的',
+                        rank: '622万',
+                        id: 4
+                    },
+                    {
+                        title: '撒大皇宫符合',
+                        rank: '566万',
+                        id: 5
+                    },
+                    {
+                        title: '时间和改革',
+                        rank: '507万',
+                        id: 6
+                    },
+                    {
+                        title: '恐惧蔡徐坤',
+                        rank: '112万',
+                        id: 7
+                    },
+                ]
+            },
+            components: {
+                newsList: {
+                    props: ['newsInfo'],
+                    template: `<ul class="news-list">
+                                <h3>搜索热点</h3>
+                                <news v-for="(item, index) in newsInfo" :key="item.id" :rank="item.rank" :title="item.title" :index="item.id+1"></news>
+                            </ul>`,
+                    components: {
+                        news: {
+                            data() {
+                                return {
+                                    hotClass: ''
+                                }
+                            },
+                            props: ['rank', 'title', 'index'],
+                            created() {
+                                switch(this.index) {
+                                    case 1: 
+                                        this.hotClass = 'hot-class-1';
+                                        return;
+                                    case 2: 
+                                        this.hotClass = 'hot-class-2';
+                                        return;
+                                    case 3: 
+                                        this.hotClass = 'hot-class-3';
+                                        return;
+                                    default:
+                                        return;
+                                }
+                            },
+                            template: `<li class="news">
+                                        <div class="content">
+                                            <div class="news-id" :class="hotClass">{{ index }}</div>
+                                            <div class="title">{{ title }}</div>
+                                        </div>
+                                        <div class="rank">{{ rank }}</div>
+                                    </li>`,
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

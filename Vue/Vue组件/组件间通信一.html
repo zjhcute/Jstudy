@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-content></my-content>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            provide: {
+                title: '我是大标题',
+                content: '阿三打撒大赛上看见的hash肯定会',
+            },
+
+            components: {
+                myContent: {
+                    inject: ['title'],
+                    template: `<div>
+                        <h3>{{ title }}</h3>
+                        <inner-content></inner-content>
+                    </div>`,
+                    components: {
+                        innerContent: {
+                            inject: ['content'],
+                            template: `<p>{{ content }}</p>`
+                        }
+                    }
+                }
+            }
+
+            // components: {
+            //     myContent: {
+            //         created() {
+            //             this.title = this.$parent.title;
+            //         },
+            //         template: `<div>
+            //             <h3>{{ title }}</h3>
+            //             <inner-content></inner-content>
+            //         </div>`,
+            //         components: {
+            //             innerContent: {
+            //                 created() {
+            //                     this.content = this.$parent.$parent.content;
+            //                 },
+            //                 template: `<p>{{ content }}</p>`
+            //             }
+            //         }
+            //     }
+            // }
+
+            // components: {
+            //     myContent: {
+            //         // created() {
+            //         //     console.log(this);
+            //         // },
+            //         props: ['title'],
+            //         template: `<div>
+            //             <h3>{{ title }}</h3>
+            //             <inner-content v-bind="$attrs"></inner-content>
+            //         </div>`,
+            //         inheritAttrs: false,
+            //         components: {
+            //             innerContent: {
+            //                 props: ['content'],
+            //                 template: `<p>{{ content }}</p>`
+            //             }
+            //         }
+            //     }
+            // }
+        })
+    </script>
+</body>
+</html>

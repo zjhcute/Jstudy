@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+        <input type="text" name="task" id="task" v-model.trim="task" @keyup.enter="submitTask">
+        <button @click="submitTask">提交</button>
+        <p>正在添加的任务:</p>
+        <p>{{ task }}</p>
+        <h4>所有任务:</h4>
+        <ul v-for="(item, index) in taskList" v-if="taskList.length != 0">
+            <li :key=`${index}_1` :_key=`${index}_1`>{{ item }}</li>
+            <button :key=`${index}_2` :_key=`${index}_2` @click="deleteTask(index)">删除</button>
+        </ul>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                task: '',
+                taskList: []
+            },
+            methods: {
+                submitTask() {
+                    if(this.task) {
+                        this.taskList.push(this.task);
+                        this.task = '';
+                    }
+                },
+                deleteTask(index) {
+                    this.taskList.splice(index, 1);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

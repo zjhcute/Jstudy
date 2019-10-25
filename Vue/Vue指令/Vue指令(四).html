@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <input type="text" name="name" id="name" v-model="inpValue">
+        {{ inpValue }} -->
+        <!-- <textarea name="comment" id="comment" cols="30" rows="10" v-model="comments"></textarea>{{ comments }} -->
+        <!-- <input type="checkbox" name="hobby" id="swimming" v-model="checked" value="swimming">游泳
+        <input type="checkbox" name="hobby" id="football" v-model="checked" value="football">足球
+        <input type="checkbox" name="hobby" id="run" v-model="checked" value="run">跑步 -->
+        <!-- {{ checked }} -->
+        <!-- <input type="radio" name="sex" id="male" value="male" v-model="picked">男
+        <input type="radio" name="sex" id="female" value="female" v-model="picked">女 -->
+        <!-- {{ picked }} -->
+        <select name="city" id="city" v-model="options" >
+            <option value="" disabled>请选择</option>
+            <option value="cs">长沙</option>
+            <option value="hd">邯郸</option>
+            <option value="yc">宜春</option>
+        </select>
+        <span>{{ options }}</span>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                inpValue: 'zjh',
+                comments: '展开讲讲',
+                checked: [],
+                picked: 'male',
+                options: 'hd'
+            }
+        })        
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <img :src="imgSrc" alt="">
+        <div class="demo" :class="[redClass, greenCLass, flag && 'yellow']"></div>
+        <div style="width: 100px; height: 100px; background-color: #000"></div>
+        <div :style="{width: '100px', height: '100px', backgroundColor: backgroundColor}"></div>
+        <div :style="style1"></div> -->
+        <button v-on:click="change('red')">red</button>
+        <button v-on:click="change('green')">green</button>
+        <button @click="change('blue')">blue</button>
+        <div :style='{width: "100px", height: "100px", backgroundColor: color}'></div>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                imgSrc: 'https://ss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=1384795220,157751332&fm=202&src=pc_177_online',
+                redClass: 'red',
+                greenCLass: 'green',
+                flag: true,
+                backgroundColor: '#000',
+                style1: {width: '100px', height: '100px', backgroundColor: 'red'},
+                color: 'red'
+            },
+            methods: {
+                change(color) {
+                    this.color = color;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

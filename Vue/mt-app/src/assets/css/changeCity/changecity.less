@@ -1,0 +1,92 @@
+.change-city {
+    width: 1190px;
+    margin: 20px auto 50px;
+    background-color: #FFF;
+    .choose-prov {
+        width: 1100px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 20px;
+        height: 100px;
+        border-bottom: 1px solid #CCC;
+        span {
+            font-size: 16px;
+            // padding: 20px;
+        }
+        .el-input {
+            width: 200px;
+        }
+    }
+    .city-list {
+        width: 1100px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 20px;
+        height: 100px;
+        border-bottom: 1px solid #CCC;
+        dl {
+            dt {
+                font-size: 16px;
+                float: left;
+                padding-right: 30px;
+            }
+            dd {
+                float: left;
+                padding: 0px 20px;
+            }
+        }
+    }
+    .choose-first-letter {
+        width: 1100px;
+        margin: 0 auto;
+        .letter-list {
+            box-sizing: border-box;
+            height: 100px;
+            padding: 20px;
+            dl {
+                display: flex;
+                justify-content: space-between;
+                dt {
+                    line-height: 30px;
+                }
+                dd {
+                    box-sizing: border-box;
+                    width: 30px;
+                    height: 30px;
+                    text-align: center;
+                    line-height: 30px;
+                    border-radius: 50%;
+                    &:hover {
+                        background-color: #CCC;
+                    }
+                }
+            }
+        }
+        .first-list {
+            dl {
+                width: 1100px;
+                overflow: hidden;
+                padding: 20px 0px;
+                translate: all 0.3s;
+                &:hover {
+                    background-color: #eee;
+                }
+                dt {
+                    float: left;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    border-radius: 50%;
+                    text-align: center;
+                    background-color: #FFC300;
+                }
+                dd {
+                    font-size: 12px;
+                    line-height: 40px;
+                    float: left;
+                    padding: 4px 20px;
+                }
+            }
+        }
+    }
+}

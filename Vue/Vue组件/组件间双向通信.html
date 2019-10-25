@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <my-count :value="obj"></my-count> -->
+        <!-- <my-count :value="obj"></my-count> -->
+        <div>
+            现在的count: {{ count }}
+        </div>
+        <hr>
+        <!-- <my-count :value="count" @input="changeCount"></my-count> -->
+        <!-- <my-count v-model="count"></my-count> -->
+        <my-count :value.sync="count"></my-count>
+    </div>    
+    <script>
+        
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                count: 0
+            },
+            methods: {
+                changeCount(val) {
+                    this.count = val;
+                }
+            },
+            components: {
+                myCount: {
+                    props: ['value'],
+                    data() {
+                        return {
+                            
+                        }
+                    },
+                    mounted() {
+                        setInterval(() => {
+                            let newVal = this.value + 1;
+                            this.$emit('update:value', newVal);
+                        }, 1000)
+                    },
+                    template: `<div>{{ value }}</div>`
+                }
+            }
+        })
+        // let vm = new Vue({
+        //     el: '#app',
+        //     data: {
+        //         count: 1,
+        //         obj: {
+        //             a: 1
+        //         }
+        //     },
+        //     components: {
+        //         myCount: {
+        //             props: ['value'],
+        //             data() {
+        //                 return {
+        //                     myValue: JSON.parse(JSON.stringify(this.value))
+        //                 }
+        //             },
+        //             // created() {
+        //             //     this.myValue = this.value;
+        //             // },
+        //             methods: {
+        //                 handleClick() {
+        //                     this.myValue.a ++;
+        //                 }
+        //             },
+        //             template: `<div>
+        //                         <span>{{ myValue.a }}</span><button @click="handleClick">点击</button>
+        //                     </div>`
+        //         }
+        //     }
+        // })
+    </script>
+</body>
+</html>

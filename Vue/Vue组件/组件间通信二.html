@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-p @click="func"></my-p>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            methods: {
+                func(data) {
+                    console.log(111);
+                    console.log(data);
+                }
+            },
+            components: {
+                myP: {
+                    template: `<div><my-son @click="parentClick"></my-son></div>`,
+                    methods: {
+                        parentClick(data) {
+                            console.log('parentClick', data);
+                        }
+                    },
+                    components: {
+                        mySon: {
+                            props: ['func'],
+                            methods: {
+                                handler() {
+                                    // console.log(11111);
+                                    // this.$listener
+                                    console.log(this.$listeners)
+                                    this.$emit('click', 'son')
+                                }
+                            },
+                            template: `<button @click="handler">点击</button>`
+                        }
+                    }
+                }
+            }
+        })
+
+        // let vm1 = new Vue({
+        //     el: '#app',
+        //     methods: {
+        //         func() {
+        //             console.log('func');
+        //         }
+        //     },
+        //     components: {
+        //         myP: {
+        //             data() {
+        //                 return {
+        //                     hello: 'hello world'
+        //                 }
+        //             },
+        //             props: ['func'],
+        //             methods: {
+                       
+        //             },
+        //             template: `<div>
+        //                         <my-son></my-son>
+        //                     </div>`,
+        //             components: {
+        //                 mySon: {
+        //                     data() {
+        //                         return {
+        //                             msg: 'msggg'
+        //                         }
+        //                     },
+        //                     // props: ['func'],
+        //                     methods: {
+        //                         handler() {
+        //                             console.log(1);
+        //                             console.log(this.$listeners);
+        //                             // this.$emit('click');
+        //                         }
+        //                     },
+        //                     template: `<p>{{ msg }}
+        //                                 <button @click="handler">点击</button>
+        //                             </p>`
+        //                 }
+        //             }
+        //         }
+        //     }
+        // })
+    </script>
+</body>
+</html>

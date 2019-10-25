@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <hello-world></hello-world>
+        <hello-zjh></hello-zjh>
+    </div>    
+    <script>
+        Vue.component('hello-world', {
+            data() {
+                return {
+                    msg: 'hello world'
+                }
+            },
+            template: '<div>{{ msg }}</div>'
+        })
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                name: 'zjh',
+            },
+            components: {
+                helloZjh: {
+                    data() {
+                        return {
+                            msg: 'hello zjh'
+                        }
+                    },
+                    template: '<h1>{{ msg }}</h1>'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

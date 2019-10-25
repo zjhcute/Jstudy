@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app" >
+        <!-- <div v-for="(item, index) in nameArr" :key="index" :_key="index">
+            {{ item }}  {{ index }}
+        </div> -->
+        <!-- <div v-for="(value, key) in personObj" ::key="">
+            {{ key }}
+        </div> -->
+        <template v-for="(item, index) in nameArr">
+            <p :key=`${index}_1` :_key=`${index}_1`>{{ item }}</p>
+            <span :key=`${index}_2` :_key=`${index}_2`>{{ index }}</span>
+        </template>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                nameArr: ['zjh', 'hhq', 'xxee'],
+                personObj: {
+                    name: 'zjh',
+                    age: 18,
+                    desc: '很帅'
+                }
+            }
+        })
+    </script>    
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <news :content="content" :title="title" a="1" b="2"></news>
+    </div>    
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                content: '爱神的箭阿三看来大家斯卡拉金卡金卡大家',
+                title: 'FDASJK',
+            },
+            components: {
+                news: {
+                    // props: ['content', 'title'],
+                    props: {
+                        content: {
+                            type: String,
+                            default: '1111111111111111111'
+                        },
+                        title: {
+                            type: String
+                        }
+                    },
+                    template: `<div>
+                        <h3>{{ title }}</h3>
+                        <p>{{ content }}</p>
+                       
+                    </div>`
+                }
+            }
+        })
+    </script>
+</body>
+</html>

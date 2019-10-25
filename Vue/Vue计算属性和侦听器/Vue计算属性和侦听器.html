@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ person }}
+        <!-- {{ msg }} -->
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                name: 'zjh',
+                age: 21,
+                msg: 'hello',
+                person: '',
+            },
+            // mounted() {
+            //     this.person = `姓名: ${this.name} 年龄: ${this.age}`
+            // },
+            methods: {
+                // person() {
+                //     console.log('person');
+                //     return `姓名: ${this.name} 年龄: ${this.age}`
+                // }
+            },
+            computed: {
+                // person() {
+                //     console.log('computed');
+                //     return `姓名: ${this.name} 年龄: ${this.age}`
+                // }
+            },
+            watch: {
+                // name() {
+                //     // console.log(this.person);
+                //     this.person = `姓名: ${this.name} 年龄: ${this.age}`
+                // },
+                // age() {
+                //     this.person = `姓名: ${this.name} 年龄: ${this.age}`
+                // }
+                name: {
+                    handler() {
+                        this.person = `姓名: ${this.name} 年龄: ${this.age}`
+                    },
+                    immediate: true
+                },
+                age: {
+                    handler() {
+                        this.person = `姓名: ${this.name} 年龄: ${this.age}`
+                    },
+                    immediate: true
+                },
+            },
+        })
+    </script>
+</body>
+</html>

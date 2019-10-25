@@ -1,0 +1,98 @@
+.wrapper {
+    width: 100%;
+    background-color: #FFF;
+    box-shadow: 0px 3px 10px #CCC;
+    .search-bar {
+        width: 1190px;
+        height: 122px;
+        padding-bottom: 35px;
+        margin: 0 auto;
+        .logo {
+            width: 220px;
+            height: 54px;
+            padding: 28px 60px 40px 0px;
+            a {
+                display: inline-block;
+                img {
+                    width: 126px;
+                    height: 46px;
+                }
+            }
+        }
+        .search-wrapper {
+            width: 550px;
+            height: 93px;
+            padding-top: 38px;
+            margin-left: 100px;
+            .s-input {
+                width: 550px;
+                height: 40px;
+                position: relative;
+                .inp {
+                    float: left;
+                    width: 470px;
+                }
+                .search-btn {
+                    background-color: #FFC300;
+                    border: 1px solid #FFC300;
+                    color: black;
+                    font-weight: bold;
+                    width: 80px;
+                    float: left;
+                }
+                .slide {
+                    position: absolute;
+                    width: 470px;
+                    box-sizing: border-box;
+                    border: 1px solid #CCC;
+                    top: 40px;
+                    background-color: #FFF;
+                    z-index: 2;
+                    .slide-hot {
+                        dt {
+                            font-size: 14px;
+                            height: 20px;
+                            line-height: 20px;
+                            padding: 20px 0px 10px 10px;
+                        }
+                        dd {
+                            float: left;
+                            padding: 10px 10px;
+                            font-size: 12px;
+                        }
+                    }
+                    .slide-about {
+                        dd {
+                            box-sizing: border-box;
+                            height: 28px;
+                            padding: 10px 5px 0px;
+                            font-size: 12px;
+                            line-height: 10px;
+                            cursor: pointer;
+                            &:hover {
+                                background-color: #CCC;
+                            }
+                            a {
+                                display: inline-block;
+                                width: 470px;
+                                height: 28px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .hot {
+            width: 545px;
+            height: 20px;
+            padding: 5px 0px 0px 5px;
+            font-size: 12px;
+            ul {
+                height: 550px;
+                height: 25px;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}
