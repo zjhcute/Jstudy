@@ -4,9 +4,9 @@
       <el-row>
         <el-col :span="3">
           <div class="logo">
-            <a href="https://www.meituan.com">
+            <router-link to="/">
               <img src="//s0.meituan.net/bs/fe-web-meituan/fa5f0f0/img/logo.png" alt="美团">
-            </a>
+            </router-link>
           </div>
         </el-col>
         <el-col :span="10">
