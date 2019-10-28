@@ -1,4 +1,6 @@
 # vue-app
+个人Vue.js练习项目
+
 
 ## Project setup
 ```
