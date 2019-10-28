@@ -22,8 +22,12 @@
             dl {
                 overflow: hidden;
                 dd {
+                    &.active {
+                        font-weight: bold;
+                    }
                     float: left;
                     padding: 30px 40px;
+                    cursor: pointer;
                 }
             }
         }
@@ -64,6 +68,24 @@
                         color: #F40;
                     }
                 }
+            }
+        }
+    }
+    .guess-like {
+        margin-left: 20px;
+        background-color: #FFF;
+        border: 1px solid #DDD;
+        border-radius: 6px;
+        dl {
+            box-sizing: border-box;
+            padding-left: 20px;
+            dt {
+                height: 50px;
+                font-size: 18px;
+                line-height: 50px;
+            }
+            dd {
+                padding-bottom: 20px;
             }
         }
     }

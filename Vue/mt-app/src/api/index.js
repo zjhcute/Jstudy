@@ -41,14 +41,6 @@ var api = {
   // 获取城市列表
   getCityList () {
     return axios.get('/api/meituan/city/cityList.json')
-  },
-  // 登陆接口
-  login (params) {
-    return axios.get('/api/meituan/login', params)
-  },
-  // 注册接口
-  register (params) {
-    return axios.get('/api/meituan/register', params)
   }
 }
 

@@ -7,7 +7,6 @@ export default new Vuex.Store({
   strict: process.env.NODE_ENV !== 'production',
   state: {
     position: {},
-    userName: '',
     productName: ''
   },
   mutations: {
@@ -16,9 +15,6 @@ export default new Vuex.Store({
     },
     setProductName (state, val) {
       state.productName = val
-    },
-    setUserName (state, val) {
-      state.userName = val
     }
   },
   actions: {
